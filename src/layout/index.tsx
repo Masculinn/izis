@@ -1,16 +1,17 @@
 import Footer from "@/sections/footer";
 import Header from "@/sections/header";
-import { primaryFont, brandFont } from "@/config/fonts";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <>
       <Header />
-      <main
-        className={`overflow-y-scroll px-8 w-full h-screen ${primaryFont.className} ${brandFont.variable}`}
-      >
-        {children}
-      </main>
+      <main className={`w-full  h-screen ${className}`}>{children}</main>
       <Footer />
     </>
   );

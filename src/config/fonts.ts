@@ -1,4 +1,4 @@
-import { Inter, Merriweather_Sans } from "next/font/google";
+import { Inter, Lora } from "next/font/google";
 
 const primaryFont = Inter({
   subsets: ["latin"],
@@ -6,10 +6,10 @@ const primaryFont = Inter({
   variable: "--font-primary",
 });
 
-const brandFont = Merriweather_Sans({
+const brandFont = Lora({
   subsets: ["latin"],
   preload: true,
-  variable: "--font-brand",
+  variable: "--font-secondary",
 });
 
 export { primaryFont, brandFont };

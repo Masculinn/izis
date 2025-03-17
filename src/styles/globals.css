@@ -1,32 +1,197 @@
+/*
+* Uncomment the following line to use the Inter font when not working on a Next.js project.
+* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* Then replace var(--font-inter) to Inter
+*/
+
 @import "tailwindcss";
+@plugin 'tailwindcss-animate';
+@plugin 'tailwindcss-react-aria-components';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
   --font-primary: var(--font-primary);
-  --font-brand: var(--font-brand);
-  --color-brand: var(--brand-color);
+  --font-secondary: var(--font-secondary);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+
+  --color-ring: var(--ring);
+
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-fg: var(--secondary-fg);
+
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+
+  --color-success: var(--success);
+  --color-success-fg: var(--success-fg);
+
+  --color-danger: var(--danger);
+  --color-danger-fg: var(--danger-fg);
+
+  --color-warning: var(--warning);
+  --color-warning-fg: var(--warning-fg);
+
+  --color-muted: var(--muted);
+  --color-muted-fg: var(--muted-fg);
+
+  --color-overlay: var(--overlay);
+  --color-overlay-fg: var(--overlay-fg);
+
+  --color-navbar: var(--navbar);
+  --color-navbar-fg: var(--navbar-fg);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-fg: var(--sidebar-fg);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 }
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --brand-color: #a0522d;
-  margin: 0;
-  padding: 0;
+@layer base {
+  :root {
+    --bg: #f5f5f5; /* Off-White for clean backgrounds */
+    --fg: #2c3e50; /* Deep Navy/Charcoal for text */
+
+    --primary: #7f4f24; /* Rich Earth Brown for main elements */
+    --primary-fg: #ffffff; /* White for text on primary */
+
+    --secondary: #d4bfaa; /* Warm Sand/Beige for secondary elements */
+    --secondary-fg: #2c3e50; /* Deep Navy/Charcoal for contrast */
+
+    --overlay: #ffffff; /* White for overlays */
+    --overlay-fg: #2c3e50; /* Deep Navy/Charcoal for overlay text */
+
+    --accent: #d1603d; /* Terracotta for emphasis and highlights */
+    --accent-fg: #ffffff; /* White for text on accent */
+
+    --muted: #ece8e1; /* Muted Beige for subtle backgrounds */
+    --muted-fg: #7f4f24; /* Rich Earth Brown for muted text */
+
+    --success: #4caf50; /* Classic green for success states */
+    --success-fg: #ffffff; /* White text for success */
+
+    --warning: #e5a52d; /* Warm Gold for warning messages */
+    --warning-fg: #2c3e50; /* Deep Navy/Charcoal for contrast */
+
+    --danger: #c0392b; /* Strong Red for error states */
+    --danger-fg: #ffffff; /* White text for danger */
+
+    --border: #b8a793; /* Muted Olive Brown for soft borders */
+    --input: #d4bfaa; /* Beige for input backgrounds */
+    --ring: #2c3e50; /* Deep Navy for focus rings */
+
+    --navbar: #f5f5f5; /* Off-White for a light navbar */
+    --navbar-fg: #2c3e50; /* Deep Navy for navbar text */
+
+    --sidebar: #f5f5f5; /* Off-White for a clean sidebar */
+    --sidebar-fg: #7f4f24; /* Earth Brown for sidebar text */
+
+    --chart-1: var(--color-blue-600);
+    --chart-2: var(--color-blue-400);
+    --chart-3: var(--color-blue-300);
+    --chart-4: var(--color-blue-200);
+    --chart-5: var(--color-blue-100);
+
+    --radius-lg: 0.5rem;
+    --radius-xs: calc(var(--radius-lg) * 0.5);
+    --radius-sm: calc(var(--radius-lg) * 0.75);
+    --radius-md: calc(var(--radius-lg) * 0.9);
+    --radius-xl: calc(var(--radius-lg) * 1.25);
+    --radius-2xl: calc(var(--radius-lg) * 1.5);
+    --radius-3xl: calc(var(--radius-lg) * 2);
+    --radius-4xl: calc(var(--radius-lg) * 3);
+  }
+
+  .dark {
+    --bg: var(--color-zinc-950);
+    --fg: var(--color-zinc-50);
+
+    --primary: var(--color-blue-600);
+    --primary-fg: var(--color-white);
+
+    --secondary: oklch(0.244 0.006 286.033);
+    --secondary-fg: var(--color-zinc-50);
+
+    --accent: var(--color-blue-600);
+    --accent-fg: var(--color-white);
+
+    --muted: var(--color-zinc-900);
+    --muted-fg: var(--color-zinc-400);
+
+    --overlay: oklch(0.17 0.006 285.885);
+    --overlay-fg: var(--color-zinc-50);
+
+    --success: var(--color-emerald-600);
+    --success-fg: var(--color-white);
+
+    --warning: var(--color-amber-400);
+    --warning-fg: var(--color-amber-950);
+
+    --danger: var(--color-red-600);
+    --danger-fg: var(--color-red-50);
+
+    --border: oklch(0.27 0.013 285.805);
+    --input: oklch(0.29 0.013 285.805);
+    --ring: var(--color-blue-600);
+
+    --navbar: oklch(0.17 0.006 285.885);
+    --navbar-fg: var(--color-zinc-50);
+
+    --sidebar: oklch(0.16 0.006 285.885);
+    --sidebar-fg: var(--color-zinc-50);
+
+    --chart-1: var(--color-blue-700);
+    --chart-2: var(--color-blue-500);
+    --chart-3: var(--color-blue-400);
+    --chart-4: var(--color-blue-300);
+    --chart-5: var(--color-blue-200);
+  }
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
+@variant dark (&:is(.dark *));
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentColor);
+  }
+
+  * {
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variation-settings: normal;
+    scroll-behavior: smooth;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
 }

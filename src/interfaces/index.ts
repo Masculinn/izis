@@ -3,7 +3,15 @@
 export interface RouteItemProps {
   src: string;
   title: string;
-  icon: React.ReactElement;
+  items?: RouteItemsProps[];
+  icon: React.ElementType;
+}
+
+export interface RouteItemsProps {
+  src: string;
+  title: string;
+  desc: string;
+  icon: React.ElementType;
 }
 
 /** config interfaces ends */
@@ -19,4 +27,11 @@ export interface RouteItemProps {
 
 /** component interfaces starts */
 
+export interface SlideItemProps {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+}
 /** component interfaces ends */
