@@ -11,7 +11,7 @@ export default function Layout({
   return (
     <>
       <Header />
-      <main className={`w-full  h-screen ${className}`}>{children}</main>
+      <main className={`${className}`}>{children}</main>
       <Footer />
     </>
   );

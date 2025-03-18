@@ -1,39 +1,48 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-import { motion, AnimatePresence } from "motion/react";
 import type { SlideItemProps } from "@/interfaces";
-import { BsArrowRight } from "react-icons/bs";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import { Button } from "@/components/ui";
+import { ArrowUpRight } from "lucide-react";
+import { useMobile } from "@/hooks/use-mobile";
+import dynamic from "next/dynamic";
+
+const Globe = dynamic(() => import("@/components/globe"), {
+  ssr: false,
+});
+``;
 
 const slides: SlideItemProps[] = [
   {
     id: 1,
-    title: "Digital Innovation",
-    description: "Transforming ideas into digital reality",
-    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    title: "Guardians of Cultural Heritage",
+    desc: "Professional Archaeological Services Since 1990. Velit occaecat commodo nostrud nisi aliquip. Anim ullamco et deserunt minim. Exercitation minim fugiat reprehenderit et velit",
+    url: "/assets/card-1.webp",
     link: "/innovation",
   },
   {
     id: 2,
     title: "Creative Design",
-    description: "Where art meets technology",
-    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    desc: "Where art meets technology",
+    url: "/assets/card-2.webp",
     link: "/design",
   },
   {
     id: 3,
     title: "Future Technology",
-    description: "Shaping tomorrow's solutions",
-    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    desc: "Shaping tomorrow's solutions",
+    url: "/assets/card-3.webp",
     link: "/technology",
   },
 ];
 
 export default function Hero() {
+  const isMobile = useMobile();
+
   return (
     <section className="relative w-full h-screen ">
       <Swiper
@@ -51,11 +60,12 @@ export default function Hero() {
         }}
         autoplay={{
           delay: 3000,
-          disableOnInteraction: false,
+          waitForTransition: true,
         }}
+        speed={500}
         pagination={{ clickable: true }}
-        modules={[EffectCoverflow, Pagination]}
-        className="w-full h-screen flex self-center justify-center "
+        modules={[EffectCoverflow, Pagination, Autoplay]}
+        className="w-full h-screen flex self-center justify-center z-20"
         style={{
           //@ts-ignore
           "--swiper-theme-color": "#fff",
@@ -63,57 +73,35 @@ export default function Hero() {
           "--swiper-pagination-color": "#fff",
         }}
       >
-        <AnimatePresence>
-          {slides.map((slide) => (
-            <SwiperSlide key={slide.id} className="w-[80%] h-[70vh]">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="relative w-full h-full  overflow-hidden group"
-              >
-                <img
-                  src={slide.imageUrl}
-                  alt={slide.title}
-                  className="w-full h-full object-cover"
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  <div className="absolute bottom-0 left-0 p-8 w-full">
-                    <motion.h2
-                      initial={{ y: 20, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      className="text-4xl font-bold text-white mb-4"
-                    >
-                      {slide.title}
-                    </motion.h2>
-                    <motion.p
-                      initial={{ y: 20, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.1 }}
-                      className="text-lg text-gray-200 mb-6"
-                    >
-                      {slide.description}
-                    </motion.p>
-                    <motion.a
-                      href={slide.link}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-full font-medium 
-                               hover:bg-gray-100 transition-colors group"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Learn More
-                      <BsArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </motion.a>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </AnimatePresence>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id} className="w-[80%] h-[70vh]">
+            <div className="relative w-full h-full overflow-hidden group">
+              <img
+                src={slide.url}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent items-center justify-center flex">
+                <div className="lg:justify-center flex flex-col  lg:px-0 px-8 lg:text-center">
+                  <h2 className="lg:text-6xl text-4xl font-bold text-white lg:mb-4 mb-2 font-secondary tracking-tight">
+                    {slide.title}
+                  </h2>
+                  <p className="lg:text-base text-sm tracking-tight text-gray-200 lg:mb-6 mb-4 lg:max-w-3xl max-w-2xs ">
+                    {slide.desc}
+                  </p>
+                  <Button
+                    intent="primary"
+                    shape="circle"
+                    size={isMobile ? "medium" : "large"}
+                    className=" lg:self-center tracking-tighter"
+                  >
+                    Explore the latest articles <ArrowUpRight />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );

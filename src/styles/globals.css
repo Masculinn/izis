@@ -59,19 +59,19 @@
 
 @layer base {
   :root {
-    --bg: #f5f5f5; /* Off-White for clean backgrounds */
+    --bg: #fff0dc; /* Off-White for clean backgrounds */
     --fg: #2c3e50; /* Deep Navy/Charcoal for text */
 
-    --primary: #7f4f24; /* Rich Earth Brown for main elements */
-    --primary-fg: #ffffff; /* White for text on primary */
+    --primary: #fff0dc; /* Rich Earth Brown for main elements */
+    --primary-fg: #271908; /* White for text on primary */
 
-    --secondary: #d4bfaa; /* Warm Sand/Beige for secondary elements */
-    --secondary-fg: #2c3e50; /* Deep Navy/Charcoal for contrast */
+    --secondary: #f0bb78; /* Warm Sand/Beige for secondary elements */
+    --secondary-fg: #1f1508; /* Deep Navy/Charcoal for contrast */
 
     --overlay: #ffffff; /* White for overlays */
     --overlay-fg: #2c3e50; /* Deep Navy/Charcoal for overlay text */
 
-    --accent: #d1603d; /* Terracotta for emphasis and highlights */
+    --accent: #543a14; /* Terracotta for emphasis and highlights */
     --accent-fg: #ffffff; /* White for text on accent */
 
     --muted: #ece8e1; /* Muted Beige for subtle backgrounds */
@@ -171,8 +171,6 @@
 
   * {
     text-rendering: optimizeLegibility;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
   }
 
   html {

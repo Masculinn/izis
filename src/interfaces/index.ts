@@ -4,14 +4,12 @@ export interface RouteItemProps {
   src: string;
   title: string;
   items?: RouteItemsProps[];
-  icon: React.ElementType;
 }
 
 export interface RouteItemsProps {
   src: string;
   title: string;
   desc: string;
-  icon: React.ElementType;
 }
 
 /** config interfaces ends */
@@ -30,8 +28,21 @@ export interface RouteItemsProps {
 export interface SlideItemProps {
   id: number;
   title: string;
-  description: string;
-  imageUrl: string;
+  desc: string;
+  url: string;
   link: string;
 }
+
+export interface FlickeringGridProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  squareSize?: number;
+  gridGap?: number;
+  flickerChance?: number;
+  color?: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  maxOpacity?: number;
+}
+
 /** component interfaces ends */

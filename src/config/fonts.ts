@@ -6,10 +6,10 @@ const primaryFont = Inter({
   variable: "--font-primary",
 });
 
-const brandFont = Lora({
+const secondaryFont = Lora({
   subsets: ["latin"],
   preload: true,
   variable: "--font-secondary",
 });
 
-export { primaryFont, brandFont };
+export { primaryFont, secondaryFont };
