@@ -214,3 +214,16 @@
 .custom-shape-divider-bottom-1742382136 .shape-fill {
   fill: #fff0dc;
 }
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 25s linear infinite;
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

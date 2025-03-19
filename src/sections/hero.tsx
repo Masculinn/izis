@@ -57,13 +57,8 @@ export default function Hero() {
           waitForTransition: true,
         }}
         speed={1000}
-        modules={[EffectCoverflow, Autoplay]}
+        modules={[EffectCoverflow]}
         className="w-full h-screen flex self-center justify-center z-20"
-        style={
-          {
-            //@ts-ignore
-          }
-        }
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="w-[80%] h-[70vh]">

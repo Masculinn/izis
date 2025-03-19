@@ -35,13 +35,13 @@ export default function Header() {
       className={`
         fixed transition-all duration-200 will-change-auto w-full z-[999] 
         ${mobileMenuOpen && "backdrop-blur-lg md:backdrop-blur-none"} 
-        ${isScrolled && "md:bg-black/30 backdrop-blur-md"}`}
+        ${isScrolled && "md:bg-black/60 backdrop-blur-md"}`}
     >
       {isScrolled && (
         <div
           className={`w-full h-full inset-0 -z-10 absolute ${
             mobileMenuOpen && "rounded-b-3xl"
-          } bg-black/30  lg:hidden`}
+          } bg-black/60  lg:hidden`}
         />
       )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,3 +1,4 @@
+import LogoMarquee from "@/components/logo-marquee";
 import Hero from "@/sections/hero";
 import Services from "@/sections/services";
 import Head from "next/head";
@@ -10,6 +11,7 @@ export default function Home() {
         <meta name="description" content="Arche" />
       </Head>
       <Hero />
+      <LogoMarquee />
       <Services />
     </>
   );

@@ -14,6 +14,12 @@ export interface RouteItemsProps {
   desc: string;
 }
 
+export interface LogoItemProps {
+  src: string;
+  alt: string;
+  href: string;
+}
+
 /** config interfaces ends */
 
 /** db interfaces starts */
