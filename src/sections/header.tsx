@@ -33,10 +33,17 @@ export default function Header() {
   return (
     <nav
       className={`
-        fixed transition-all duration-200 will-change-auto w-full z-50 
-        ${mobileMenuOpen && "backdrop-blur-lg"} 
-        ${isScrolled && "bg-black/30 backdrop-blur-md"}`}
+        fixed transition-all duration-200 will-change-auto w-full z-[999] 
+        ${mobileMenuOpen && "backdrop-blur-lg md:backdrop-blur-none"} 
+        ${isScrolled && "md:bg-black/30 backdrop-blur-md"}`}
     >
+      {isScrolled && (
+        <div
+          className={`w-full h-full inset-0 -z-10 absolute ${
+            mobileMenuOpen && "rounded-b-3xl"
+          } bg-black/30  lg:hidden`}
+        />
+      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`flex w-full ${
@@ -58,7 +65,7 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex  lg:space-x-8">
+            <div className="hidden lg:flex lg:space-x-8">
               {routes.map((item) => (
                 <div
                   key={item.title}
@@ -85,7 +92,7 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 w-screen max-w-3xl bg-black/50 backdrop-blur-md text-white shadow-lg rounded-lg border-2 border-stone-700 mt-4 py-4 px-4"
+                        className="absolute right-0 w-screen max-w-3xl bg-black/50 backdrop-blur-md text-white shadow-lg rounded-lg mt-4 py-4 px-4"
                       >
                         <div
                           className={`grid ${
@@ -125,7 +132,7 @@ export default function Header() {
               onClick={toggleMobileMenu}
               className={`
                 inline-flex 
-                ${mobileMenuOpen && "text-secondary backdrop-blur-lg"} 
+                ${mobileMenuOpen && "text-secondary"} 
                 items-center justify-center p-2 text-primary hover:text-secondary cursor-pointer`}
             >
               {mobileMenuOpen ? (
@@ -145,7 +152,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="lg:hidden bg-gradient-to-b from-transparent to-secondary/30 text-white rounded-b-4xl"
+            className="lg:hidden bg-gradient-to-b from-transparent to-secondary/30 text-white rounded-b-4xl relative"
           >
             <div className="pt-4 pb-3 space-y-1 ">
               {routes.map((item) => (
@@ -158,7 +165,7 @@ export default function Header() {
                     }
                     className="w-full cursor-pointer flex items-center justify-between px-4 py-2 text-base font-medium text-primary hover:text-gray-900"
                   >
-                    <div className="flex yitems-center">{item.title}</div>
+                    <div className="flex items-center">{item.title}</div>
                     {item.items && (
                       <ChevronDown
                         className={`h-5 w-5 text-secondary duration-200 transition-transform ${

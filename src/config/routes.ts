@@ -20,28 +20,28 @@ export default [
     items: [
       {
         desc: "Comprehensive research integrating history and field surveys.",
-        src: "/broad-based-research",
+        src: "/services/broad-based-research",
         title: "Broad-based research",
       },
       {
         desc: "Early investigations to protect cultural heritage.",
-        src: "/preventive-archaeological-research",
+        src: "/services/preventive-archaeological-research",
         title: "Preventive archaeological research",
       },
       {
         desc: "Rapid excavations to rescue at-risk artifacts.",
-        src: "/salvage-excavation-research",
+        src: "/services/salvage-excavation-research",
         title: "Salvage excavation research",
       },
       {
         desc: "On-site supervision during earthwork projects.",
         title: "Archaeological Supervision - Earthworks",
-        src: "/archaeological-supervision-earthworks",
+        src: "/services/archaeological-supervision-earthworks",
       },
       {
         desc: "Advanced surveys to verify findings.",
         title: "Survey And Verification Research",
-        src: "/survey-and-verification-research",
+        src: "/services/survey-and-verification-research",
       },
     ],
   },

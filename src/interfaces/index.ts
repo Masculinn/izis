@@ -1,5 +1,7 @@
 /** config interfaces starts */
 
+import { IconType } from "react-icons";
+
 export interface RouteItemProps {
   src: string;
   title: string;
@@ -33,16 +35,13 @@ export interface SlideItemProps {
   link: string;
 }
 
-export interface FlickeringGridProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  squareSize?: number;
-  gridGap?: number;
-  flickerChance?: number;
-  color?: string;
-  width?: number;
-  height?: number;
-  className?: string;
-  maxOpacity?: number;
+export interface ServiceCardProps {
+  id: number;
+  icon: IconType;
+  title: string;
+  desc: string;
+  btnText: string;
+  href: string;
 }
 
 /** component interfaces ends */

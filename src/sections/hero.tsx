@@ -1,20 +1,14 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import { EffectCoverflow, Autoplay } from "swiper/modules";
 import type { SlideItemProps } from "@/interfaces";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
 import { Button } from "@/components/ui";
 import { ArrowUpRight } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
-import dynamic from "next/dynamic";
-
-const Globe = dynamic(() => import("@/components/globe"), {
-  ssr: false,
-});
-``;
+import { HeroDivider } from "@/components/hero-divider";
 
 const slides: SlideItemProps[] = [
   {
@@ -62,16 +56,14 @@ export default function Hero() {
           delay: 3000,
           waitForTransition: true,
         }}
-        speed={500}
-        pagination={{ clickable: true }}
-        modules={[EffectCoverflow, Pagination, Autoplay]}
+        speed={1000}
+        modules={[EffectCoverflow, Autoplay]}
         className="w-full h-screen flex self-center justify-center z-20"
-        style={{
-          //@ts-ignore
-          "--swiper-theme-color": "#fff",
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
+        style={
+          {
+            //@ts-ignore
+          }
+        }
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="w-[80%] h-[70vh]">
@@ -103,6 +95,7 @@ export default function Hero() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <HeroDivider />
     </section>
   );
 }
