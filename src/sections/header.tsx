@@ -35,7 +35,7 @@ export default function Header() {
       className={`
         fixed transition-all duration-200 will-change-auto w-full z-[888] 
         ${mobileMenuOpen && "backdrop-blur-lg md:backdrop-blur-none"} 
-        ${isScrolled && "bg-bg backdrop-blur-md"}`}
+        ${isScrolled && "bg-bg/75 backdrop-blur-md"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -130,7 +130,9 @@ export default function Header() {
               className={`
                 inline-flex 
                 ${mobileMenuOpen && "text-secondary"} 
-                items-center justify-center p-2 text-primary hover:text-secondary cursor-pointer`}
+                items-center justify-center p-2  ${
+                  isScrolled ? "text-accent" : "text-white"
+                } hover:text-secondary cursor-pointer`}
             >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
