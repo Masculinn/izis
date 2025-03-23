@@ -11,10 +11,6 @@ export default [
     title: "Discoveries",
   },
   {
-    src: "/articles",
-    title: "Articles",
-  },
-  {
     src: "/services",
     title: "Services",
     items: [

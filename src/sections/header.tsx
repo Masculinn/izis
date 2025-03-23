@@ -33,17 +33,10 @@ export default function Header() {
   return (
     <nav
       className={`
-        fixed transition-all duration-200 will-change-auto w-full z-[999] 
+        fixed transition-all duration-200 will-change-auto w-full z-[888] 
         ${mobileMenuOpen && "backdrop-blur-lg md:backdrop-blur-none"} 
-        ${isScrolled && "md:bg-black/60 backdrop-blur-md"}`}
+        ${isScrolled && "bg-bg backdrop-blur-md"}`}
     >
-      {isScrolled && (
-        <div
-          className={`w-full h-full inset-0 -z-10 absolute ${
-            mobileMenuOpen && "rounded-b-3xl"
-          } bg-black/60  lg:hidden`}
-        />
-      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`flex w-full ${
@@ -74,7 +67,11 @@ export default function Header() {
                   onMouseLeave={() => setActiveMenu(null)}
                 >
                   <button
-                    className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm font-medium h-16 text-primary hover:text-secondary transition-colors border-b-2
+                    className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
+                      !isScrolled
+                        ? "text-white hover:text-secondary"
+                        : "text-secondary-fg hover:text-secondary"
+                    }  transition-colors border-b-2
                     ${
                       activeMenu === item.title
                         ? "border-secondary text-secondary"
@@ -92,7 +89,7 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 w-screen max-w-3xl bg-black/50 backdrop-blur-md text-white shadow-lg rounded-lg mt-4 py-4 px-4"
+                        className="absolute right-0 w-screen max-w-3xl bg-black/90 backdrop-blur-md text-white shadow-lg rounded-lg mt-4 py-4 px-4 z-[1000]"
                       >
                         <div
                           className={`grid ${
@@ -152,7 +149,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="lg:hidden bg-gradient-to-b from-transparent to-secondary/30 text-white rounded-b-4xl relative"
+            className="lg:hidden bg-gradient-to-b from-bg/bg to-secondary/60  rounded-b-4xl relative"
           >
             <div className="pt-4 pb-3 space-y-1 ">
               {routes.map((item) => (
@@ -163,7 +160,9 @@ export default function Header() {
                         activeMenu === item.title ? null : item.title
                       )
                     }
-                    className="w-full cursor-pointer flex items-center justify-between px-4 py-2 text-base font-medium text-primary hover:text-gray-900"
+                    className={`w-full cursor-pointer flex items-center justify-between px-4 py-2 text-base font-medium ${
+                      isScrolled && mobileMenuOpen ? "text-fg" : "text-white"
+                    } hover:text-gray-900`}
                   >
                     <div className="flex items-center">{item.title}</div>
                     {item.items && (
@@ -187,7 +186,11 @@ export default function Header() {
                             <Link
                               key={subItem.title}
                               href={subItem.src}
-                              className="px-3 py-1 rounded-md text-base text-primary items-center justify-start flex flex-row gap-2"
+                              className={`px-3 py-1 rounded-md text-base ${
+                                isScrolled && mobileMenuOpen
+                                  ? "text-fg"
+                                  : "text-white"
+                              } items-center justify-start flex flex-row gap-2`}
                             >
                               <span>{subItem.title}</span>
                               <ArrowUpRight className="size-4" />

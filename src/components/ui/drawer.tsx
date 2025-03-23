@@ -111,7 +111,7 @@ const DrawerContentPrimitive = ({
         isOpen
         onOpenChange={closeDrawer}
         className={twJoin([
-          "fixed top-0 left-0 isolate z-50 h-(--visual-viewport-height) w-full touch-none will-change-transform",
+          "fixed top-0 left-0 backdrop-blur-sm isolate z-[1000] h-(--visual-viewport-height) w-full touch-none will-change-transform",
           "flex items-end [--visual-viewport-vertical-padding:100px]",
         ])}
         style={{
@@ -119,7 +119,7 @@ const DrawerContentPrimitive = ({
         }}
       >
         <ModalPrimitive
-          className="flex max-h-full w-full flex-col overflow-hidden rounded-t-2xl bg-overlay text-left align-middle text-overlay-fg shadow-lg ring-1 ring-dark/5 sm:rounded-lg dark:ring-light/15"
+          className="flex max-h-full w-full flex-col overflow-hidden rounded-t-2xl bg-primary text-left align-middle text-overlay-fg shadow-lg sm:rounded-lg "
           initial={{ y: h }}
           animate={{ y: 0 }}
           exit={{ y: h }}

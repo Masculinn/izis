@@ -36,9 +36,9 @@ const LogoItem: FC<LogoItemProps> = ({ href, src, alt }) => (
         alt={alt}
         width={150}
         height={100}
-        className="h-auto"
         loading="lazy"
         decoding="async"
+        className="h-auto"
       />
     </Link>
   </li>

@@ -14,16 +14,18 @@ export interface RouteItemsProps {
   desc: string;
 }
 
-export interface LogoItemProps {
-  src: string;
-  alt: string;
-  href: string;
-}
-
 /** config interfaces ends */
 
 /** db interfaces starts */
 /** db interfaces ends */
+
+/** redux interfaces starts */
+
+export interface DiscoveriesProps {
+  discovered: number[];
+}
+
+/** redux interfaces ends */
 
 /** sections interfaces starts */
 /** sections interfaces ends */
@@ -32,6 +34,37 @@ export interface LogoItemProps {
 /** service interfaces ends */
 
 /** component interfaces starts */
+
+export interface LogoItemProps {
+  src: string;
+  alt: string;
+  href: string;
+}
+
+export interface MarkerProps {
+  id: number;
+  map: mapboxgl.Map;
+  name: any;
+  desc: string;
+  type: MarkerServiceTypeProps;
+  img: string[];
+  duration: string;
+  url: string;
+  onClick: (e: number) => void;
+  coordinates: Coordinates;
+}
+
+export type MarkerObjProps = Omit<MarkerProps, "map" | "onClick">;
+export interface PopupProps {
+  activeID: number;
+  map: mapboxgl.Map;
+}
+
+export type Coordinates = [number, number];
+
+export interface MapboxLoaderProps {
+  onClick: () => void;
+}
 
 export interface SlideItemProps {
   id: number;
@@ -50,4 +83,20 @@ export interface ServiceCardProps {
   href: string;
 }
 
+export interface MapboxModalProps {
+  isOpen: boolean;
+  activeItem: MarkerObjProps;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export type MarkerServiceTypeProps =
+  | "broad-based-research"
+  | "preventive-archaeological-research"
+  | "salvage-excavation-research"
+  | "archaeological-supervision-earthworks"
+  | "survey-and-verification-research";
+
+export interface MapboxModalFeaturesProps {
+  activeItem: MarkerObjProps;
+}
 /** component interfaces ends */

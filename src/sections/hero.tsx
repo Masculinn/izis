@@ -5,10 +5,12 @@ import type { SlideItemProps } from "@/interfaces";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+
 import { Button } from "@/components/ui";
 import { ArrowUpRight } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
 import { HeroDivider } from "@/components/hero-divider";
+import Link from "next/link";
 
 const slides: SlideItemProps[] = [
   {
@@ -16,7 +18,7 @@ const slides: SlideItemProps[] = [
     title: "Guardians of Cultural Heritage",
     desc: "Professional Archaeological Services Since 1990. Velit occaecat commodo nostrud nisi aliquip. Anim ullamco et deserunt minim. Exercitation minim fugiat reprehenderit et velit",
     url: "/assets/card-1.webp",
-    link: "/innovation",
+    link: "/discoveries",
   },
   {
     id: 2,
@@ -57,7 +59,7 @@ export default function Hero() {
           waitForTransition: true,
         }}
         speed={1000}
-        modules={[EffectCoverflow]}
+        modules={[EffectCoverflow, Autoplay]}
         className="w-full h-screen flex self-center justify-center z-20"
       >
         {slides.map((slide) => (
@@ -76,14 +78,16 @@ export default function Hero() {
                   <p className="lg:text-base text-sm tracking-tight text-gray-200 lg:mb-6 mb-4 lg:max-w-3xl max-w-2xs ">
                     {slide.desc}
                   </p>
-                  <Button
-                    intent="primary"
-                    shape="circle"
-                    size={isMobile ? "medium" : "large"}
-                    className=" lg:self-center tracking-tighter"
-                  >
-                    Explore the latest articles <ArrowUpRight />
-                  </Button>
+                  <Link href={slide.link} className="hidden lg:block">
+                    <Button
+                      intent="primary"
+                      shape="circle"
+                      size={isMobile ? "medium" : "large"}
+                      className=" lg:self-center tracking-tighter"
+                    >
+                      Explore the latest discoveries <ArrowUpRight />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

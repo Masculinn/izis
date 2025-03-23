@@ -1,4 +1,5 @@
 import LogoMarquee from "@/components/logo-marquee";
+import Mapbox from "@/components/mapbox";
 import Hero from "@/sections/hero";
 import Services from "@/sections/services";
 import Head from "next/head";
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <LogoMarquee />
       <Services />
+      <Mapbox />
     </>
   );
 }
