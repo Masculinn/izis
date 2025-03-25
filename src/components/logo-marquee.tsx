@@ -1,10 +1,9 @@
-import { LogoItemProps } from "@/interfaces";
-import logoLib from "@/lib/logoLib";
+import { LogoItemProps, LogoMarqueeProps } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
-const LogoMarquee = () => {
+const LogoMarquee: FC<LogoMarqueeProps> = ({ items }) => {
   return (
     <section className="max-w-7xl items-center justify-center mx-auto flex lg:pt-12">
       <div className=" text-5xl py-8  w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)] ">
@@ -13,7 +12,7 @@ const LogoMarquee = () => {
             key={idx}
             className="flex items-center justify-center md:justify-start sm:[&_li]:mx-8 [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll"
           >
-            {logoLib.map((val, idx) => (
+            {items.map((val, idx) => (
               <LogoItem key={idx} {...val} />
             ))}
           </ul>
@@ -43,5 +42,5 @@ const LogoItem: FC<LogoItemProps> = ({ href, src, alt }) => (
     </Link>
   </li>
 );
-
+export { LogoItem };
 export default LogoMarquee;

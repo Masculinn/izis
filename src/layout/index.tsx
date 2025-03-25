@@ -1,5 +1,6 @@
 import Footer from "@/sections/footer";
 import Header from "@/sections/header";
+import { Toaster } from "sonner";
 
 export default function Layout({
   children,
@@ -13,6 +14,7 @@ export default function Layout({
       <Header />
       <main className={`${className}`}>{children}</main>
       <Footer />
+      <Toaster />
     </>
   );
 }

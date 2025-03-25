@@ -1,5 +1,6 @@
 import LogoMarquee from "@/components/logo-marquee";
 import Mapbox from "@/components/mapbox";
+import logoLib from "@/lib/logoLib";
 import Hero from "@/sections/hero";
 import Services from "@/sections/services";
 import Head from "next/head";
@@ -12,7 +13,7 @@ export default function Home() {
         <meta name="description" content="Arche" />
       </Head>
       <Hero />
-      <LogoMarquee />
+      <LogoMarquee items={logoLib} />
       <Services />
       <Mapbox />
     </>

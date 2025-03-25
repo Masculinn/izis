@@ -1,32 +1,40 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
-import { MarkerProps } from "@/interfaces";
+import { MarkerProps, MarkerTypeProps } from "@/interfaces";
 import { createPortal } from "react-dom";
 import { Loader } from "./loader";
 
-const Marker: FC<MarkerProps> = (props) => {
-  const { coordinates, map, duration, url, onClick, id, name, type } = props;
+const Marker: FC<MarkerProps & MarkerTypeProps> = (props) => {
+  const { coordinates, mode = "mark", map, onClick, id } = props;
 
-  const markerRef = useRef<mapboxgl.Marker | null>(null);
-  const contentRef = useRef(document.createElement("div"));
+  const [container, setContainer] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    markerRef.current = new mapboxgl.Marker(contentRef.current)
+    const div = document.createElement("div");
+    setContainer(div);
+
+    const marker = new mapboxgl.Marker(div)
       .setLngLat([coordinates[0], coordinates[1]])
       .addTo(map);
 
     return () => {
-      markerRef.current?.remove();
+      marker.remove();
     };
-  }, []);
+  }, [coordinates, map]);
+
+  if (!container) return null;
 
   return createPortal(
-    <Loader onClick={() => onClick(id)} />,
-    // <div
-    //   className="animate-ping size-8 cursor-pointer rounded-full bg-secondary"
-    //   onClick={() => onClick(id)}
-    // />,
-    contentRef.current
+    mode === "mark" ? (
+      <Loader key={id} onClick={() => onClick(id)} />
+    ) : (
+      <div
+        key={id}
+        className="bg-gradient-to-br from-primary to-secondary size-12 animate-ping cursor-pointer rounded-full bg-secondary"
+        onClick={() => onClick(id)}
+      />
+    ),
+    container
   );
 };
 

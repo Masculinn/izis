@@ -1,6 +1,7 @@
 /** config interfaces starts */
 
 import { IconType } from "react-icons";
+import { Dispatch } from "redux";
 
 export interface RouteItemProps {
   src: string;
@@ -28,10 +29,32 @@ export interface DiscoveriesProps {
 /** redux interfaces ends */
 
 /** sections interfaces starts */
+
+export interface DiscoverisHeroProps {
+  data: MarkerObjProps;
+}
+
+export interface DiscoveriesGalleryProps {
+  data: string[];
+  name: string;
+}
+
+export interface DiscoverContentProps {
+  desc: string;
+}
 /** sections interfaces ends */
 
 /** service interfaces starts */
 /** service interfaces ends */
+
+/** hooks interfaces starts */
+export interface AddDiscoveredProps {
+  itemID: number;
+  action: () => void;
+  dispatch: Dispatch;
+  isMobile?: boolean;
+}
+/** hooks interfaces ends */
 
 /** component interfaces starts */
 
@@ -99,4 +122,24 @@ export type MarkerServiceTypeProps =
 export interface MapboxModalFeaturesProps {
   activeItem: MarkerObjProps;
 }
+export interface DotPatternProps extends React.SVGProps<SVGSVGElement> {
+  width?: number;
+  height?: number;
+  x?: number;
+  y?: number;
+  cx?: number;
+  cy?: number;
+  cr?: number;
+  className?: string;
+  glow?: boolean;
+  [key: string]: unknown;
+}
+export interface MarkerTypeProps {
+  mode: "ping" | "mark";
+}
+
+export interface LogoMarqueeProps {
+  items: LogoItemProps[];
+}
+
 /** component interfaces ends */

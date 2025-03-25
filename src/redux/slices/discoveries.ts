@@ -10,7 +10,8 @@ const discoveriesSlice = createSlice({
   initialState: initial,
   reducers: {
     addDiscoveries: (state, action) => {
-      state.discovered = [...state.discovered, ...action.payload];
+      if (state.discovered.includes(action.payload)) return;
+      state.discovered.push(action.payload);
     },
   },
 });

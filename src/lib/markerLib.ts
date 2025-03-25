@@ -58,4 +58,20 @@ export default [
     img: ["/assets/services/czemierniki-izis.webp"],
     url: "/discoveries/czemierniki",
   },
+  {
+    id: 6,
+    name: "Łomża",
+    coordinates: [22.059, 53.1781],
+    desc: "Consequat proident adipisicing irure voluptate. Qui fugiat consectetur cillum aute reprehenderit ut commodo fugiat. Voluptate mollit laborum aliquip consectetur incididunt nulla est incididunt eu. Nostrud enim in et commodo ex elit aute deserunt fugiat nostrud laboris ad. Nisi qui deserunt adipisicing in. Dolor eiusmod ea eiusmod reprehenderit officia. Labore laborum mollit Lorem ipsum amet exercitation cillum velit fugiat reprehenderit mollit anim commodo.",
+    duration: "2 hours",
+    img: [
+      "/assets/services/lomza-izis.webp",
+      "/assets/services/lomza-izis-2.webp",
+      "/assets/services/lomza-izis-3.webp",
+      "/assets/services/lomza-izis-4.webp",
+      "/assets/services/lomza-izis-5.webp",
+    ],
+    type: "archaeological-supervision-earthworks",
+    url: "/discoveries/lomza",
+  },
 ] satisfies MarkerObjProps[];
