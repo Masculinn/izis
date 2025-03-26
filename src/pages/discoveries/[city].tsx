@@ -9,6 +9,8 @@ import Head from "next/head";
 import Hero from "@/sections/discoveries/hero";
 import Gallery from "@/sections/discoveries/gallery";
 import { Skeleton } from "@/components/ui";
+import Content from "@/sections/discoveries/content";
+import Contact from "@/sections/discoveries/contact";
 
 export const getStaticPaths = (async () => {
   const paths = markerLib.map((marker) => ({
@@ -55,6 +57,13 @@ export default function Page({
       </Head>
       <Hero {...markerData} />
       <Gallery data={markerData.img} name={title} />
+      <Content
+        name={markerData.name}
+        type={markerData.type}
+        desc={markerData.desc}
+        coordinates={markerData.coordinates}
+      />
+      <Contact />
     </>
   );
 }

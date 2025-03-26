@@ -1,10 +1,10 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
-import { MarkerProps, MarkerTypeProps } from "@/interfaces";
+import { MapboxMarkerProps } from "@/interfaces";
 import { createPortal } from "react-dom";
 import { Loader } from "./loader";
 
-const Marker: FC<MarkerProps & MarkerTypeProps> = (props) => {
+const Marker: FC<MapboxMarkerProps> = (props) => {
   const { coordinates, mode = "mark", map, onClick, id } = props;
 
   const [container, setContainer] = useState<HTMLDivElement | null>(null);

@@ -41,6 +41,9 @@ export interface DiscoveriesGalleryProps {
 
 export interface DiscoverContentProps {
   desc: string;
+  name: string;
+  coordinates: Coordinates;
+  type: MarkerServiceTypeProps;
 }
 /** sections interfaces ends */
 
@@ -67,7 +70,7 @@ export interface LogoItemProps {
 export interface MarkerProps {
   id: number;
   map: mapboxgl.Map;
-  name: any;
+  name: string;
   desc: string;
   type: MarkerServiceTypeProps;
   img: string[];
@@ -134,12 +137,30 @@ export interface DotPatternProps extends React.SVGProps<SVGSVGElement> {
   glow?: boolean;
   [key: string]: unknown;
 }
-export interface MarkerTypeProps {
-  mode: "ping" | "mark";
-}
-
 export interface LogoMarqueeProps {
   items: LogoItemProps[];
 }
-
+export interface MapboxProps {
+  id: number;
+  isMarked: boolean;
+  isMobile: boolean;
+  mapContainerStyle: string;
+  config: MapboxConfigProps;
+}
+export interface MapboxMarkerProps {
+  coordinates: Coordinates;
+  map: mapboxgl.Map;
+  onClick: (id: number) => void;
+  id: number;
+  mode: "ping" | "mark";
+}
+export interface MapboxConfigProps {
+  center: Coordinates;
+  boxZoom: boolean;
+  minZoom: number;
+  interactive: boolean;
+  bearing: number;
+  pitch: number;
+  zoom: number;
+}
 /** component interfaces ends */

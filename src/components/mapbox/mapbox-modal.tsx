@@ -1,6 +1,6 @@
 import { MapboxModalProps } from "@/interfaces";
 import { FC, useEffect, useRef, useState } from "react";
-import { Button, Drawer, Note, Skeleton } from "../ui";
+import { Button, Drawer, Skeleton } from "../ui";
 import Image from "next/image";
 import { useMobile } from "@/hooks/use-mobile";
 import { secondaryFont } from "@/config/fonts";

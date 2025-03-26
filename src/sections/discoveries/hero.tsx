@@ -18,74 +18,14 @@ import servicesLib from "@/lib/servicesLib";
 import { ArrowRight, Pointer } from "lucide-react";
 import Link from "next/link";
 import { DiscoveriesDivider } from "@/components/discoveries/discoveries-divider";
+import Mapbox from "@/components/mapbox/mapbox";
 
 const Hero: FC<MarkerObjProps> = (props) => {
-  const { coordinates, desc, duration, id, img, name, type } = props;
+  const { coordinates, desc, id, name } = props;
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [mapLoaded, setMapLoaded] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [tutorial, setTutorial] = useState<boolean>(false);
-
-  const { discovered } = useSelector(
-    (state: { discoveries: DiscoveriesProps }) => state.discoveries
-  );
-
-  const mapRef = useRef<mapboxgl.Map | null>(null);
-  const mapContainerRef = useRef<HTMLDivElement | null>(null);
-
-  const dispatch = useDispatch();
   const isMobile = useMobile();
-
-  useEffect(() => {
-    mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
-    if (!mapContainerRef.current) return;
-
-    const map = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      center: coordinates,
-      boxZoom: true,
-      minZoom: 8,
-      interactive: isMobile ? false : true,
-      bearing: 160,
-      pitch: 120,
-      zoom: 8,
-    });
-
-    mapRef.current = map;
-
-    map.on("load", () => {
-      setMapLoaded(true);
-    });
-
-    return () => {
-      map.remove();
-      mapRef.current = null;
-      setMapLoaded(false);
-    };
-  }, [isMobile]);
-
-  useEffect(() => {
-    if (mapRef.current) {
-      mapRef.current.setCenter(coordinates);
-    }
-  }, [coordinates, isOpen]);
-
-  const handleClick = useCallback((e: number) => {
-    addDiscovered({
-      action: () => {
-        setIsOpen(true);
-      },
-      dispatch,
-      itemID: e,
-      isMobile,
-    });
-  }, []);
-
-  useCallback(() => {
-    if (mapRef.current) {
-      mapRef.current.resize();
-    }
-  }, [isMobile]);
 
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
@@ -136,60 +76,25 @@ const Hero: FC<MarkerObjProps> = (props) => {
             </Button>
           </div>
         </div>
-        {mapLoaded && (
-          <Marker
-            onClick={handleClick}
-            {...props}
-            mode="mark"
-            map={mapRef.current!}
-          />
-        )}
-        <div
-          ref={mapContainerRef}
-          className="size-full relative rounded-xl z-20"
+        <Mapbox
+          config={{
+            bearing: 160,
+            boxZoom: true,
+            minZoom: 8,
+            interactive: isMobile,
+            center: coordinates,
+            zoom: 8,
+            pitch: 120,
+          }}
+          id={id}
+          isMarked={true}
+          isMobile={isMobile}
+          mapContainerStyle="size-full relative rounded-xl z-20"
+          key={id}
         />
         <div className="absolute z-40 h-2/5 right-0 w-full bg-gradient-to-b from-black to-transparent" />
         <DiscoveriesDivider />
       </main>
-      <Modal.Content isOpen={isOpen} onOpenChange={setIsOpen} size="lg">
-        <Modal.Header>
-          <Modal.Title>Discovered Place{"(s)"}</Modal.Title>
-          <Modal.Description>
-            <div className="flex gap-2 pt-2 flex-wrap">
-              {discovered.map((_) => {
-                const markerItem = markerLib.find(
-                  (item) => item.id === id
-                ) as MarkerObjProps;
-
-                const markerIcon = servicesLib.find((item) =>
-                  item.href.includes(markerItem.type)
-                ) as ServiceCardProps;
-
-                return (
-                  <Link
-                    href={markerItem.url}
-                    className="cursor-pointer"
-                    key={markerItem.id}
-                  >
-                    <Badge intent="success" shape="circle">
-                      {<markerIcon.icon />}
-                      <span>{markerItem.name}</span>
-                    </Badge>
-                  </Link>
-                );
-              })}
-            </div>
-          </Modal.Description>
-        </Modal.Header>
-        <Modal.Footer>
-          <Button intent="outline" onPress={() => setIsOpen(false)}>
-            Close
-          </Button>
-          <Button intent="secondary" onPress={() => setIsOpen(false)}>
-            Confirm
-          </Button>
-        </Modal.Footer>
-      </Modal.Content>
     </>
   );
 };

@@ -11,9 +11,7 @@ const Gallery: FC<DiscoveriesGalleryProps> = ({ data, name }) => {
 
   return (
     <section className="lg:py-24 py-14 max-w-7xl mx-auto  justify-center flex flex-col lg:items-start items-center lg:gap-12 gap-8">
-      <h3 className="font-secondary lg:text-6xl text-4xl font-bold">
-        {name} - Gallery
-      </h3>
+      <h3 className="font-secondary lg:text-6xl text-4xl font-bold">Gallery</h3>
       <Carousel
         opts={{
           align: "center",
@@ -25,6 +23,7 @@ const Gallery: FC<DiscoveriesGalleryProps> = ({ data, name }) => {
           {data.map((val, idx) => {
             return (
               <Carousel.Item
+                key={idx}
                 id={idx}
                 className="basis-1/2 lg:basis-1/3 relative"
               >
