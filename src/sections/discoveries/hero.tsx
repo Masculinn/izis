@@ -1,29 +1,15 @@
 import { useMobile } from "@/hooks/use-mobile";
-import {
-  DiscoveriesProps,
-  MarkerObjProps,
-  ServiceCardProps,
-} from "@/interfaces";
-import { FC, useCallback, useEffect, useRef, useState } from "react";
-import mapboxgl from "mapbox-gl";
+import { MarkerObjProps } from "@/interfaces";
 
-import "mapbox-gl/dist/mapbox-gl.css";
-
-import Marker from "@/components/mapbox/marker";
-import { useDispatch, useSelector } from "react-redux";
-import addDiscovered from "@/utils/addDiscovered";
-import { Badge, Button, Modal } from "@/components/ui";
-import markerLib from "@/lib/markerLib";
-import servicesLib from "@/lib/servicesLib";
+import { FC, useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui";
 import { ArrowRight, Pointer } from "lucide-react";
-import Link from "next/link";
 import { DiscoveriesDivider } from "@/components/discoveries/discoveries-divider";
 import Mapbox from "@/components/mapbox/mapbox";
 
 const Hero: FC<MarkerObjProps> = (props) => {
   const { coordinates, desc, id, name } = props;
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [mapLoaded, setMapLoaded] = useState<boolean>(false);
   const [tutorial, setTutorial] = useState<boolean>(false);
   const isMobile = useMobile();
 

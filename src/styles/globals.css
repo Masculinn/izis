@@ -189,8 +189,17 @@
     background-color: var(--bg);
     color: var(--fg);
   }
+
   body::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@utility scrollbar-hidden {
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
   }
 }
 

@@ -7,7 +7,7 @@ import {
   ServiceCardProps,
 } from "@/interfaces";
 
-import { FC, useCallback, useEffect, useRef, useState } from "react";
+import { FC, memo, useCallback, useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import addDiscovered from "@/utils/addDiscovered";
 import Marker from "./marker";
@@ -57,7 +57,7 @@ const Mapbox: FC<MapboxProps> = (props) => {
       mapRef.current = null;
       setLoaded(false);
     };
-  }, [isMobile, config]);
+  }, []);
 
   useCallback(() => {
     if (mapRef.current) {
@@ -89,7 +89,6 @@ const Mapbox: FC<MapboxProps> = (props) => {
           onClick={handleClick}
           coordinates={config.center}
           id={id}
-          mode="mark"
           map={mapRef.current!}
         />
       )}
@@ -136,4 +135,4 @@ const Mapbox: FC<MapboxProps> = (props) => {
   );
 };
 
-export default Mapbox;
+export default memo(Mapbox);

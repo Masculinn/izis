@@ -11,6 +11,10 @@ export default [
     title: "Discoveries",
   },
   {
+    src: "/contact",
+    title: "Contact",
+  },
+  {
     src: "/services",
     title: "Services",
     items: [
@@ -38,27 +42,6 @@ export default [
         desc: "Advanced surveys to verify findings.",
         title: "Survey And Verification Research",
         src: "/services/survey-and-verification-research",
-      },
-    ],
-  },
-  {
-    src: "/referances",
-    title: "Referances",
-    items: [
-      {
-        desc: "Digital Innovation",
-        src: "/innovation",
-        title: "Digital Innovation",
-      },
-      {
-        desc: "Creative Design",
-        src: "/design",
-        title: "Creative Design",
-      },
-      {
-        desc: "Future Technology",
-        src: "/technology",
-        title: "Future Technology",
       },
     ],
   },

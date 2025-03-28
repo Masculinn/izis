@@ -12,6 +12,7 @@ import getMedianCoordinate from "@/utils/getMedianCoordinate";
 import MapboxModalBg from "./mapbox-modal-bg";
 import { useMobile } from "@/hooks/use-mobile";
 import { MAPBOX_MASK_STYLES } from "@/lib/utils";
+import Link from "next/link";
 
 const Mapbox = () => {
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -64,9 +65,12 @@ const Mapbox = () => {
             incididunt. Labore aliquip elit labore culpa dolore magna proident.
             Voluptate aliqua magna reprehenderit deserunt ut aliquip.
           </p>
-          <Button intent="secondary" className="mt-6">
-            View All Locations <FaArrowRight className="size-3" />
-          </Button>
+          <Link href="/discoveries">
+            <Button intent="secondary" className="mt-6">
+              View All Locations <FaArrowRight className="size-3" />
+            </Button>
+          </Link>
+
           <section className="max-w-7xl items-center justify-center mx-auto flex lg:pt-6">
             <div className="lg:pt-4 pt-12 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)] ">
               {Array.from({ length: 2 }).map((_, idx) => (
@@ -103,7 +107,7 @@ const Mapbox = () => {
             >
               <Note
                 intent="info"
-                className="lg:max-w-lg max-w-xs w-64 lg:w-80  scale-95 lg:scale-100 absolute lg:bottom-16 bottom-8 z-[999] backdrop-blur-lg left-1/2 -translate-x-1/2"
+                className="lg:max-w-lg max-w-xs w-64 lg:w-80  scale-95 lg:scale-100 absolute z-[999] backdrop-blur-lg lg:right-6 lg:bottom-16 right-2 bottom-2"
               >
                 For details click on the marker
               </Note>
@@ -113,7 +117,6 @@ const Mapbox = () => {
         {mapLoded &&
           markerLib.map((marker) => (
             <Marker
-              mode="mark"
               key={marker.id}
               onClick={handleClick}
               {...marker}

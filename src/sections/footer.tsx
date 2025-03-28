@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { PROHIBITED_FOOTER_URL } from "@/lib/utils";
+import { useRouter } from "next/router";
 
 const navigation = {
   connect: [
@@ -25,8 +26,15 @@ const navigation = {
 };
 
 export default function Footer() {
+  const router = useRouter();
+
   return (
-    <footer aria-labelledby="footer-heading" className="font-brand w-full ">
+    <footer
+      aria-labelledby="footer-heading"
+      className={`font-brand w-full ${
+        router.pathname === PROHIBITED_FOOTER_URL && "hidden"
+      }`}
+    >
       <h2 id="footer-heading" className="sr-only">
         Izis Footer
       </h2>

@@ -16,8 +16,6 @@ const Content: FC<DiscoverContentProps> = ({
     item.href.includes(type)
   ) as ServiceCardProps;
 
-  const isMobile = useMobile();
-
   const [latitude, longitude] = coordinates;
   const formattedCoordinates = `${formatCoordinate({
     coordinate: latitude,
@@ -29,14 +27,14 @@ const Content: FC<DiscoverContentProps> = ({
 
   return (
     <section className="lg:py-12 py-6 max-w-7xl mx-auto h-auto px-6 lg:px-0 relative">
-      <div className="flex h-[1200px] w-full flex-col items-center justify-center overflow-hidden absolute -z-10 lg:max-w-full max-w-md">
+      <div className="flex h-auto w-full flex-col items-center justify-center overflow-hidden absolute -z-10 lg:max-w-full max-w-md">
         <MapboxModalBg
           className={`[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]`}
         />
       </div>
       <div className="flex flex-row items-center gap-6 lg:justify-start justify-center">
         <h3 className="font-secondary lg:text-6xl text-4xl font-bold">
-          {name} Report
+          {name}
         </h3>
       </div>
       <Note intent="info" indicator={false} className="mt-6">
@@ -47,15 +45,13 @@ const Content: FC<DiscoverContentProps> = ({
           </span>
         </div>
       </Note>
-      <blockquote className="tracking-tighter text-secondary-fg my-8 ">
-        <div className="border-l-2 lg:pl-8 pl-4">
-          <span className="pr-1 text-4xl font-secondary italic">
-            {desc.slice(0, 1).toUpperCase()}
-          </span>
-          {desc.slice(1)}
-          {desc.slice(1)}
-        </div>
-      </blockquote>
+      <div className="tracking-tighter text-secondary-fg my-8 font-secondary ">
+        <span className="pr-1 text-4xl font-secondary ">
+          {desc.slice(0, 1).toUpperCase()}
+        </span>
+        {desc.slice(1)}
+        {desc.slice(1)}
+      </div>
       <div className="mt-6">
         <p className="text-secondary-fg tracking-tighter font-secondary">
           {desc}

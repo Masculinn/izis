@@ -1,15 +1,21 @@
+import Mapbox from "@/components/mapbox/mapbox";
 import { Button, Card, Form, Textarea, TextField } from "@/components/ui";
+import { useMobile } from "@/hooks/use-mobile";
+import markerLib from "@/lib/markerLib";
 import { FC } from "react";
 
 const Contact: FC = () => {
+  const isMobile = useMobile();
+  const data = markerLib[0];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
 
   return (
     <section className="py-12 h-auto w-full relative overflow-hidden items-center justify-center mx-auto max-w-7xl">
-      <div className="w-full mx-4 lg:mx-0 items-center justify-center flex flex-row gap-4 h-[500px]">
-        <div className="w-1/2 h-full px-6 justify-center flex flex-col">
+      <div className="w-full items-center justify-center flex lg:flex-row flex-col gap-4 lg:h-[500px] h-auto">
+        <div className="lg:w-1/2 w-full lg:h-full h-auto lg:px-0 px-6 justify-center flex flex-col">
           <h3 className="font-secondary lg:text-6xl text-4xl font-bold">
             Contact
           </h3>
@@ -38,8 +44,24 @@ const Contact: FC = () => {
             </Button>
           </Form>
         </div>
-        <div className="bg-black/20 w-1/2 h-full p-8">
-          <Card className="w-full h-full"></Card>
+        <div className=" lg:w-1/2 w-full lg:h-full h-[300px] p-8">
+          <Card className="w-full h-full relative border-none">
+            <Mapbox
+              config={{
+                bearing: 280,
+                boxZoom: true,
+                interactive: true,
+                center: data.coordinates,
+                minZoom: 17,
+                pitch: 70,
+                zoom: 17,
+              }}
+              id={data.id}
+              isMarked={true}
+              mapContainerStyle="size-full z-20"
+              isMobile={isMobile}
+            />
+          </Card>
         </div>
       </div>
     </section>

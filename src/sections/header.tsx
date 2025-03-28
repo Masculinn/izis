@@ -66,22 +66,23 @@ export default function Header() {
                   onMouseEnter={() => setActiveMenu(item.title)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button
-                    className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
-                      !isScrolled
-                        ? "text-white hover:text-secondary"
-                        : "text-secondary-fg hover:text-secondary"
-                    }  transition-colors border-b-2
+                  <Link href={item.src}>
+                    <button
+                      className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
+                        !isScrolled
+                          ? "text-white hover:text-secondary"
+                          : "text-secondary-fg hover:text-secondary"
+                      }  transition-colors border-b-2
                     ${
                       activeMenu === item.title
                         ? "border-secondary text-secondary"
                         : "border-transparent"
                     }`}
-                  >
-                    {item.title}
-                    {item.items && <ChevronDown className="ml-2 h-4 w-4" />}
-                  </button>
-
+                    >
+                      {item.title}
+                      {item.items && <ChevronDown className="ml-2 h-4 w-4" />}
+                    </button>
+                  </Link>
                   <AnimatePresence>
                     {activeMenu === item.title && item.items && (
                       <m.div

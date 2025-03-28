@@ -152,7 +152,6 @@ export interface MapboxMarkerProps {
   map: mapboxgl.Map;
   onClick: (id: number) => void;
   id: number;
-  mode: "ping" | "mark";
 }
 export interface MapboxConfigProps {
   center: Coordinates;
@@ -162,5 +161,39 @@ export interface MapboxConfigProps {
   bearing: number;
   pitch: number;
   zoom: number;
+}
+export interface DotPatternProps extends React.SVGProps<SVGSVGElement> {
+  width?: number;
+  height?: number;
+  x?: number;
+  y?: number;
+  cx?: number;
+  cy?: number;
+  cr?: number;
+  className?: string;
+}
+export interface DiscoverSearchProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+}
+export interface DiscoverSearchItemProps {
+  name: string;
+  id: number;
+  coordinates: Coordinates;
+  type: MarkerServiceTypeProps;
+  img: string;
+  url: string;
+}
+export interface NewsCardProps {
+  id: number;
+  title: string;
+  type?: MarkerServiceTypeProps;
+  source: string;
+  coordinates: Coordinates;
+  date: string;
+  url: string;
+  subHeader: string;
+  images: string[];
+  content: string[];
 }
 /** component interfaces ends */

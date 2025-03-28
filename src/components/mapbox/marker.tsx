@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { Loader } from "./loader";
 
 const Marker: FC<MapboxMarkerProps> = (props) => {
-  const { coordinates, mode = "mark", map, onClick, id } = props;
+  const { coordinates, map, onClick, id } = props;
 
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
 
@@ -25,15 +25,7 @@ const Marker: FC<MapboxMarkerProps> = (props) => {
   if (!container) return null;
 
   return createPortal(
-    mode === "mark" ? (
-      <Loader key={id} onClick={() => onClick(id)} />
-    ) : (
-      <div
-        key={id}
-        className="bg-gradient-to-br from-primary to-secondary size-12 animate-ping cursor-pointer rounded-full bg-secondary"
-        onClick={() => onClick(id)}
-      />
-    ),
+    <Loader key={id} onClick={() => onClick(id)} />,
     container
   );
 };

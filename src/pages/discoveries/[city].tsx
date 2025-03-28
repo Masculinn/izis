@@ -49,7 +49,9 @@ export default function Page({
   if (!markerData) {
     return <Skeleton className="size-full" />;
   }
+
   const title = markerData.name.toString();
+
   return (
     <>
       <Head>
