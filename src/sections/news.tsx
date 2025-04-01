@@ -16,16 +16,6 @@ export default function News() {
             </p>
           </div>
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid  lg:grid-cols-3 xl:grid-cols-4 gap-8 text-white">
-            {/* <div className="h-full w-full rounded-md aspect-square p-6 flex justify-between flex-col lg:col-span-2 lg:row-span-2 relative bg-black">
-              <User className="w-8 h-8 stroke-1" />
-              <div className="flex flex-col">
-                <h3 className="text-xl tracking-tight">Silent Conversations</h3>
-                <p className="text-muted max-w-xs text-base">
-                  In the quiet depths of the night, whispers of memories echo
-                  through the soul, revealing truths we long to forget.
-                </p>
-              </div>
-            </div> */}
             <NewsCarousel />
             {Array.from({ length: 4 }).map((_, idx) => (
               <NewsCard key={idx} />

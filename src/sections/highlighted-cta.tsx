@@ -39,7 +39,9 @@ export default function HighlightedCta() {
             <span className="size-3  animate-pulse rounded-full bg-sky-500/50" />
             Featured Post
           </Badge>
-          <h2 className="font-secondary text-7xl font-bold">Mamut na drodze</h2>
+          <h2 className="font-secondary lg:text-7xl text-5xl font-bold">
+            Mamut na drodze
+          </h2>
           <p className="mt-4 tracking-tight font-secondary">
             Archeolog Mieczysław Bienia znalazł w okolicy Garwolina kły i kości
             mamuta. Wraz ze swoją ekipą w trakcie wykopalisk przed budową
