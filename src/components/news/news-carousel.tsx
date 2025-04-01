@@ -7,8 +7,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import newsLib from "@/lib/newsLib";
 import servicesLib from "@/lib/servicesLib";
-import { ServiceCardProps } from "@/interfaces";
+import { NewsCardProps, ServiceCardProps } from "@/interfaces";
 import { CAROUSEL_DELAY } from "@/lib/utils";
+import getDate from "@/utils/getDate";
 
 export const NewsCarousel = () => {
   const [api, setApi] = useState<CarouselApi | null>(null);
@@ -69,6 +70,7 @@ export const NewsCarousel = () => {
     };
   }, [api, isInteracting]);
 
+  const items = getDate(newsLib) as unknown as NewsCardProps[];
   return (
     <Carousel
       setApi={setApi}
@@ -78,11 +80,9 @@ export const NewsCarousel = () => {
       onTouchEnd={handleInteractionEnd}
       className="h-full w-full  aspect-square flex justify-between flex-col lg:col-span-2 lg:row-span-2 relative bg-transparent"
     >
-      <Carousel.Content items={newsLib}>
+      <Carousel.Content items={items}>
         {({
           id,
-          content,
-          coordinates,
           date,
           images,
           source,
@@ -121,15 +121,18 @@ export const NewsCarousel = () => {
                   {source}
                 </Badge>
                 <div className="bg-gradient-to-t from-black/90 to-transparent h-full w-full absolute bottom-0 left-0 right-0 z-0" />
-                <div className="size-full z-50 flex flex-col justify-end lg:mt-0 -mt-24 pointer-events-none">
+                <div className="size-full z-50 flex flex-col justify-end lg:-mt-36 -mt-24 ">
                   <div className="p-6">
-                    <h2 className="lg:text-2xl text-xl line-clamp-2 font-secondary font-bold text-white capitalize">
+                    <span className="lg:text-sm text-xs text-stone-300 pointer-events-none">
+                      {date}
+                    </span>
+                    <h2 className="lg:text-3xl text-xl line-clamp-2 font-secondary font-bold text-white capitalize pointer-events-none">
                       {title}
                     </h2>
-                    <p className="tracking-tighter text-muted max-w-lg lg:pb-4 pb-2 lg:text-sm text-xs">
+                    <p className="tracking-tighter text-muted max-w-lg lg:pb-4 pb-2 lg:text-sm text-xs pointer-events-none">
                       {subHeader}.
                     </p>
-                    <Link href={url} className="mb-4">
+                    <Link href={url} className="mb-4 z-50">
                       <ButtonPrimitive
                         intent="secondary"
                         shape="circle"

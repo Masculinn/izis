@@ -1,5 +1,6 @@
 import { NewsCard } from "@/components/news/news-card";
 import { NewsCarousel } from "@/components/news/news-carousel";
+import newsLib from "@/lib/newsLib";
 
 export default function News() {
   return (
@@ -17,9 +18,11 @@ export default function News() {
           </div>
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid  lg:grid-cols-3 xl:grid-cols-4 gap-8 text-white">
             <NewsCarousel />
-            {Array.from({ length: 4 }).map((_, idx) => (
-              <NewsCard key={idx} />
-            ))}
+            {newsLib
+              .filter((val) => (val.id as number) <= 4)
+              .map((news) => (
+                <NewsCard key={news.id} {...news} />
+              ))}
           </div>
         </div>
       </div>
