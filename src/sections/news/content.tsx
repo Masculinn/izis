@@ -3,7 +3,11 @@ import { MapsWidget } from "@/components/news/maps-widget";
 import { MediaWidget } from "@/components/news/media-widget";
 import { Badge } from "@/components/ui";
 import { useMobile } from "@/hooks/use-mobile";
-import { NewsCardProps, ServiceCardProps } from "@/interfaces";
+import {
+  MapboxConfigProps,
+  NewsCardProps,
+  ServiceCardProps,
+} from "@/interfaces";
 import servicesLib from "@/lib/servicesLib";
 import { FC } from "react";
 
@@ -27,6 +31,15 @@ const Content: FC<NewsCardProps> = (props) => {
     item.href.includes(type)
   ) as ServiceCardProps;
 
+  const mapboxConfig = {
+    bearing: 160,
+    boxZoom: true,
+    minZoom: 8,
+    interactive: isMobile,
+    center: coordinates,
+    zoom: 8,
+    pitch: 120,
+  } as MapboxConfigProps;
   return (
     <section className="max-w-7xl mx-auto flex items-start justify-center flex-row gap-4 py-24">
       <div className="h-auto lg:w-2/3 w-full px-6  py-8">
@@ -45,7 +58,15 @@ const Content: FC<NewsCardProps> = (props) => {
       {!isMobile && (
         <div className="h-screen w-1/3 sticky pt-12 flex flex-col gap-8 top-12">
           <MediaWidget images={images} title={title} />
-          <MapsWidget coordinates={coordinates} />
+          <MapsWidget
+            mapbox={{
+              config: mapboxConfig,
+              id: id,
+              isMarked: true,
+              isMobile,
+              mapContainerStyle: "size-full rounded-2xl",
+            }}
+          />
           <ArticleWidget id={id} />
         </div>
       )}

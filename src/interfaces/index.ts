@@ -207,10 +207,9 @@ export interface NewsMediaWidgetProps {
   title: string;
 }
 export interface NewsMapsWidgetProps {
-  coordinates: Coordinates;
+  mapbox: MapboxProps;
 }
 export interface NewsArticleWidgetProps {
   id: number;
 }
-
 /** component interfaces ends */
