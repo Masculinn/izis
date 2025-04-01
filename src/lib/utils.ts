@@ -25,7 +25,9 @@ const MOBILE_BREAKPOINT = 768,
     },
   },
   PROHIBITED_FOOTER_URL = "/discoveries",
-  CAROUSEL_DELAY = 3000;
+  CAROUSEL_DELAY = 3000,
+  MY_WEBSITE_LINK = "https://burakdev.com",
+  MY_MOTION_PROVIDER = "https://burakdev.com/motion-provider";
 
 export {
   MOBILE_BREAKPOINT,
@@ -33,4 +35,6 @@ export {
   MAPBOX_MASK_STYLES,
   PROHIBITED_FOOTER_URL,
   CAROUSEL_DELAY,
+  MY_WEBSITE_LINK,
+  MY_MOTION_PROVIDER,
 };
