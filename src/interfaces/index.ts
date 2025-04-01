@@ -45,6 +45,12 @@ export interface DiscoverContentProps {
   coordinates: Coordinates;
   type: MarkerServiceTypeProps;
 }
+
+export interface NewsHeroProps {
+  title: string;
+  subHeader: string;
+  source: string;
+}
 /** sections interfaces ends */
 
 /** service interfaces starts */
@@ -196,4 +202,15 @@ export interface NewsCardProps {
   images: string[];
   content: string[];
 }
+export interface NewsMediaWidgetProps {
+  images: string[];
+  title: string;
+}
+export interface NewsMapsWidgetProps {
+  coordinates: Coordinates;
+}
+export interface NewsArticleWidgetProps {
+  id: number;
+}
+
 /** component interfaces ends */
