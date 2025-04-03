@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
+    "@types/lodash": "^4.17.16",
     "@types/swiper": "^5.4.3",
     "embla-carousel-react": "^8.5.2",
     "input-otp": "^1.4.2",
