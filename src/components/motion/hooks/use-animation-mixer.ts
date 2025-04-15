@@ -4,6 +4,7 @@ import {
   UseAnimationMixerProps,
   UseOutputAnimationMixerProps,
 } from "../types";
+import logError from "../utils/getErrorLogs";
 
 export const useAnimationMixer = ({
   animations: a,
@@ -11,7 +12,11 @@ export const useAnimationMixer = ({
 }: UseAnimationMixerProps): UseOutputAnimationMixerProps => {
   const combinedAnimations = useMemo(() => {
     if (!Array.isArray(a) || a.length === 0) {
-      console.warn("Animations should be a non-empty array.");
+      logError({
+        error: "Animations should be a non-empty array.",
+        src: "useAnimationMixer",
+        mod: "warn",
+      });
       return { initial: {}, animate: {} };
     }
 

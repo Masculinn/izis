@@ -1,4 +1,4 @@
-import { calculateDelayProps } from "../types";
+import { CalculateDelayProps } from "../types";
 
 /**
  * Internal state used for delay calculations.
@@ -46,7 +46,7 @@ export const calculateDelay = ({
   index,
   delayLogic,
   customLogic,
-}: calculateDelayProps): number => {
+}: CalculateDelayProps): number => {
   switch (delayLogic) {
     case "linear":
       return index * baseDuration;

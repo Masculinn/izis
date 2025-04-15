@@ -11,8 +11,8 @@ import { ArrowUpRight } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
 import { HeroDivider } from "@/components/hero-divider";
 import Link from "next/link";
-import MotionContainer from "@/components/motion-provider/motion-container";
-import MotionQueue from "@/components/motion-provider/motion-queue";
+import MotionContainer from "@/components/motion/motion-container";
+import MotionText from "@/components/motion/motion-text";
 
 const slides: SlideItemProps[] = [
   {
@@ -42,7 +42,7 @@ export default function Hero() {
   const isMobile = useMobile();
 
   return (
-    <section className="relative w-full h-screen ">
+    <section className="relative w-full h-screen">
       <Swiper
         effect="coverflow"
         grabCursor={true}
@@ -74,20 +74,29 @@ export default function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent items-center justify-center flex">
                 <div className="lg:justify-center flex flex-col  lg:px-0 px-8 lg:text-center">
-                  <MotionContainer
-                    elementType="h2"
-                    mode={["fadeIn", "filterBlurIn"]}
-                    className="lg:text-6xl text-4xl font-bold text-white lg:mb-4 mb-2 font-secondary tracking-tight"
-                    delay={0}
-                    configView={{
-                      once: false,
-                      amount: 0.5,
+                  <MotionText
+                    animation={{
+                      mode: ["fadeIn", "filterBlurIn"],
+                      transition: "smooth",
+                      delay: 0.25,
+                      duration: 1,
                     }}
-                    duration={1}
-                    transition="smooth"
+                    config={{
+                      duration: 0.5,
+                      mode: "chars",
+                      delayLogic: "sawtooth",
+                    }}
+                    elementType={"h2"}
+                    wrapperClassName="lg:text-6xl text-4xl font-bold text-white lg:mb-4 mb-2 font-secondary tracking-tight"
+                    controller={{
+                      configView: {
+                        amount: "some",
+                        once: false,
+                      },
+                    }}
                   >
                     {slide.title}
-                  </MotionContainer>
+                  </MotionText>
                   <p className="lg:text-base text-sm tracking-tight text-gray-200 lg:mb-6 mb-4 lg:max-w-3xl max-w-2xs ">
                     {slide.desc}
                   </p>

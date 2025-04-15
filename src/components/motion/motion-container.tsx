@@ -1,38 +1,52 @@
-import {
-  AnimationObjProps,
-  TransitionConfig,
-  ViewAnimationControllerProps,
-} from "./types";
+import { AnimationObjProps, TransitionConfig } from "./types";
 import transitions from "./lib/transitions.lib";
+import { cn } from "@/lib/utils";
 import { motion, useInView } from "motion/react";
 import React, { FC, memo, useId, useMemo, useRef } from "react";
 import { useAnimationMixer } from "./hooks/use-animation-mixer";
 import animations from "./lib/animate.lib";
 import dynamic from "next/dynamic";
-import { twMerge } from "tailwind-merge";
+import { MotionContainerProps } from "./types";
+import {
+  MOTION_PROVIDER_DEFAULTS as defaults,
+  MOTION_CONTAINER_ANIMATION_DEFAULT,
+  MOTION_CONTAINER_CONTROLLER_DEFAULT,
+} from "./lib/defaults.lib";
+import logError from "./utils/getErrorLogs";
 
-const Container: FC<ViewAnimationControllerProps> = ({
+const Container: FC<MotionContainerProps> = ({
+  animation = { ...MOTION_CONTAINER_ANIMATION_DEFAULT },
+  controller = { ...MOTION_CONTAINER_CONTROLLER_DEFAULT },
   children,
-  elementType = "div",
+  elementType = defaults.MOTION_CONTAINER_ELEMENT_TYPE_DEFAULT,
   className,
-  delay = 0,
-  isAnimationStopped = false,
-  isControlled = false,
-  duration = 0.5,
-  reverse = false,
-  transition,
-  mode,
-  configView = { once: true, amount: 0.5 },
 }) => {
+  const {
+    mode,
+    transition,
+    delay,
+    duration = defaults.MOTION_CONTAINER_DURATION_DEFAULT,
+  } = animation;
+
+  const { configView, isAnimationStopped, trigger, reverse } = controller;
   const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, configView);
   const id = useId();
+
+  if (typeof animation === "undefined") {
+    logError({
+      error: "Animation is undefined, returning null.",
+      mod: "error",
+      src: "MotionContainer",
+    });
+    return null;
+  }
 
   const animationsToMix = useMemo(() => {
     return Array.isArray(mode)
       ? mode.map((key) => animations[key] || { initial: {}, animate: {} })
       : [animations[mode] || { initial: {}, animate: {} }];
-  }, [mode]);
+  }, [mode, trigger]);
 
   const { initial, animate } = useAnimationMixer({
     animations: animationsToMix as AnimationObjProps[],
@@ -51,23 +65,21 @@ const Container: FC<ViewAnimationControllerProps> = ({
     return {
       ...defaultTransition,
       duration: duration || defaultTransition.duration,
-      delay,
+      delay: delay || defaultTransition.delay,
     };
-  }, [isAnimationStopped]);
+  }, [isAnimationStopped, trigger]);
 
   const animationState = useMemo(() => {
     if (isAnimationStopped) {
       return { ...animations["opacity"].animate, ...animate };
     }
 
-    if (isControlled) {
-      if (typeof isControlled === "object" && "trigger" in isControlled) {
-        return isControlled.trigger ? animate : initial;
-      }
+    if (typeof trigger !== "undefined") {
+      return trigger ? animate : initial;
     }
 
     return isInView ? animate : initial;
-  }, [isAnimationStopped, isInView, isControlled, initial, animate]);
+  }, [isAnimationStopped, isInView, initial, animate, trigger]);
 
   const initialState = useMemo(() => {
     if (isAnimationStopped) {
@@ -79,7 +91,7 @@ const Container: FC<ViewAnimationControllerProps> = ({
   return React.createElement(
     motion[elementType as keyof typeof motion] as React.ElementType,
     {
-      className: twMerge("view-animation-container", className),
+      className: cn("mc", className),
       ref,
       key: id,
       initial: initialState,
@@ -90,24 +102,6 @@ const Container: FC<ViewAnimationControllerProps> = ({
   );
 };
 
-/**
- * A container component that handles view-based animations using Framer Motion.
- *
- * @component
- * @param {ViewAnimationControllerProps} props - The properties for the animation container.
- * @param {React.ReactNode} props.children - The child elements to be animated.
- * @param {string} [props.elementType="div"] - The HTML element type for the container.
- * @param {string} [props.className] - Additional class names for styling.
- * @param {number} [props.delay=0] - Delay before the animation starts.
- * @param {boolean} [props.isAnimationStopped=false] - Flag to stop the animation.
- * @param {boolean | { trigger: boolean }} [props.isControlled=false] - Control animation externally.
- * @param {number} [props.duration=0.5] - Animation duration in seconds.
- * @param {boolean} [props.reverse=false] - Whether to reverse the animation.
- * @param {string} [props.transition] - The transition type.
- * @param {string | string[]} [props.mode] - The animation mode(s) to apply.
- * @param {{ once?: boolean, amount?: number }} [props.configView={ once: true, amount: 0.5 }] - View configuration for triggering animations.
- * @returns {JSX.Element} - The animated container element.
- */
 const MotionContainer = dynamic(
   () => Promise.resolve(memo(Container as typeof Container)),
   { ssr: false }

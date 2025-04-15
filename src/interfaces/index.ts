@@ -1,7 +1,13 @@
-/** config interfaces starts */
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
+
+//imports
 
 import { IconType } from "react-icons";
 import { Dispatch } from "redux";
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
+
+//configs
 
 export interface RouteItemProps {
   src: string;
@@ -15,20 +21,9 @@ export interface RouteItemsProps {
   desc: string;
 }
 
-/** config interfaces ends */
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
-/** db interfaces starts */
-/** db interfaces ends */
-
-/** redux interfaces starts */
-
-export interface DiscoveriesProps {
-  discovered: number[];
-}
-
-/** redux interfaces ends */
-
-/** sections interfaces starts */
+//sections
 
 export interface DiscoverisHeroProps {
   data: MarkerObjProps;
@@ -51,21 +46,25 @@ export interface NewsHeroProps {
   subHeader: string;
   source: string;
 }
-/** sections interfaces ends */
 
-/** service interfaces starts */
-/** service interfaces ends */
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
-/** hooks interfaces starts */
+//service
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
+
+// hooks
+
 export interface AddDiscoveredProps {
   itemID: number;
   action: () => void;
   dispatch: Dispatch;
   isMobile?: boolean;
 }
-/** hooks interfaces ends */
 
-/** component interfaces starts */
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
+
+//component
 
 export interface LogoItemProps {
   src: string;
@@ -212,4 +211,12 @@ export interface NewsMapsWidgetProps {
 export interface NewsArticleWidgetProps {
   id: number;
 }
-/** component interfaces ends */
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
+
+//Utils
+
+export type GetSplittedTextProps = string;
+export type GetSplittedTextOutputProps = string[];
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/

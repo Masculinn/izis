@@ -1,4 +1,7 @@
 import { Coordinates } from "@/interfaces";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
+import { ClassValue } from "tailwind-variants";
 
 const MOBILE_BREAKPOINT = 768,
   MEDIAN_COORDINAT: Coordinates = [0, 0],
@@ -38,3 +41,7 @@ export {
   MY_WEBSITE_LINK,
   MY_MOTION_PROVIDER,
 };
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

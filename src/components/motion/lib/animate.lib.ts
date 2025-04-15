@@ -451,30 +451,151 @@ const animations: AnimationLibraryProps = {
       ],
     },
   },
+  /* ------------------- Motion Provider V2.0 New Animations! ------------------ */
+
+  drift: {
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: [0, 10, 0, -10, 0],
+      y: [0, -5, 0, 5, 0],
+    },
+  },
+
+  glitch: {
+    initial: { x: 0, opacity: 1 },
+    animate: {
+      x: [0, 5, -5, 5, -5, 0],
+      opacity: [1, 0.9, 0.9, 0.8, 0.9, 1],
+    },
+  },
+
+  slideBounce: {
+    initial: { x: "100%" },
+    animate: { x: ["100%", "50%", "40%", "50%", "0%"] },
+  },
+
+  flipCard: {
+    initial: { rotateY: 0 },
+    animate: { rotateY: [0, 90, 180, 270, 360] },
+  },
+
+  jitter: {
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: [0, 2, -2, 2, -2, 0],
+      y: [0, -2, 2, -2, 2, 0],
+    },
+  },
+
+  flip3D: {
+    initial: { rotateY: -180, opacity: 0, perspective: 1000 },
+    animate: {
+      rotateY: 0,
+      opacity: 1,
+      perspective: 1000,
+    },
+  },
+
+  neonGlow: {
+    initial: { textShadow: "0 0 0px #fff" },
+    animate: {
+      textShadow: [
+        "0 0 0px #fff",
+        "0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff",
+        "0 0 0px #fff",
+      ],
+    },
+  },
+
+  typingEffect: {
+    initial: { width: 0, opacity: 0 },
+    animate: {
+      width: "100%",
+      opacity: 1,
+    },
+  },
+
+  pathMotion: {
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: [0, 40, -30, 20, -10, 0],
+      y: [0, 20, -15, 10, -5, 0],
+      transition: { duration: 2 },
+    },
+  },
+
+  jellyTwist: {
+    initial: { skewX: 0, skewY: 0, scale: 1 },
+    animate: {
+      skewX: [0, 15, -10, 5, 0],
+      skewY: [0, -8, 4, -2, 0],
+      scale: [1, 1.08, 0.95, 1.03, 1],
+      transition: { duration: 0.8 },
+    },
+  },
+
+  depthPush: {
+    initial: { transform: "translateZ(-200px) scale(0.6)" },
+    animate: {
+      transform: "translateZ(0px) scale(1)",
+    },
+  },
+
+  colorShift: {
+    initial: { backgroundColor: "#ff0000" },
+    animate: {
+      backgroundColor: ["#ff0000", "#00ff88", "#0066ff", "#ff0000"],
+    },
+  },
+
+  orbitRotation: {
+    initial: { x: 0, y: 0, rotate: 0 },
+    animate: {
+      x: [0, 40, 0, -40, 0],
+      y: [0, 40, 80, 40, 0],
+      rotate: [0, 180, 360, 540, 720],
+    },
+  },
 
   /* ------------------- Add Your Custom Animation(s) Here ------------------ */
 
-  koopRoam: {
-    initial: {
-      // "Top start" position: starting at (0,0) relative to its original position
-      x: 0,
-      y: 0,
-      scale: 1,
-      opacity: 1,
-    },
+  moveToRightBottom: {
+    initial: { x: 0, y: 0 },
     animate: {
-      // Define keyframes:
-      // 1. Start at top start (0,0)
-      // 2. Move to bottom end (1470, 630)
-      // 3. Return to top start and scale down to 0 (with fading out)
-      x: [0, 910, 960, 1220, 1496],
-      y: [0, 550, 420, 580, 540],
-      opacity: [1, 0.85, 0.75, 0],
-      transition: {
-        duration: 4,
-        // 'times' tells Framer Motion when (as a fraction of duration) to hit each keyframe:
-        times: [0, 0.25, 0.5, 0.75, 1],
-      },
+      x: "calc(100vw - 96px)",
+      y: "calc(100vh - 96px)",
+    },
+  },
+
+  moveToRightTop: {
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: "calc(100vw - 96px)",
+      y: "0px",
+    },
+  },
+
+  moveToLeftBottom: {
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: 0,
+      y: "calc(100vh - 96px)",
+    },
+  },
+
+  moveToLeftTop: {
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: -120,
+      y: -120,
+    },
+  },
+
+  moveToTopCenter: {
+    initial: { x: 0, y: 0 },
+    animate: {
+      x: "calc(50vw - 96px)",
+      y: -120,
     },
   },
 };
