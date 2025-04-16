@@ -46,7 +46,7 @@ const Popup: FC<PopupProps> = ({ map, activeID }) => {
       <Card.Footer>
         <Link href={curr.url} target="_blank" rel="noreferrer">
           <Button intent="secondary" shape="circle" size="small">
-            <span>Learn more</span>
+            <span>Czytaj więcej</span>
             <ArrowRight className="w-4 h-4 " />
           </Button>
         </Link>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export const ServiceCard: FC<ServiceCardProps> = (props) => {
-  const { btnText, desc, href, title } = props;
+  const { desc, href, title } = props;
 
   return (
     <Card className="size-full rounded-lg border-accent/15 relative translate-y-2 hover:translate-y-0 transition-all duration-200 ease-in-out ">
@@ -22,7 +22,7 @@ export const ServiceCard: FC<ServiceCardProps> = (props) => {
       <Card.Footer className="-mt-2">
         <Link href={href}>
           <Button intent="secondary" shape="circle" size="small">
-            <span>{btnText}</span>
+            <span>Czytaj więcej</span>
             <ArrowRight className="w-4 h-4 " />
           </Button>
         </Link>

@@ -24,6 +24,7 @@ export const NewsCarousel = () => {
 
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
+
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1);
     });
@@ -71,7 +72,11 @@ export const NewsCarousel = () => {
     };
   }, [api, isInteracting]);
 
-  const items = getDate(newsLib) as unknown as NewsCardProps[];
+  const filteredItems = newsLib.filter((val) => val.id >= 5);
+  const items = getDate(filteredItems) as unknown as NewsCardProps[];
+
+  console.log(filteredItems.length);
+
   return (
     <Carousel
       setApi={setApi}
@@ -160,7 +165,7 @@ export const NewsCarousel = () => {
                         shape="circle"
                         size="small"
                       >
-                        <span>Learn More</span>
+                        <span>Czytaj więcej</span>
                         <ArrowRight className="size-4" />
                       </ButtonPrimitive>
                     </Link>
@@ -173,7 +178,7 @@ export const NewsCarousel = () => {
       </Carousel.Content>
       <div className="mt-4 flex items-center justify-between">
         <div className="flex gap-1 py-2 text-center text-muted-fg text-sm">
-          {Array.from({ length: newsLib.length }).map((_, index) => (
+          {Array.from({ length: items.length }).map((_, index) => (
             <Button
               className={twJoin(
                 "rounded-xl transition focus:outline-hidden cursor-pointer",

@@ -110,7 +110,6 @@ export interface ServiceCardProps {
   icon: IconType;
   title: string;
   desc: string;
-  btnText: string;
   href: string;
 }
 
