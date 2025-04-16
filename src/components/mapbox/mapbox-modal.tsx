@@ -7,10 +7,9 @@ import { secondaryFont } from "@/config/fonts";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MapboxModalFeatures } from "./mapbox-modal-features";
-import getSplittedText from "@/utils/getSplittedText";
-import MotionChain from "../motion/motion-chain";
 import { MotionAnimationProps } from "../motion/types";
 import MotionText from "../motion/motion-text";
+import MotionContainer from "../motion/motion-container";
 
 const MapboxModal: FC<MapboxModalProps> = ({
   isOpen,
@@ -41,35 +40,22 @@ const MapboxModal: FC<MapboxModalProps> = ({
     };
   }, [activeItem.img, item]);
 
-  const TitleAnimations = Array.from({ length: activeItem.name.length }).fill({
-    mode: ["fadeUp", "filterBlurIn"],
-    duration: 0.5,
-    transition: "smooth",
-  }) as MotionAnimationProps[];
-
   return (
     <Drawer isOpen={isOpen} onOpenChange={setIsOpen} withNotch>
       <Drawer.Content aria-label="Izis Mapbox Modal">
         <Drawer.Header>
-          <h2>
-            <MotionText
-              animation={{
-                mode: ["fadeUp", "filterBlurIn"],
-                transition: "linear",
-                duration: 0.5,
-              }}
-              config={{
-                duration: 4,
-                mode: "chars",
-                customLogic: (i) => i * 0.1,
-                space: 1,
-              }}
-              wrapperClassName={`${secondaryFont.className} flex flex-wrap lg:text-6xl text-5xl  tracking-tighter self-center `}
-              elementType="h2"
-            >
-              {activeItem.name}
-            </MotionText>
-          </h2>
+          <MotionContainer
+            animation={{
+              mode: ["fadeUp", "filterBlurIn"],
+              transition: "cubicBounce",
+              duration: 2,
+            }}
+            elementType={"span"}
+            className={`${secondaryFont.className} flex flex-wrap lg:text-6xl text-5xl  tracking-tighter self-center `}
+          >
+            {activeItem.name}
+          </MotionContainer>
+
           <Drawer.Description className="pt-4">
             {!loaded ? (
               <Skeleton

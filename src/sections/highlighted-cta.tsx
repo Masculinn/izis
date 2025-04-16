@@ -1,3 +1,4 @@
+import MotionText from "@/components/motion/motion-text";
 import { Badge, Button } from "@/components/ui";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -37,11 +38,40 @@ export default function HighlightedCta() {
         <div className="lg:w-1/2 w-full h-auto lg:h-3/4 rounded-2xl lg:p-6 px-4 lg:mb-0 justify-center flex flex-col mb-8">
           <Badge intent="info" className="shrink-0 max-w-max">
             <span className="size-3  animate-pulse rounded-full bg-sky-500/50" />
-            Featured Post
+            <MotionText
+              animation={{
+                mode: ["fadeIn", "filterBlurIn"],
+                transition: "smooth",
+                duration: 0.5,
+              }}
+              config={{
+                duration: 0.15,
+                mode: "chars",
+                delayLogic: "linear",
+                space: 1,
+              }}
+              elementType={"span"}
+              className="-ml-[0.25px]"
+            >
+              Featured Post
+            </MotionText>
           </Badge>
-          <h2 className="font-secondary lg:text-7xl text-5xl font-bold">
+          <MotionText
+            animation={{
+              mode: ["fadeIn", "filterBlurIn"],
+              transition: "smooth",
+              duration: 0.5,
+            }}
+            elementType={"h2"}
+            config={{
+              mode: "words",
+              duration: 0.5,
+              delayLogic: "linear",
+            }}
+            wrapperClassName="font-secondary lg:text-7xl text-5xl font-bold"
+          >
             Mamut na drodze
-          </h2>
+          </MotionText>
           <p className="mt-4 tracking-tight font-secondary">
             Archeolog Mieczysław Bienia znalazł w okolicy Garwolina kły i kości
             mamuta. Wraz ze swoją ekipą w trakcie wykopalisk przed budową

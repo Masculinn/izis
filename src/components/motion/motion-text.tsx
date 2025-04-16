@@ -45,7 +45,7 @@ const MotionText: FC<MotionTextProps> = ({
     if (char === " ")
       return (
         <span
-          className={cn(space >= 1 ? `px-${space}` : `px-[${space}px]`)}
+          className={cn(space >= 1 ? `px-${space}` : `px-[${space * 10}px]`)}
           key={idx}
         />
       );

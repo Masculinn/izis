@@ -42,14 +42,20 @@ const Content: FC<NewsCardProps> = (props) => {
   } as MapboxConfigProps;
   return (
     <>
-      <section className="max-w-7xl mx-auto flex items-start justify-center flex-row gap-4 py-24">
+      <section className="max-w-7xl mx-auto flex items-start justify-center flex-row gap-4 py-12">
         <div className="h-auto lg:w-2/3 w-full px-6  py-8">
           <Badge intent="secondary">
             <workType.icon /> <span>{workType.title}</span>
           </Badge>
-          <h1 className="font-secondary lg:text-6xl text-4xl font-bold lg:pt-4 pt-3 pb-4">
+          <h1 className="font-secondary lg:text-6xl text-4xl font-bold lg:pt-4 pt-3 pb-4 capitalize">
             {title}
           </h1>
+          <h3 className="font-secondary text-base font-bold tracking-tight capitalize">
+            źródło: {source} -{" "}
+            <span className="text-base font-normal font-secondary">
+              {date}{" "}
+            </span>
+          </h3>
           {content.map((val, idx) => (
             <p key={idx} className="tracking-tight py-4">
               {val}
@@ -71,7 +77,6 @@ const Content: FC<NewsCardProps> = (props) => {
           </div>
         )}
       </section>
-      <ArticleWidget id={id} />
     </>
   );
 };

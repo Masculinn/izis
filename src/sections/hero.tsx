@@ -1,17 +1,16 @@
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 import type { SlideItemProps } from "@/interfaces";
-
-import "swiper/css";
-import "swiper/css/effect-coverflow";
 
 import { Button } from "@/components/ui";
 import { ArrowUpRight } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
 import { HeroDivider } from "@/components/hero-divider";
 import Link from "next/link";
-import MotionContainer from "@/components/motion/motion-container";
 import MotionText from "@/components/motion/motion-text";
 
 const slides: SlideItemProps[] = [
@@ -57,7 +56,7 @@ export default function Hero() {
           slideShadows: true,
         }}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           waitForTransition: true,
         }}
         speed={1000}

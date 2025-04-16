@@ -5,6 +5,7 @@ import formatCoordinate from "@/utils/formatCoordinate";
 import servicesLib from "@/lib/servicesLib";
 import { Button } from "../ui";
 import { ArrowRight } from "lucide-react";
+import MotionContainer from "../motion/motion-container";
 
 export const SearchItem: FC<DiscoverSearchItemProps> = (props) => {
   const { coordinates, id, name, img, type, url } = props;

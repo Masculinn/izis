@@ -13,6 +13,7 @@ import MapboxModalBg from "./mapbox-modal-bg";
 import { useMobile } from "@/hooks/use-mobile";
 import { MAPBOX_MASK_STYLES } from "@/lib/utils";
 import Link from "next/link";
+import MotionText from "../motion/motion-text";
 
 const Mapbox = () => {
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -57,9 +58,23 @@ const Mapbox = () => {
       </div>
       <div className="max-w-7xl mx-auto size-full flex lg:flex-row gap-8 flex-col justify-center items-center">
         <div className="lg:w-1/2 w-full h-auto  rounded-xl items-start p-8">
-          <h2 className="font-secondary lg:text-6xl text-4xl font-bold pb-6">
+          <MotionText
+            elementType={"h2"}
+            wrapperClassName="font-secondary lg:text-6xl text-4xl font-bold pb-6"
+            animation={{
+              mode: ["fadeUp", "filterBlurIn"],
+              transition: "linear",
+              duration: 0.5,
+            }}
+            config={{
+              duration: 0.25,
+              mode: "words",
+              delayLogic: "linear",
+              space: 1,
+            }}
+          >
             Project Area Locations
-          </h2>
+          </MotionText>
           <p className="font-primary text-normal tracking-tighter text-fg">
             Culpa enim Lorem est mollit reprehenderit ut consectetur esse
             incididunt. Labore aliquip elit labore culpa dolore magna proident.

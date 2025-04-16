@@ -1,39 +1,34 @@
 import { FC } from "react";
 import servicesLib from "@/lib/servicesLib";
 import { ServiceCard } from "./service-card";
-import { MotionAnimationProps } from "./motion/types";
-import MotionChain from "./motion/motion-chain";
-
-const animations = servicesLib.map((val) => ({
-  mode: ["filterBlurIn", val.id % 2 === 0 ? "fadeLeft" : "fadeRight"],
-  transition: "smooth",
-  duration: 0.5,
-})) as MotionAnimationProps[];
+import { cn } from "@/lib/utils";
+import MotionContainer from "./motion/motion-container";
+import { useMobile } from "@/hooks/use-mobile";
 
 export const ServicesGrid: FC = () => {
+  const isMobile = useMobile();
+
   return (
-    <MotionChain
-      elementType={"div"}
-      animations={animations}
-      config={{
-        duration: 0.5,
-        delayLogic: "linear",
-      }}
-      className="grid md:grid-cols-4 gap-2"
-    >
-      {servicesLib.map((val) => (
-        <div
+    <div className="grid md:grid-cols-4 gap-2">
+      {servicesLib.map((val, idx) => (
+        <MotionContainer
           key={val.id}
-          className={`p-1 rounded-lg md:h-64 h-auto px-4 md:px-0
-                      ${val.id == 1 && "md:col-start-1"}
-                      ${val.id == 2 && "md:col-span-2"}
-                      ${val.id == 3 && "md:col-start-4"}
-                      ${val.id == 4 && "md:col-span-2"}
-                      ${val.id == 5 && "md:col-span-2"}`}
+          animation={{
+            mode: ["filterBlurIn", idx % 2 === 0 ? "fadeUp" : "fadeDown"],
+            transition: "smooth",
+            duration: 0.5,
+            delay: isMobile ? 0 : idx * 0.5,
+          }}
+          elementType={"div"}
+          className={cn(`p-1 rounded-lg md:h-64 h-auto px-4 md:px-0
+          ${idx == 0 && "md:col-start-1"}
+          ${idx == 1 && "md:col-span-2"}
+          ${idx == 2 && "md:col-start-4"}
+          ${idx > 2 && "md:col-span-2"}`)}
         >
           <ServiceCard {...val} />
-        </div>
+        </MotionContainer>
       ))}
-    </MotionChain>
+    </div>
   );
 };

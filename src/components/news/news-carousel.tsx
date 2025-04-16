@@ -10,6 +10,7 @@ import servicesLib from "@/lib/servicesLib";
 import { NewsCardProps, ServiceCardProps } from "@/interfaces";
 import { CAROUSEL_DELAY } from "@/lib/utils";
 import getDate from "@/utils/getDate";
+import MotionText from "../motion/motion-text";
 
 export const NewsCarousel = () => {
   const [api, setApi] = useState<CarouselApi | null>(null);
@@ -126,9 +127,30 @@ export const NewsCarousel = () => {
                     <span className="lg:text-sm text-xs text-stone-300 pointer-events-none">
                       {date}
                     </span>
-                    <h2 className="lg:text-3xl text-xl line-clamp-2 font-secondary font-bold text-white capitalize pointer-events-none">
+                    <MotionText
+                      animation={{
+                        mode: ["fadeUp", "depthPush"],
+                        transition: "linear",
+                        delay: 0.2,
+                        duration: 0.5,
+                      }}
+                      config={{
+                        duration: 0.5,
+                        mode: "words",
+                        delayLogic: "sawtooth",
+                        space: 1,
+                      }}
+                      controller={{
+                        configView: {
+                          once: false,
+                          amount: "some",
+                        },
+                      }}
+                      elementType={"h2"}
+                      wrapperClassName="lg:text-3xl text-xl line-clamp-2 font-secondary font-bold text-white capitalize pointer-events-none"
+                    >
                       {title}
-                    </h2>
+                    </MotionText>
                     <p className="tracking-tighter text-muted max-w-lg lg:pb-4 pb-2 lg:text-sm text-xs pointer-events-none">
                       {subHeader}.
                     </p>

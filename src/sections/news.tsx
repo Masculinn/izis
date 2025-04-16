@@ -1,6 +1,16 @@
+import MotionChain from "@/components/motion/motion-chain";
+import { MotionAnimationProps } from "@/components/motion/types";
 import { NewsCard } from "@/components/news/news-card";
 import { NewsCarousel } from "@/components/news/news-carousel";
 import newsLib from "@/lib/newsLib";
+
+const animations = newsLib
+  .filter((val) => (val.id as number) <= 4)
+  .map(() => ({
+    mode: ["fadeLeft"],
+    transition: "smooth",
+    duration: 1,
+  })) as MotionAnimationProps[];
 
 export default function News() {
   return (
@@ -18,11 +28,20 @@ export default function News() {
           </div>
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid  lg:grid-cols-3 xl:grid-cols-4 gap-8 text-white">
             <NewsCarousel />
-            {newsLib
-              .filter((val) => (val.id as number) <= 4)
-              .map((news) => (
-                <NewsCard key={news.id} {...news} />
-              ))}
+            <MotionChain
+              animations={animations}
+              config={{
+                delayLogic: "linear",
+                duration: 0.5,
+              }}
+              elementType={"div"}
+            >
+              {newsLib
+                .filter((val) => (val.id as number) <= 4)
+                .map((news) => (
+                  <NewsCard key={news.id} {...news} />
+                ))}
+            </MotionChain>
           </div>
         </div>
       </div>

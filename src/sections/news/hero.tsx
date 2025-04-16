@@ -1,4 +1,5 @@
 import { DiscoveriesDivider } from "@/components/discoveries/discoveries-divider";
+import MotionText from "@/components/motion/motion-text";
 import { Badge } from "@/components/ui";
 import { NewsHeroProps } from "@/interfaces";
 import { FC } from "react";
@@ -20,12 +21,26 @@ const Hero: FC<NewsHeroProps> = ({ source, subHeader, title }) => {
           >
             Źródło: {source}
           </Badge>
-          <h1 className="font-secondary lg:text-6xl text-5xl font-bold text-primary max-w-3xl">
+          <h1 className="font-secondary lg:text-6xl text-5xl font-bold text-primary max-w-3xl capitalize">
             {title}
           </h1>
-          <p className="lg:text-lg text-base  text-primary max-w-2xl font-secondary  tracking-tight">
+          <MotionText
+            animation={{
+              mode: ["fadeUp", "filterBlurIn"],
+              transition: "linear",
+              duration: 0.5,
+            }}
+            elementType={"p"}
+            config={{
+              duration: 0.25,
+              delayLogic: "linear",
+              space: 1,
+              mode: "words",
+            }}
+            wrapperClassName="lg:text-lg text-base  text-primary max-w-2xl font-secondary"
+          >
             {subHeader}
-          </p>
+          </MotionText>
         </div>
       </div>
       <DiscoveriesDivider />

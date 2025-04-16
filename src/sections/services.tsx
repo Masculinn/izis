@@ -1,4 +1,3 @@
-import MotionContainer from "@/components/motion/motion-container";
 import MotionText from "@/components/motion/motion-text";
 import { ServicesGrid } from "@/components/services-grid";
 

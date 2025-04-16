@@ -28,7 +28,12 @@ const Container: FC<MotionContainerProps> = ({
     duration = defaults.MOTION_CONTAINER_DURATION_DEFAULT,
   } = animation;
 
-  const { configView, isAnimationStopped, trigger, reverse } = controller;
+  const {
+    configView = { once: true, amount: 0.5 },
+    isAnimationStopped,
+    trigger,
+    reverse,
+  } = controller;
   const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, configView);
   const id = useId();

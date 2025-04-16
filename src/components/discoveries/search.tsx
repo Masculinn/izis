@@ -11,7 +11,7 @@ export const Search: FC<DiscoverSearchProps> = (props) => {
         aria-label="Search"
         className="w-full focus-visible:outline-none h-auto rounded-lg p-2 text-white bg-secondary/20 tracking-tight focus:outline-none ring-1 ring-secondary/50 absolute"
         type="text"
-        placeholder="Search a city..."
+        placeholder="Wyszukaj miasto..."
       />
       <Button
         intent="secondary"
