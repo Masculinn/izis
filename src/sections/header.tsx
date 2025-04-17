@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion as m, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
@@ -6,12 +6,14 @@ import routes from "@/config/routes";
 import Image from "next/image";
 import { secondaryFont } from "@/config/fonts";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
 
   useOutsideClick(ref, () => setMobileMenuOpen(false));
 
@@ -21,15 +23,23 @@ export default function Header() {
   };
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const handleScroll = () => {
       if (window.scrollY > 0) setIsScrolled(true);
       else setIsScrolled(false);
     };
-    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, {
+      signal: controller.signal,
+    });
+
+    return () => controller.abort();
   }, []);
 
+  useMemo(() => {
+    if (mobileMenuOpen) setMobileMenuOpen(false);
+  }, [router.asPath]);
   return (
     <nav
       className={`
@@ -66,23 +76,42 @@ export default function Header() {
                   onMouseEnter={() => setActiveMenu(item.title)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <Link href={item.src}>
+                  {!item.items ? (
+                    <Link href={item.src}>
+                      <button
+                        className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
+                          !isScrolled
+                            ? "text-white hover:text-secondary"
+                            : "text-secondary-fg hover:text-secondary"
+                        }  transition-colors border-b-2
+                      ${
+                        activeMenu === item.title
+                          ? "border-secondary text-secondary"
+                          : "border-transparent"
+                      }`}
+                      >
+                        {item.title}
+                        {item.items && <ChevronDown className="ml-2 h-4 w-4" />}
+                      </button>
+                    </Link>
+                  ) : (
                     <button
                       className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
                         !isScrolled
                           ? "text-white hover:text-secondary"
                           : "text-secondary-fg hover:text-secondary"
                       }  transition-colors border-b-2
-                    ${
-                      activeMenu === item.title
-                        ? "border-secondary text-secondary"
-                        : "border-transparent"
-                    }`}
+                      ${
+                        activeMenu === item.title
+                          ? "border-secondary text-secondary"
+                          : "border-transparent"
+                      }`}
                     >
                       {item.title}
                       {item.items && <ChevronDown className="ml-2 h-4 w-4" />}
                     </button>
-                  </Link>
+                  )}
+
                   <AnimatePresence>
                     {activeMenu === item.title && item.items && (
                       <m.div
@@ -136,7 +165,7 @@ export default function Header() {
                 } hover:text-secondary cursor-pointer`}
             >
               {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6 text-muted-fg" />
               ) : (
                 <Menu className="h-6 w-6" />
               )}
@@ -157,25 +186,53 @@ export default function Header() {
             <div className="pt-4 pb-3 space-y-1 ">
               {routes.map((item) => (
                 <div key={item.title}>
-                  <button
-                    onClick={() =>
-                      setActiveMenu(
-                        activeMenu === item.title ? null : item.title
-                      )
-                    }
-                    className={`w-full cursor-pointer flex items-center justify-between px-4 py-2 text-base font-medium ${
-                      isScrolled && mobileMenuOpen ? "text-fg" : "text-white"
-                    } hover:text-gray-900`}
-                  >
-                    <div className="flex items-center">{item.title}</div>
-                    {item.items && (
-                      <ChevronDown
-                        className={`h-5 w-5 text-secondary duration-200 transition-transform ${
-                          activeMenu === item.title && "rotate-180"
-                        }`}
-                      />
-                    )}
-                  </button>
+                  {!item.items ? (
+                    <Link href={item.src}>
+                      <button
+                        onClick={() =>
+                          setActiveMenu(
+                            activeMenu === item.title ? null : item.title
+                          )
+                        }
+                        className={`w-full cursor-pointer flex items-center justify-between px-4 py-2 text-base font-medium ${
+                          isScrolled && mobileMenuOpen
+                            ? "text-fg"
+                            : "text-white"
+                        } hover:text-gray-900`}
+                      >
+                        <div className="flex items-center">{item.title}</div>
+                        {item.items && (
+                          <ChevronDown
+                            className={`h-5 w-5  text-muted-fg duration-200 transition-transform ${
+                              activeMenu === item.title && "rotate-180"
+                            }`}
+                          />
+                        )}
+                      </button>
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() =>
+                        setActiveMenu(
+                          activeMenu === item.title ? null : item.title
+                        )
+                      }
+                      className={`w-full cursor-pointer flex items-center justify-between px-4 py-2 text-base font-medium ${
+                        isScrolled && mobileMenuOpen ? "text-fg" : "text-white"
+                      } hover:text-gray-900`}
+                    >
+                      <div className="flex items-center">{item.title}</div>
+                      {item.items && (
+                        <ChevronDown
+                          className={`h-5 w-5 ${
+                            !isScrolled ? "text-white" : "text-muted-fg"
+                          }  duration-200 transition-transform ${
+                            activeMenu === item.title && "rotate-180"
+                          }`}
+                        />
+                      )}
+                    </button>
+                  )}
 
                   <AnimatePresence>
                     {activeMenu === item.title && item.items && (
@@ -196,7 +253,7 @@ export default function Header() {
                               } items-center justify-start flex flex-row gap-2`}
                             >
                               <span>{subItem.title}</span>
-                              <ArrowUpRight className="size-4" />
+                              <ArrowUpRight className="size-4 shrink-0" />
                             </Link>
                           ))}
                         </div>

@@ -3,7 +3,7 @@ import { ServicesGrid } from "@/components/services-grid";
 
 export default function Services() {
   return (
-    <section className="py-24 h-auto w-full relative overflow-hidden items-center justify-center mx-auto  max-w-7xl">
+    <section className="lg:py-24 py-16 h-auto w-full relative overflow-hidden text-center flex flex-col items-center justify-center mx-auto max-w-7xl">
       <MotionText
         animation={{
           mode: ["filterBlurIn", "fadeUp"],
@@ -14,9 +14,10 @@ export default function Services() {
           duration: 0.24,
           mode: "words",
           delayLogic: "linear",
+          space: 1,
         }}
         elementType="h2"
-        wrapperClassName="font-secondary lg:text-6xl text-4xl font-bold justify-self-center pb-8"
+        wrapperClassName="font-secondary lg:text-6xl text-4xl font-bold justify-self-center pb-8 text-center"
       >
         Nasze usługi.
       </MotionText>

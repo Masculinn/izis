@@ -75,8 +75,6 @@ export const NewsCarousel = () => {
   const filteredItems = newsLib.filter((val) => val.id >= 5);
   const items = getDate(filteredItems) as unknown as NewsCardProps[];
 
-  console.log(filteredItems.length);
-
   return (
     <Carousel
       setApi={setApi}
@@ -117,7 +115,7 @@ export const NewsCarousel = () => {
                   className="absolute top-4 left-4 z-50 p-3"
                   shape="circle"
                 >
-                  <typeIcon.icon className="size-5" />
+                  <typeIcon.icon className="lg:size-5 size-4" />
                 </Badge>
                 <Badge
                   intent="secondary"

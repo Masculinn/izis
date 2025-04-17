@@ -41,17 +41,19 @@ const MotionText: FC<MotionTextProps> = ({
     [children, mode]
   );
 
+  const spacing = typeof space !== "number" ? space : `${space}px`;
   const items = str.map((char, idx) => {
-    if (char === " ")
-      return (
-        <span
-          className={cn(space >= 1 ? `px-${space}` : `px-[${space * 10}px]`)}
-          key={idx}
-        />
-      );
+    const isSpace = char === " ";
     return (
-      <span className={cn(className)} key={idx}>
-        {char}
+      <span
+        key={idx}
+        className={cn(className)}
+        style={{
+          display: "inline-block",
+          marginRight: spacing,
+        }}
+      >
+        {isSpace ? "\u00A0" : char}
       </span>
     );
   });

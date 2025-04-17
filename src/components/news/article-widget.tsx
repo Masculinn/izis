@@ -51,7 +51,7 @@ export const ArticleWidget: FC<NewsArticleWidgetProps> = ({ id }) => {
   };
 
   return (
-    <>
+    <section className="max-w-7xl mx-auto px-6 lg:px-0">
       <MotionText
         animation={{
           mode: ["fadeLeft", "filterBlurIn"],
@@ -64,16 +64,16 @@ export const ArticleWidget: FC<NewsArticleWidgetProps> = ({ id }) => {
           duration: 0.25,
           delayLogic: "linear",
         }}
-        controller={{
-          configView: {
-            amount: "some",
-            once: false,
-          },
-        }}
-        wrapperClassName="text-5xl md:text-6xl tracking-tighter   font-secondary text-left max-w-7xl mx-auto pb-8 md:pl-0 pl-6 "
+        wrapperClassName="text-5xl md:text-6xl tracking-tighter font-secondary text-left pb-2 "
       >
         Pozostałe Artykuły
       </MotionText>
+      <p className="pb-6 lg:max-w-2/3 lg:text-base text-muted-fg text-sm font-secondary font-semibold tracking-tight">
+        Zanurz się głębiej w świat archeologii dzięki naszej kolekcji starannie
+        wyselekcjonowanych publikacji. Przeglądaj różnorodne tematy – od
+        najnowszych odkryć w terenie, przez analizy artefaktów, aż po opowieści
+        o zapomnianych cywilizacjach.
+      </p>
       <div className="w-full h-auto rounded-2xl flex justify-self-center max-w-7xl px-6 lg:px-0">
         <ul
           ref={sliderRef}
@@ -93,7 +93,7 @@ export const ArticleWidget: FC<NewsArticleWidgetProps> = ({ id }) => {
           ))}
         </ul>
       </div>
-    </>
+    </section>
   );
 };
 

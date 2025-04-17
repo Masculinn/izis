@@ -61,7 +61,7 @@ export default [
   },
   {
     id: 4,
-    title: "archeolog z wykształcenia i zamiłowania",
+    title: "Archeolog z wykształcenia i zamiłowania",
     coordinates: [23.1215161, 52.0329624],
     date: "05/09/2008",
     images: ["/assets/prasa/izis-archeolog-z-wyksztalcenia-i-zamilowania.webp"],
@@ -151,7 +151,7 @@ export default [
   },
   {
     id: 8,
-    title: "Miasto planuje odbudowę oranżerii.",
+    title: "Miasto planuje odbudowę oranżerii",
     type: "archaeological-supervision-earthworks",
     images: ["/assets/prasa/izis-miasto-planuje-odbudowe-oranzerii.webp"],
     coordinates: [23.114914554938686, 52.03131588910012],
@@ -168,7 +168,7 @@ export default [
       "Piwnice w parku Radziwiłła zostały odkryte w ubiegłym roku. W kwietniu zespół Mieczysława Bieni rozpoczął prace w odkrytych ruinach części pałacowych, w dokumentach zapisanych jako archiwum biblioteki, a przez badaczy uważanych za strefę relaksu właścicieli pałacu. Budynek powstał w połowie XVIII wieku, najprawdopodobniej za czasów Hieronima Floriana Radziwiłła. Został odkryty w związku z zaplanowaną w tym miejscu inwestycją związaną z odbudową pawilonu oranżerii. ",
       "– Dziś możemy zobaczyć jak wyglądają te mury. Liczymy na to, że te mury podkonserwowane będą widoczne wewnątrz pobudowanego tu budynku – mówił wiosną ubiegłego roku Mieczysław Bienia, szef działu archeologii w MPP w Białej Podlaskiej. ",
       "Zgodnie z wytycznymi dla projektantów, którzy będą tworzyć dokumentację oranżerii: „(…) należy opracować szczegółowy projekt aranżacji zabytkowych piwnic ze wskazaniem fragmentów do przemurowania, uzupełnienia rekonstrukcji. Należy utrzymać zachowaną, odsłoniętą w trakcie badań archeologicznych zabytkową strukturę murów. Spoiny do uzupełnień i przemurowań powinny być analogiczne (…) do zachowanych spoin historycznych, posadzka ceglana”.",
-      "      Zaprojektowany budynek ma być dostosowany do całorocznego użytkowania. Ma posiadać zaplecze socjalno-sanitarne dla pracowników pawilonu, toalety, pomieszczenia ekspozycyjne z wyposażeniem wystawienniczym i multimediami, pracownię ochrony zbiorów wraz z wyposażeniem, szatnię.",
+      "Zaprojektowany budynek ma być dostosowany do całorocznego użytkowania. Ma posiadać zaplecze socjalno-sanitarne dla pracowników pawilonu, toalety, pomieszczenia ekspozycyjne z wyposażeniem wystawienniczym i multimediami, pracownię ochrony zbiorów wraz z wyposażeniem, szatnię.",
       "Miasto określiło termin wykonania dokumentacji projektowej na 7 miesięcy od podpisania umowy z wyłonionym wykonawcą.",
       "Mieszkańcom udostępniono do oglądania eksponaty z wiosennych wykopalisk w ramach wystawy czasowej Bialskie Łazienki. - Pokazujemy kafle, ceramikę i fragment tynku z motywami róży. To były podobno girlandy zdobiące ściany, po raz pierwszy można zobaczyć jak to wyglądało, bo mamy taki fragment jednej róży zrobiony z kamyków i zdobiony muszelkami – mówił Bienia, gdy wystawę otwierano przy okazji Nocy Muzeów. ",
       "Odkopany pawilon służył rodzinie Radziwiłłów do relaksu, był wewnątrz bogato zdobiony, nie brakowało tu rzeźb i zdobień na ścianach. Udało się znaleźć fragmenty płytek pochodzących z Delft, z Niderlandów. – Są one bogato zdobione w sceny rodzajowe, ale też pokazujące rośliny, przedstawiają również Indian – opowiadał Mieczysław Bienia. Archeolodzy w trakcie prac odnaleźli części zdobiących wnętrza rzeźb wyobrażających ludzkie postacie.",

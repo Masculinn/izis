@@ -16,9 +16,7 @@ const Contact: FC = () => {
     <section className="py-24 h-auto w-full relative overflow-hidden items-center justify-center mx-auto max-w-7xl">
       <div className="w-full items-center justify-center flex lg:flex-row flex-col gap-4 lg:h-[500px] h-auto">
         <div className="lg:w-1/2 w-full lg:h-full h-auto lg:px-0 px-6 justify-center flex flex-col">
-          <h3 className="font-secondary lg:text-6xl text-4xl font-bold">
-            Contact
-          </h3>
+          <h3 className="font-secondary lg:text-6xl text-4xl ">Contact</h3>
           <p className="mt-2 tracking-tight">
             Officia quis aliquip eu esse commodo nisi proident aliqua irure esse
             eiusmod. Non ad et minim ipsum aliqua tempor est aliqua voluptate

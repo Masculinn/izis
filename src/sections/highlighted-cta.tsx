@@ -35,7 +35,7 @@ export default function HighlightedCta() {
             className="object-cover object-top rounded-2xl"
           />
         </div>
-        <div className="lg:w-1/2 w-full h-auto lg:h-3/4 rounded-2xl lg:p-6 px-4 lg:mb-0 justify-center flex flex-col mb-8">
+        <div className="lg:w-1/2 w-full h-auto lg:h-3/4 rounded-2xl lg:p-6  lg:mb-0 justify-center flex flex-col mb-8">
           <Badge intent="info" className="shrink-0 max-w-max">
             <span className="size-3  animate-pulse rounded-full bg-sky-500/50" />
             <MotionText
@@ -48,10 +48,9 @@ export default function HighlightedCta() {
                 duration: 0.15,
                 mode: "chars",
                 delayLogic: "linear",
-                space: 1,
+                space: 0.2,
               }}
               elementType={"span"}
-              className="-ml-[0.25px]"
             >
               Featured Post
             </MotionText>
@@ -59,14 +58,21 @@ export default function HighlightedCta() {
           <MotionText
             animation={{
               mode: ["fadeIn", "filterBlurIn"],
-              transition: "smooth",
-              duration: 0.5,
+              transition: "delayedSmooth",
+              duration: 1,
             }}
             elementType={"h2"}
             config={{
               mode: "words",
-              duration: 0.5,
-              delayLogic: "linear",
+              duration: 0.18,
+              delayLogic: "custom",
+              customLogic: (index) => index * 0.085,
+            }}
+            controller={{
+              configView: {
+                amount: "some",
+                once: false,
+              },
             }}
             wrapperClassName="font-secondary lg:text-7xl text-5xl font-bold"
           >

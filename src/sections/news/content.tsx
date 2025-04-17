@@ -51,10 +51,8 @@ const Content: FC<NewsCardProps> = (props) => {
             {title}
           </h1>
           <h3 className="font-secondary text-base font-bold tracking-tight capitalize">
-            źródło: {source} -{" "}
-            <span className="text-base font-normal font-secondary">
-              {date}{" "}
-            </span>
+            źródło: {source} - {date.split("/").join(".")}
+            <span className="text-base font-normal font-secondary"> </span>
           </h3>
           {content.map((val, idx) => (
             <p key={idx} className="tracking-tight py-4">

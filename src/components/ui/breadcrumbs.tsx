@@ -10,7 +10,7 @@ import {
   Breadcrumbs as BreadcrumbsPrimitive,
 } from "react-aria-components";
 import { twMerge } from "tailwind-merge";
-import { Link } from "./link";
+import Link from "next/link";
 import { composeTailwindRenderProps } from "./primitive";
 
 type BreadcrumbsContextProps = { separator?: "chevron" | "slash" | boolean };
@@ -58,7 +58,7 @@ const BreadcrumbsItem = ({
     >
       {({ isCurrent }) => (
         <>
-          <Link href={href} {...props} />
+          <Link href={href || "/"} />
           {!isCurrent && separator !== false && (
             <Separator separator={separatorValue} />
           )}
