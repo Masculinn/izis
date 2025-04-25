@@ -41,4 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 # assets 
-/public/assets/videos/hero-video.mp4
+public/assets/videos/hero-video.mp4
