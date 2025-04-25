@@ -19,14 +19,9 @@ const Mapbox: FC<MapboxProps> = (props) => {
     if (!mapContainerRef.current) return;
 
     const map = new mapboxgl.Map({
+      ...config,
       container: mapContainerRef.current,
       interactive: isMobile ? false : true,
-      center: config.center,
-      boxZoom: config.boxZoom,
-      minZoom: config.minZoom,
-      bearing: config.bearing,
-      pitch: config.pitch,
-      zoom: config.zoom,
     });
 
     mapRef.current = map;

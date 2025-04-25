@@ -64,7 +64,7 @@ const Hero: FC<MarkerObjProps> = (props) => {
         </div>
         <Mapbox
           config={{
-            bearing: 160,
+            bearing: 0,
             boxZoom: true,
             minZoom: 8,
             interactive: isMobile,

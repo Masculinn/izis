@@ -29,6 +29,7 @@ const Hero: FC<NewsHeroProps> = ({ source, subHeader, title }) => {
               mode: ["fadeUp", "filterBlurIn"],
               transition: "linear",
               duration: 0.5,
+              delay: 2,
             }}
             elementType={"p"}
             config={{

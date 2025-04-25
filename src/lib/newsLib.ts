@@ -3,7 +3,7 @@ import { NewsCardProps } from "@/interfaces";
 export default [
   {
     id: 1,
-    title: "Co kryje dolina Tyśmienicy",
+    title: "Co kryje dolina Tyśmienicy?",
     coordinates: [22.731593672017237, 51.656679094862625],
     date: "28/04/2008",
     subHeader:

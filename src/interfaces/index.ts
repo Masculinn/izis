@@ -189,13 +189,16 @@ export interface NewsCardProps {
   images: string[];
   content: string[];
 }
+
 export interface NewsMediaWidgetProps {
   images: string[];
   title: string;
 }
+
 export interface NewsMapsWidgetProps {
   mapbox: MapboxProps;
 }
+
 export interface NewsArticleWidgetProps {
   id: number;
 }

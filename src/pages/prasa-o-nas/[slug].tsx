@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui";
 import Hero from "@/sections/news/hero";
 import Content from "@/sections/news/content";
 import Contact from "@/sections/discoveries/contact";
-import { ArticleWidget } from "@/components/news/article-widget";
+import ArticleWidget from "@/components/news/article-widget";
 
 export const getStaticPaths = (async () => {
   const paths = newsLib.map((news) => ({
@@ -53,7 +53,7 @@ export default function Page({
     return <Skeleton className="size-full" />;
   }
 
-  const title = data.title.toString();
+  const title = data.title;
 
   return (
     <>
