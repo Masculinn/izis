@@ -203,6 +203,10 @@ export interface NewsArticleWidgetProps {
   id: number;
 }
 
+export interface VideoPlayerProps {
+  onClick: () => void;
+}
+
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
 //Utils

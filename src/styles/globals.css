@@ -339,3 +339,30 @@
 .custom-shape-divider-bottom-1742855471 .shape-fill {
   fill: #fff0dc;
 }
+
+.custom-shape-divider-bottom-1745672291 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1745672291 svg {
+  position: relative;
+  display: block;
+  width: calc(148% + 1.3px);
+  height: 214px;
+}
+
+.custom-shape-divider-bottom-1745672291 .shape-fill {
+  fill: #fff0dc;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .custom-shape-divider-bottom-1745672291 svg {
+    width: calc(100% + 1.3px);
+    height: 498px;
+  }
+}

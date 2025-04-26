@@ -1,10 +1,11 @@
 import { useMobile } from "@/hooks/use-mobile";
 import { useInView } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { Volume2, VolumeOff } from "lucide-react";
 import { Button } from "../ui";
+import { VideoPlayerProps } from "@/interfaces";
 
-export const VideoPlayer = () => {
+export const VideoPlayer: FC<VideoPlayerProps> = ({ onClick }) => {
   const isMobile = useMobile();
   const [isMuted, setIsMuted] = useState<boolean>(true);
 
@@ -28,6 +29,7 @@ export const VideoPlayer = () => {
     };
 
     video.addEventListener("canplaythrough", handlePlay);
+    video.addEventListener("pause", handlePlay);
 
     return () => {
       video.pause();
@@ -35,7 +37,10 @@ export const VideoPlayer = () => {
     };
   }, [inView, ref]);
 
-  const handlePress = () => setIsMuted((m) => !m);
+  const handlePress = () => {
+    setIsMuted((m) => !m);
+    onClick();
+  };
 
   return (
     <div className="absolute inset-0 size-full">
@@ -58,7 +63,7 @@ export const VideoPlayer = () => {
       <Button
         intent="plain"
         onPress={handlePress}
-        className="absolute md:bottom-8 md:right-8 bottom-24 right-6 hover:scale-105 text-white hover:text-secondary-fg rounded-full p-3 cursor-pointer z-50"
+        className="absolute md:bottom-16 md:right-12 bottom-28 right-6 hover:scale-105 text-white hover:text-secondary-fg rounded-full p-3 cursor-pointer z-50"
       >
         {!isMuted ? (
           <Volume2 className="md:size-8 size-7" />

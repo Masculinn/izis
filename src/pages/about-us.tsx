@@ -10,6 +10,7 @@ export default function AboutUs() {
         <meta name="description" content="Arche" />
       </Head>
       <Hero />
+      <div className="w-full h-screen mt-48 " />
     </>
   );
 }
