@@ -52,7 +52,7 @@ export const VideoPlayer = () => {
             : "/assets/videos/thumb-pc.webp"
         }
         preload="none"
-        data-src="/assets/videos/hero-video.mp4"
+        data-src="/assets/videos/banner-video.mp4"
         className="size-full object-cover top-0 left-0 z-10"
       />
       <Button
