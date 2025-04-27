@@ -7,35 +7,61 @@ import { VideoPlayerProps } from "@/interfaces";
 
 export const VideoPlayer: FC<VideoPlayerProps> = ({ onClick }) => {
   const isMobile = useMobile();
-  const [isMuted, setIsMuted] = useState<boolean>(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const ref = useRef<HTMLVideoElement | null>(null);
+  const ref = useRef<HTMLVideoElement>(null);
   const inView = useInView(ref, { once: false, amount: 0.5 });
 
   useEffect(() => {
     const video = ref.current;
+    if (!video || !inView) return;
 
-    if (!video) return;
-
-    if (inView && !video.src) {
+    if (!video.src) {
       video.src = video.dataset.src!;
       video.load();
     }
+  }, [inView]);
 
-    const handlePlay = () => {
-      if (inView) {
-        video.play();
-      }
-    };
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
 
-    video.addEventListener("canplaythrough", handlePlay);
-    video.addEventListener("pause", handlePlay);
+    if (inView) {
+      video
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          setIsPlaying(false);
+        });
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  }, [inView]);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+
+    const controller = new AbortController();
+
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+
+    video.addEventListener("playing", onPlay, {
+      signal: controller.signal,
+    });
+    video.addEventListener("pause", onPause, {
+      signal: controller.signal,
+    });
 
     return () => {
-      video.pause();
-      video.removeEventListener("canplaythrough", handlePlay);
+      controller.abort();
     };
-  }, [inView, ref]);
+  }, []);
 
   const handlePress = () => {
     setIsMuted((m) => !m);
@@ -47,7 +73,6 @@ export const VideoPlayer: FC<VideoPlayerProps> = ({ onClick }) => {
       <video
         loop
         playsInline
-        autoPlay
         controls={false}
         muted={isMuted}
         ref={ref}
@@ -65,10 +90,10 @@ export const VideoPlayer: FC<VideoPlayerProps> = ({ onClick }) => {
         onPress={handlePress}
         className="absolute md:bottom-16 md:right-12 bottom-28 right-6 hover:scale-105 text-white hover:text-secondary-fg rounded-full p-3 cursor-pointer z-50"
       >
-        {!isMuted ? (
-          <Volume2 className="md:size-8 size-7" />
-        ) : (
+        {isMuted ? (
           <VolumeOff className="md:size-8 size-7" />
+        ) : (
+          <Volume2 className="md:size-8 size-7" />
         )}
       </Button>
     </div>

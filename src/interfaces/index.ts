@@ -72,6 +72,13 @@ export interface LogoItemProps {
   href: string;
 }
 
+export interface CollobratorsItemProps {
+  title: string;
+  img: string;
+  href: string;
+  desc: string;
+}
+
 export interface MarkerProps {
   id: number;
   map: mapboxgl.Map;
