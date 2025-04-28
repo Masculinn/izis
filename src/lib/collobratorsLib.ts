@@ -11,7 +11,7 @@ export default [
     img: "/assets/logos/wydzial-archeologii-uw-logo.png",
     href: "https://www.archeologia.uw.edu.pl/",
     title: "Wydział Archeologii Uniwersytetu Warszawskiego",
-    desc: "Oferuje kształcenie na studiach licencjackich, magisterskich i doktoranckich z zakresu archeologii. Realizuje projekty badawcze w kraju i za granicą, wykorzystując nowoczesne metody geofizyki i dokumentacji. Kadra wydziału publikuje w renomowanych czasopismach i współpracuje z instytutami archeologicznymi na całym świecie.",
+    desc: "Oferuje kształcenie na studiach licencjackich, magisterskich i doktoranckich z zakresu archeologii. Realizuje projekty badawcze w kraju i za granicą, wykorzystując nowoczesne metody geofizyki i dokumentacji.",
   },
   {
     img: "/assets/logos/instytutu-archeologii-umcs-w-lublinie-logo.png",
@@ -35,6 +35,6 @@ export default [
     img: "/assets/logos/zakladu-geologii-i-geomorfologii-umcs-w-lublinie-logo.png",
     href: "https://www.umcs.pl/pl/katedra-geologii-gleboznawstwa-i-geoinformacji%2C18537.htm",
     title: "Zakład Geologii i Geomorfologii UMCS w Lublinie",
-    desc: "Zakład Geologii i Geomorfologii UMCS w Lublinie, działający w ramach Instytutu Nauk o Ziemi i Środowisku, prowadzi badania nad procesami kształtowania litosfery oraz analizami geomorfologicznymi regionu lubelskiego. Wyposażony w nowoczesną aparaturę geofizyczną, realizuje projekty dotyczące geologii strukturalnej, hydrogeologii i geoinformacji. Współpracuje z jednostkami krajowymi i międzynarodowymi, dostarczając ekspertyz dla inwestycji infrastrukturalnych oraz ochrony środowiska.",
+    desc: "Zakład Geologii i Geomorfologii UMCS w Lublinie, działający w ramach Instytutu Nauk o Ziemi i Środowisku, prowadzi badania nad procesami kształtowania litosfery oraz analizami geomorfologicznymi regionu lubelskiego.",
   },
 ] satisfies CollobratorsItemProps[];

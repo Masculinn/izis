@@ -214,6 +214,13 @@ export interface VideoPlayerProps {
   onClick: () => void;
 }
 
+export interface TeamCardProps {
+  id: number;
+  name: string;
+  title: string;
+  img: string;
+  desc: string;
+}
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
 //Utils

@@ -1,5 +1,5 @@
 import { MotionChainProps } from "./types";
-import { Children, FC, useMemo } from "react";
+import { Children, FC, Fragment, useMemo } from "react";
 import { calculateDelay } from "./utils/calculateDelay";
 import { cn } from "@/lib/utils";
 import {
@@ -69,7 +69,7 @@ const MotionChain: FC<MotionChainProps> = ({
   }
 
   return (
-    <>
+    <Fragment>
       {compute.map((animation, index) => (
         <MotionContainer
           key={index}
@@ -81,7 +81,7 @@ const MotionChain: FC<MotionChainProps> = ({
           {childItem[index]}
         </MotionContainer>
       ))}
-    </>
+    </Fragment>
   );
 };
 
