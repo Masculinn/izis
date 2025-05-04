@@ -7,8 +7,6 @@ import { secondaryFont } from "@/config/fonts";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MapboxModalFeatures } from "./mapbox-modal-features";
-import { MotionAnimationProps } from "../motion/types";
-import MotionText from "../motion/motion-text";
 import MotionContainer from "../motion/motion-container";
 
 const MapboxModal: FC<MapboxModalProps> = ({

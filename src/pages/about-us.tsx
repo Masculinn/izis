@@ -3,6 +3,8 @@ import logoLib from "@/lib/logoLib";
 import { About } from "@/sections/about-us/about";
 import { Collobrators } from "@/sections/about-us/collobrators";
 import Hero from "@/sections/about-us/hero";
+import { Map } from "@/sections/about-us/map";
+import { Services } from "@/sections/about-us/services";
 import { Team } from "@/sections/about-us/team";
 import Head from "next/head";
 import React from "react";
@@ -19,6 +21,8 @@ export default function AboutUs() {
       <About />
       <Collobrators />
       <Team />
+      <Map />
+      <Services />
     </>
   );
 }

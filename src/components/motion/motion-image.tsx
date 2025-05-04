@@ -158,7 +158,7 @@ const MotionImage: FC<MotionImageProps> = ({
               ...controller,
               trigger: motionFn
                 ? !!triggers[index]
-                : controller?.trigger ?? true,
+                : controller?.trigger ?? undefined,
             }}
             elementType="div"
             className={cn(className)}

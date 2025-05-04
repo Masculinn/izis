@@ -124,7 +124,7 @@ const Mapbox = () => {
                 intent="info"
                 className="lg:max-w-lg max-w-xs w-64 lg:w-80  scale-95 lg:scale-100 absolute z-[999] backdrop-blur-lg lg:right-6 lg:bottom-16 right-2 bottom-2"
               >
-                For details click on the marker
+                For details click on the marker{" "}
               </Note>
             </div>
           </section>

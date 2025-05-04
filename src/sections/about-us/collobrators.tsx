@@ -37,14 +37,13 @@ export const Collobrators = () => {
       >
         Współpracujemy z naukowcami
       </MotionText>
-      <p className="md:text-lg text-muted-fg text-md font-secondary font-semibold tracking-tight text-center md:max-w-3xl max-w-md  flex mx-auto">
+      <p className="md:text-lg text-muted-fg text-md font-secondary font-semibold tracking-tight text-center md:max-w-3xl max-w-md flex mx-auto">
         Łączymy siły z wiodącymi ośrodkami badawczymi z całej Polski – od
         archeologii po geologię – aby wspólnie realizować interdyscyplinarne
         projekty, pogłębiać wiedzę o przeszłości i chronić dziedzictwo
         kulturowe.
       </p>
-
-      <div className="flex flex-wrap  gap-4 mt-8 w-full items-center justify-center">
+      <div className="flex flex-wrap gap-4 mt-8 w-full items-center justify-center">
         <MotionChain
           elementType={"div"}
           config={{
@@ -53,7 +52,7 @@ export const Collobrators = () => {
             customLogic: !isMobile ? undefined : (index) => index * 0.25,
             delayLogic: "triangle",
           }}
-          className="w-full md:w-1/4 shrink-0 md:h-96 h-auto relative group"
+          className="w-full md:w-1/4 shrink-0 md:h-96 h-auto relative group md:hover:-translate-y-2 md:duration-200"
           animations={animations}
         >
           {collobratorsLib.map((item, idx) => (

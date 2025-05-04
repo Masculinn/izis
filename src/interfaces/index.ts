@@ -221,6 +221,10 @@ export interface TeamCardProps {
   img: string;
   desc: string;
 }
+
+export interface AboutServiceCardProps extends ServiceCardProps {
+  img: string;
+}
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
 //Utils
