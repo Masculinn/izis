@@ -15,18 +15,4 @@ export default [
     img: "/assets/team/avatar-2.svg",
     desc: "Na co dzień kieruje wyprawami archeologicznymi: nadzoruje prace wykopaliskowe, analizuje próbki gleby i osadów oraz prezentuje wyniki badań bezpośrednio na polu.",
   },
-  {
-    id: 3,
-    name: "Marta Wiśniewska",
-    title: "Badacz archeologiczny",
-    img: "/assets/team/avatar-3.svg",
-    desc: "Specjalistka od ceramiki neolitycznej. Prowadzi analizy stylistyczne zabytków oraz opracowuje raporty stratygraficzne.",
-  },
-  {
-    id: 4,
-    name: "dr hab. Jakub Lewandowski",
-    title: "Geoarcheolog",
-    img: "/assets/team/avatar-4.svg",
-    desc: "Bada procesy geologiczne wpływające na zachowanie stanowisk archeologicznych. Stosuje geofizykę i analizy sedymentologiczne.",
-  },
 ] as TeamCardProps[];

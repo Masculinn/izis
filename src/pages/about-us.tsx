@@ -8,6 +8,7 @@ import { Services } from "@/sections/about-us/services";
 import { Team } from "@/sections/about-us/team";
 import Head from "next/head";
 import React from "react";
+import Contact from "./contact";
 
 export default function AboutUs() {
   return (
