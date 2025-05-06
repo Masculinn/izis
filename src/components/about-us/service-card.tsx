@@ -11,7 +11,7 @@ export const ServiceCard: FC<AboutServiceCardProps> = (props) => {
   const checkSize = title.split(" ").length <= 5 ? "text-lg" : "text-md";
 
   return (
-    <div className="w-80 h-full rounded-2xl border-primary relative bg-black">
+    <div className="w-80 h-full rounded-2xl border-primary relative bg-black md:mx-0 mx-16">
       <div
         className="z-10 absolute top-0 left-0 size-full bg-cover bg-center bg-no-repeat rounded-lg"
         style={{ backgroundImage: `url(${img})` }}

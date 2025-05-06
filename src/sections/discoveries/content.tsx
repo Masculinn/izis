@@ -33,7 +33,7 @@ const Content: FC<DiscoverContentProps> = ({
         />
       </div>
       <div className="flex flex-row items-center gap-6 lg:justify-start justify-center">
-        <h3 className="font-secondary lg:text-6xl text-4xl font-bold">
+        <h3 className="font-secondary lg:text-6xl text-5xl font-bold">
           {name}
         </h3>
       </div>
@@ -41,7 +41,7 @@ const Content: FC<DiscoverContentProps> = ({
         <div className="flex items-center lg:gap-3 gap-2">
           <markerIcon.icon className="size-5" />
           <span>
-            {markerIcon.title} located at {formattedCoordinates}
+            {markerIcon.title} znajdujący się pod adresem {formattedCoordinates}
           </span>
         </div>
       </Note>

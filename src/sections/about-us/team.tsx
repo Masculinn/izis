@@ -11,7 +11,7 @@ const animations = teamLib.map((_, idx) => ({
 
 export const Team = () => {
   return (
-    <section className="max-w-7xl mx-auto relative h-auto md:px-0 px-8 md:mt-24 mt-8">
+    <section className="max-w-7xl mx-auto relative h-auto md:px-0 px-8 md:mt-24 mt-20">
       <h2 className="text-6xl md:text-7xl tracking-tighter font-secondary md:pb-8 pb-6 text-center">
         Nasz zespół
       </h2>
@@ -26,7 +26,7 @@ export const Team = () => {
         prace wykopaliskowe oraz sporządzić szczegółowe raporty i dokumentację
         fotograficzną.
       </p>
-      <div className="flex md:flex-row flex-col gap-4 md:h-96 h-auto  w-full">
+      <div className="flex md:flex-row flex-col gap-4 md:h-96 h-fit w-full">
         <MotionChain
           animations={animations}
           config={{

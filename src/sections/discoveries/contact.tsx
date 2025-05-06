@@ -2,9 +2,10 @@ import Mapbox from "@/components/mapbox/mapbox";
 import { Button, Card, Form, Textarea, TextField } from "@/components/ui";
 import { useMobile } from "@/hooks/use-mobile";
 import markerLib from "@/lib/markerLib";
+import { cn } from "@/lib/utils";
 import { FC } from "react";
 
-const Contact: FC = () => {
+const Contact: FC<{ className?: string }> = ({ className }) => {
   const isMobile = useMobile();
   const data = markerLib[0];
 
@@ -13,19 +14,24 @@ const Contact: FC = () => {
   };
 
   return (
-    <section className="py-24 h-auto w-full relative overflow-hidden items-center justify-center mx-auto max-w-7xl">
+    <section
+      className={cn(
+        "py-24 h-auto w-full relative overflow-hidden items-center justify-center mx-auto max-w-7xl",
+        className
+      )}
+    >
       <div className="w-full items-center justify-center flex lg:flex-row flex-col gap-4 lg:h-[500px] h-auto">
         <div className="lg:w-1/2 w-full lg:h-full h-auto lg:px-0 px-6 justify-center flex flex-col">
-          <h3 className="font-secondary lg:text-6xl text-4xl ">Contact</h3>
+          <h3 className="font-secondary lg:text-6xl text-4xl ">Kontakt</h3>
           <p className="mt-2 tracking-tight">
-            Officia quis aliquip eu esse commodo nisi proident aliqua irure esse
-            eiusmod. Non ad et minim ipsum aliqua tempor est aliqua voluptate
-            dolore officia. Aute ipsum proident tempor qui mollit irure duis et
-            ex ea mollit aliquip dolor consequat.
+            Masz pytania dotyczące naszych badań lub chciał{"(a)"}byś nawiązać
+            współpracę? Biuro znajduję się w Białej Podlaskiej, a nasze projekty
+            realizujemy na terenie całej Polski. Chętnie umówimy się na
+            spotkanie.
           </p>
-          <Form onSubmit={handleSubmit} className="mt-8">
+          <Form onSubmit={handleSubmit} className="mt-8 mx-1">
             <TextField
-              label="Name"
+              label="Imię"
               isRequired
               className="mb-2"
               inputMode="text"
@@ -36,9 +42,9 @@ const Contact: FC = () => {
               className="mb-2"
               inputMode="email"
             />
-            <Textarea label="Message" isRequired className="mb-2" />
+            <Textarea label="Wiadomość" isRequired className="mb-2" />
             <Button type="submit" intent="secondary" className="w-full">
-              Submit
+              Prześlij
             </Button>
           </Form>
         </div>

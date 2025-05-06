@@ -58,7 +58,7 @@ export default function Page({
         <title>{`IZIS | ${title}`}</title>
       </Head>
       <Hero {...markerData} />
-      <Gallery data={markerData.img} name={title} />
+      <Gallery data={markerData.img} />
       <Content
         name={markerData.name}
         type={markerData.type}

@@ -31,7 +31,6 @@ export interface DiscoverisHeroProps {
 
 export interface DiscoveriesGalleryProps {
   data: string[];
-  name: string;
 }
 
 export interface DiscoverContentProps {
@@ -46,10 +45,6 @@ export interface NewsHeroProps {
   subHeader: string;
   source: string;
 }
-
-/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
-
-//service
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
@@ -225,11 +220,30 @@ export interface TeamCardProps {
 export interface AboutServiceCardProps extends ServiceCardProps {
   img: string;
 }
+
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
 //Utils
 
 export type GetSplittedTextProps = string;
 export type GetSplittedTextOutputProps = string[];
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
+
+//Libs
+
+export interface ServiceProps {
+  id: MarkerServiceTypeProps;
+  title: string;
+  subHeader: string;
+  steps: ServiceItemProps[];
+}
+
+export interface ServiceItemProps {
+  title: string;
+  subHeader: string;
+  desc: string;
+  img: string;
+}
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/

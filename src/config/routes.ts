@@ -4,20 +4,20 @@ import newsLib from "@/lib/newsLib";
 export default [
   {
     src: "/about-us",
-    title: "About Us",
+    title: "O nas",
   },
 
   {
     src: "/discoveries",
-    title: "Discoveries",
+    title: "Odkrywane rzeczy",
   },
   {
     src: "/contact",
-    title: "Contact",
+    title: "Kontakt",
   },
   {
     src: "/services",
-    title: "Services",
+    title: "Nasze Usługi",
     items: [
       {
         desc: "Kompleksowe badania integrujące historię i badania terenowe.",
@@ -48,7 +48,7 @@ export default [
   },
   {
     src: "/izis-media-press",
-    title: "Izis Media Press",
+    title: "Prasa o nas",
     items: newsLib
       .filter((item) => item.id >= Math.floor(newsLib.length / 2))
       .map((val) => ({

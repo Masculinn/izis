@@ -49,10 +49,6 @@ export const getStaticProps = (async (context) => {
 export default function Page({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  if (!data) {
-    return <Skeleton className="size-full" />;
-  }
-
   const title = data.title;
 
   return (

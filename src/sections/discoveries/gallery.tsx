@@ -3,7 +3,7 @@ import { DiscoveriesGalleryProps } from "@/interfaces";
 import Image from "next/image";
 import { FC } from "react";
 
-const Gallery: FC<DiscoveriesGalleryProps> = ({ data, name }) => {
+const Gallery: FC<DiscoveriesGalleryProps> = ({ data }) => {
   if (data.length === 0) {
     console.warn("No gallery data found at /discoveries/gallery");
     return null;
@@ -11,7 +11,7 @@ const Gallery: FC<DiscoveriesGalleryProps> = ({ data, name }) => {
 
   return (
     <section className="lg:py-24 py-14 max-w-7xl mx-auto  justify-center flex flex-col lg:items-start items-center lg:gap-12 gap-8">
-      <h3 className="font-secondary lg:text-6xl text-4xl font-bold">Gallery</h3>
+      <h3 className="font-secondary lg:text-6xl text-4xl font-bold">Galeria</h3>
       <Carousel
         opts={{
           align: "center",

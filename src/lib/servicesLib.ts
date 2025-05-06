@@ -8,7 +8,7 @@ export default [
   {
     id: 1,
     title: "Szeroko zakrojone badania",
-    desc: "Kompleksowe badania archeologiczne łączące analizę historyczną i prace terenowe. Zapewnia pełny obraz dziedzictwa .",
+    desc: "Kompleksowe badania archeologiczne łączące analizę historyczną i prace terenowe. Zapewnia pełny obraz dziedzictwa.",
     href: "/services/broad-based-research",
     icon: GiArchiveResearch,
   },
@@ -22,14 +22,14 @@ export default [
   {
     id: 3,
     title: "Badania wykopaliskowe",
-    desc: "Prace wykopaliskowe prowadzone ekspresowo dla ratowania unikalnych artefaktów. Zapewniają szczegółową dokumentację wykopalisk    .",
+    desc: "Prace wykopaliskowe prowadzone ekspresowo dla ratowania unikalnych artefaktów. Zapewniają szczegółową dokumentację wykopalisk.",
     href: "/services/salvage-excavation-research",
     icon: SlMagnifier,
   },
   {
     id: 4,
     title: "Nadzór na miejscu podczas projektów robót ziemnych",
-    desc: "Nadzór archeologiczny prowadzony bezpośrednio podczas prac ziemnych, gwarantujący ochronę i rejestrację odkryć. Specjaliści monitorują prace koparkami, wykonują dokumentację, pobierają próbki i podejmują decyzje w terenie, zapewniając zgodność z przepisami konserwatorskimi. Wyniki trafiają niezwłocznie. ",
+    desc: "Nadzór archeologiczny prowadzony bezpośrednio podczas prac ziemnych, gwarantujący ochronę i rejestrację odkryć. Specjaliści monitorują prace koparkami, wykonują dokumentację, pobierają próbki i podejmują decyzje w terenie, zapewniając zgodność z przepisami konserwatorskimi. Wyniki trafiają niezwłocznie.",
     href: "/services/archaeological-supervision-earthworks",
     icon: FaEarthEurope,
   },

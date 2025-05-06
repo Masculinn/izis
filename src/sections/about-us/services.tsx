@@ -5,10 +5,10 @@ import { ServiceCard } from "@/components/about-us/service-card";
 import servicesMediaLib from "@/lib/services-media.lib";
 import MotionText from "@/components/motion/motion-text";
 
-const animations = servicesLib.map((_, idx) => ({
-  mode: [idx % 2 === 0 ? "slideUp" : "slideDown", "depthPush", "fadeIn"],
+const animations = servicesLib.map((_) => ({
+  mode: ["fadeIn", "filterBlurIn"],
   transition: "cubicBounce",
-  duration: 0.75,
+  duration: 1,
 })) as MotionAnimationProps[];
 
 export const Services = () => {
@@ -30,7 +30,6 @@ export const Services = () => {
       >
         Nasze usługi
       </MotionText>
-
       <p className="pb-6 lg:text-lg text-muted-fg text-md font-secondary font-semibold tracking-tight text-center md:max-w-5xl justify-self-center">
         Nasza firma z powodzeniem funkcjonuje na rynku usług archeologicznych
         nieprzerwanie od roku 2000. W ciągu tych ponad dwóch dekad
@@ -42,13 +41,12 @@ export const Services = () => {
         prace wykopaliskowe oraz sporządzić szczegółowe raporty i dokumentację
         fotograficzną.
       </p>
-      <div className="flex flex-row gap-4  h-auto w-full overflow-y-scroll scrollbar-hidden p-12">
+      <div className="flex flex-row lg:gap-4 md:h-auto h-fit w-full overflow-y-scroll scrollbar-hidden lg:p-12 px-0 mx-0">
         <MotionChain
           animations={animations}
           config={{
             duration: 0.33,
             delayLogic: "linear",
-            isDynamicallyQueued: true,
           }}
           elementType={"div"}
           className="size-full relative h-96"
