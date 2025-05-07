@@ -1,4 +1,5 @@
 import Mapbox from "@/components/mapbox/mapbox";
+import MotionContainer from "@/components/motion/motion-container";
 import { Button, Card, Form, Textarea, TextField } from "@/components/ui";
 import { useMobile } from "@/hooks/use-mobile";
 import markerLib from "@/lib/markerLib";
@@ -22,7 +23,17 @@ const Contact: FC<{ className?: string }> = ({ className }) => {
     >
       <div className="w-full items-center justify-center flex lg:flex-row flex-col gap-4 lg:h-[500px] h-auto">
         <div className="lg:w-1/2 w-full lg:h-full h-auto lg:px-0 px-6 justify-center flex flex-col">
-          <h3 className="font-secondary lg:text-6xl text-4xl ">Kontakt</h3>
+          <MotionContainer
+            animation={{
+              mode: ["filterBlurIn", "fadeUp"],
+              transition: "cubicBounce",
+              duration: 1.5,
+            }}
+            elementType={"h3"}
+            className="font-secondary lg:text-6xl text-4xl"
+          >
+            Kontakt
+          </MotionContainer>
           <p className="mt-2 tracking-tight">
             Masz pytania dotyczące naszych badań lub chciał{"(a)"}byś nawiązać
             współpracę? Biuro znajduję się w Białej Podlaskiej, a nasze projekty

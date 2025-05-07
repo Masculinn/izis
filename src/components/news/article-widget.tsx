@@ -8,13 +8,14 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import MotionText from "../motion/motion-text";
 import { Carousel } from "@/components/ui/carousel";
+import MotionContainer from "../motion/motion-container";
 
 const ArticleWidget: FC<NewsArticleWidgetProps> = ({ id }) => {
   const articles = newsLib.filter((val) => val.id !== id);
   const items = getDate(articles) as unknown as NewsCardProps[];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-0">
+    <section className="max-w-6xl mx-auto px-6 lg:px-0">
       <MotionText
         animation={{
           mode: ["fadeLeft", "filterBlurIn"],
@@ -62,7 +63,15 @@ const ArticleWidget: FC<NewsArticleWidgetProps> = ({ id }) => {
 };
 
 const Item: FC<NewsCardProps> = ({ images, subHeader, title, url }) => (
-  <div className="h-full w-auto rounded-2xl relative px-2 first:pl-0 last:pr-0 pointer-events-none selection:bg-transparent">
+  <MotionContainer
+    animation={{
+      mode: ["fadeIn", "filterBlurIn"],
+      transition: "smooth",
+      duration: 0.5,
+    }}
+    elementType={"div"}
+    className="h-full w-auto rounded-2xl relative px-2 first:pl-0 last:pr-0 pointer-events-none selection:bg-transparent"
+  >
     <div className="size-full overflow-hidden rounded-2xl relative">
       <Image
         src={images[0]}
@@ -73,30 +82,10 @@ const Item: FC<NewsCardProps> = ({ images, subHeader, title, url }) => (
       />
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black/50 to-transparent" />
       <div className="absolute bottom-0 left-0 p-6 text-white w-full h-auto ">
-        <MotionText
-          animation={{
-            mode: ["fadeRight", "filterBlurIn"],
-            transition: "slowSmooth",
-            duration: 0.5,
-          }}
-          config={{
-            mode: "chars",
-            duration: 0.18,
-            delayLogic: "custom",
-            space: 0.5,
-            customLogic: (index) => index * 0.085,
-          }}
-          elementType={"h3"}
-          controller={{
-            configView: {
-              amount: "some",
-              once: false,
-            },
-          }}
-          wrapperClassName="text-xl font-bold font-secondary tracking-tight md:max-w-4/5 "
-        >
+        <h3 className="text-xl font-bold font-secondary tracking-tight md:max-w-4/5">
           {title}
-        </MotionText>
+        </h3>
+
         <p className="text-sm opacity-80 line-clamp-2">{subHeader}</p>
         <Link href={url} prefetch>
           <Button intent="secondary" size="small" className="mt-4">
@@ -105,7 +94,7 @@ const Item: FC<NewsCardProps> = ({ images, subHeader, title, url }) => (
         </Link>
       </div>
     </div>
-  </div>
+  </MotionContainer>
 );
 
 export default ArticleWidget;
