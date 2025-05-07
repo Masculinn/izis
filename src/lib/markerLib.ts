@@ -37,10 +37,7 @@ export default [
     name: "Panieńszczyzna",
     desc: "Sunt exercitation dolor est irure cillum quis nostrud cillum aliqua consectetur. Laboris elit nostrud cillum consequat. Mollit elit do aliqua ex quis pariatur reprehenderit est non in. Nulla reprehenderit proident aliquip id incididunt deserunt sint nulla do qui pariatur cillum. Sint reprehenderit minim elit tempor nisi anim consectetur. Voluptate sint aliquip enim voluptate amet eu. Sint amet voluptate do irure culpa ex cillum deserunt fugiat.",
     type: "survey-and-verification-research",
-    img: [
-      "/assets/services/panienszczyzna.webp",
-      "/assets/services/panienszczyzna-2-izis.webp",
-    ],
+    img: ["/assets/services/panienszczyzna.webp"],
     duration: "1 hour",
     url: "/discoveries/panienszczyzna",
     coordinates: [22.4353, 51.3057],
