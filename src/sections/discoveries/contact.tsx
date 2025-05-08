@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components/contact-form";
 import Mapbox from "@/components/mapbox/mapbox";
 import MotionContainer from "@/components/motion/motion-container";
 import { Button, Card, Form, Textarea, TextField } from "@/components/ui";
@@ -9,10 +10,6 @@ import { FC } from "react";
 const Contact: FC<{ className?: string }> = ({ className }) => {
   const isMobile = useMobile();
   const data = markerLib[0];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
 
   return (
     <section
@@ -40,24 +37,7 @@ const Contact: FC<{ className?: string }> = ({ className }) => {
             realizujemy na terenie całej Polski. Chętnie umówimy się na
             spotkanie.
           </p>
-          <Form onSubmit={handleSubmit} className="mt-8 mx-1">
-            <TextField
-              label="Imię"
-              isRequired
-              className="mb-2"
-              inputMode="text"
-            />
-            <TextField
-              label="Email"
-              isRequired
-              className="mb-2"
-              inputMode="email"
-            />
-            <Textarea label="Wiadomość" isRequired className="mb-2" />
-            <Button type="submit" intent="secondary" className="w-full">
-              Prześlij
-            </Button>
-          </Form>
+          <ContactForm className="mt-8 mx-1" />
         </div>
         <div className=" lg:w-1/2 w-full lg:h-full h-[300px] p-8">
           <Card className="w-full h-full relative border-none">

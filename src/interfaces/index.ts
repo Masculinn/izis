@@ -3,7 +3,6 @@
 //imports
 
 import { IconType } from "react-icons";
-import { Dispatch } from "redux";
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
 
@@ -25,10 +24,6 @@ export interface RouteItemsProps {
 
 //sections
 
-export interface DiscoverisHeroProps {
-  data: MarkerObjProps;
-}
-
 export interface DiscoveriesGalleryProps {
   data: string[];
 }
@@ -44,17 +39,6 @@ export interface NewsHeroProps {
   title: string;
   subHeader: string;
   source: string;
-}
-
-/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
-
-// hooks
-
-export interface AddDiscoveredProps {
-  itemID: number;
-  action: () => void;
-  dispatch: Dispatch;
-  isMobile?: boolean;
 }
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/
@@ -246,4 +230,9 @@ export interface ServiceItemProps {
   img: string;
 }
 
+export interface ContactItemProps {
+  value: string;
+  icon: IconType;
+  href?: string;
+}
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*/

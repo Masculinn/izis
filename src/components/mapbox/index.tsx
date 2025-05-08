@@ -73,16 +73,17 @@ const Mapbox = () => {
               space: 1,
             }}
           >
-            Project Area Locations
+            Lokalizacje naszych badań
           </MotionText>
           <p className="font-primary text-normal tracking-tighter text-fg">
-            Culpa enim Lorem est mollit reprehenderit ut consectetur esse
-            incididunt. Labore aliquip elit labore culpa dolore magna proident.
-            Voluptate aliqua magna reprehenderit deserunt ut aliquip.
+            Odkryj miejsca naszych dotychczasowych projektów archeologicznych –
+            od badań profilaktycznych po ratownicze wykopaliska. Każdy znacznik
+            na mapie wskazuje obszar, gdzie działaliśmy, dokumentowaliśmy
+            znaleziska i chroniliśmy dziedzictwo.
           </p>
           <Link href="/discoveries">
             <Button intent="secondary" className="mt-6">
-              View All Locations <FaArrowRight className="size-3" />
+              Zobacz wszystkie lokalizacje <FaArrowRight className="size-3" />
             </Button>
           </Link>
 

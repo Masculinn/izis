@@ -31,7 +31,11 @@ const MOBILE_BREAKPOINT = 768,
   CAROUSEL_DELAY = 3000,
   MY_WEBSITE_LINK = "https://burakdev.com",
   MY_MOTION_PROVIDER = "https://burakdev.com/motion-provider";
+const ADDRESS = "Jatkowa 14, 21-500 Biała Podlaska";
 
+const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+  ADDRESS
+)}`;
 export {
   MOBILE_BREAKPOINT,
   MEDIAN_COORDINAT,
@@ -40,6 +44,8 @@ export {
   CAROUSEL_DELAY,
   MY_WEBSITE_LINK,
   MY_MOTION_PROVIDER,
+  DIRECTIONS_URL,
+  ADDRESS,
 };
 
 export function cn(...inputs: ClassValue[]) {

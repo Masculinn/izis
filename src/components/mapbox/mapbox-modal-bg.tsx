@@ -1,5 +1,4 @@
 import { DotPatternProps } from "@/interfaces";
-import { motion } from "motion/react";
 import React, { useEffect, useId, useRef, useState } from "react";
 
 /**
@@ -55,7 +54,6 @@ const MapboxModalBg = ({
   cy = 1,
   cr = 1,
   className,
-  glow = false,
   ...props
 }: DotPatternProps) => {
   const id = useId();
@@ -106,34 +104,14 @@ const MapboxModalBg = ({
           <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
         </radialGradient>
       </defs>
-      {dots.map((dot, index) => (
-        <motion.circle
+      {dots.map((dot) => (
+        <circle
           key={`${dot.x}-${dot.y}`}
           cx={dot.x}
           cy={dot.y}
           r={cr}
-          fill={glow ? `url(#${id}-gradient)` : "currentColor"}
+          fill={"currentColor"}
           className="text-neutral-400/80"
-          initial={glow ? { opacity: 0.4, scale: 1 } : {}}
-          animate={
-            glow
-              ? {
-                  opacity: [0.4, 1, 0.4],
-                  scale: [1, 1.5, 1],
-                }
-              : {}
-          }
-          transition={
-            glow
-              ? {
-                  duration: dot.duration,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  delay: dot.delay,
-                  ease: "easeInOut",
-                }
-              : {}
-          }
         />
       ))}
     </svg>
