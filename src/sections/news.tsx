@@ -1,12 +1,12 @@
 import MotionChain from "@/components/motion/motion-chain";
 import { MotionAnimationProps } from "@/components/motion/types";
 import { NewsCard } from "@/components/news/news-card";
-import { NewsCarousel } from "@/components/news/news-carousel";
+import NewsCarousel from "@/components/news/news-carousel";
 import newsLib from "@/lib/newsLib";
 
 const animations = newsLib
   .filter((val) => (val.id as number) <= 4)
-  .map(() => ({
+  .map((_) => ({
     mode: ["fadeLeft"],
     transition: "smooth",
     duration: 1,

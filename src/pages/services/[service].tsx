@@ -1,6 +1,5 @@
 import { HeroDivider } from "@/components/hero-divider";
 import ArticleWidget from "@/components/news/article-widget";
-import { NewsCarousel } from "@/components/news/news-carousel";
 import { ServiceProps } from "@/interfaces";
 import newsLib from "@/lib/newsLib";
 import servicesRootLib from "@/lib/services-root.lib";
@@ -9,7 +8,6 @@ import Hero from "@/sections/services/hero";
 import { Step } from "@/sections/services/step";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import { title } from "process";
 
 export const getStaticPaths = (async () => {
   const paths = servicesRootLib.map((val) => ({

@@ -1,7 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import { Carousel, type CarouselApi } from "@/components/ui/carousel";
+import { memo, useEffect, useRef, useState } from "react";
+import {
+  Carousel as CarouselComponent,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import { Button } from "react-aria-components";
-import { Badge, Button as ButtonPrimitive } from "../ui";
+import { Badge, Button as ButtonPrimitive, Skeleton } from "../ui";
 import { twJoin } from "tailwind-merge";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -11,8 +14,9 @@ import { NewsCardProps, ServiceCardProps } from "@/interfaces";
 import { CAROUSEL_DELAY } from "@/lib/utils";
 import getDate from "@/utils/getDate";
 import MotionText from "../motion/motion-text";
+import dynamic from "next/dynamic";
 
-export const NewsCarousel = () => {
+const Carousel = () => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -76,15 +80,15 @@ export const NewsCarousel = () => {
   const items = getDate(filteredItems) as unknown as NewsCardProps[];
 
   return (
-    <Carousel
+    <CarouselComponent
       setApi={setApi}
       onMouseEnter={handleInteractionStart}
       onMouseLeave={handleInteractionEnd}
       onTouchStart={handleInteractionStart}
       onTouchEnd={handleInteractionEnd}
-      className="h-full w-full  aspect-square flex justify-between flex-col lg:col-span-2 lg:row-span-2 relative bg-transparent"
+      className="size-full aspect-square flex justify-between flex-col lg:col-span-2 lg:row-span-2 relative bg-transparent"
     >
-      <Carousel.Content items={items}>
+      <CarouselComponent.Content items={items}>
         {({
           id,
           date,
@@ -100,7 +104,7 @@ export const NewsCarousel = () => {
           ) as ServiceCardProps;
 
           return (
-            <Carousel.Item id={id}>
+            <CarouselComponent.Item id={id}>
               <div className="rounded-lg w-full lg:h-11/12 min-h-min h-auto aspect-square relative justify-end items-center flex">
                 <div
                   className="absolute top-0 left-0 right-0 bottom-0 -z-10 inset-0 rounded-lg"
@@ -170,10 +174,10 @@ export const NewsCarousel = () => {
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
+            </CarouselComponent.Item>
           );
         }}
-      </Carousel.Content>
+      </CarouselComponent.Content>
       <div className="mt-4 flex items-center justify-between">
         <div className="flex gap-1 py-2 text-center text-muted-fg text-sm">
           {Array.from({ length: items.length }).map((_, index) => (
@@ -191,10 +195,17 @@ export const NewsCarousel = () => {
           ))}
         </div>
         <div className="space-x-2">
-          <Carousel.Button segment="previous" intent="secondary" />
-          <Carousel.Button segment="next" intent="secondary" />
+          <CarouselComponent.Button segment="previous" intent="secondary" />
+          <CarouselComponent.Button segment="next" intent="secondary" />
         </div>
       </div>
-    </Carousel>
+    </CarouselComponent>
   );
 };
+
+const NewsCarousel = dynamic(() => Promise.resolve(Carousel), {
+  ssr: false,
+  loading: () => <Skeleton soft className="size-full" />,
+});
+
+export default NewsCarousel;
