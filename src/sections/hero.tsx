@@ -2,16 +2,30 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import Link from "next/link";
+
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 import type { SlideItemProps } from "@/interfaces";
+import { SwiperSlide } from "swiper/react";
 
-import { Button } from "@/components/ui";
+import { Button, Skeleton } from "@/components/ui";
 import { ArrowUpRight } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
 import { HeroDivider } from "@/components/hero-divider";
-import Link from "next/link";
+
 import MotionText from "@/components/motion/motion-text";
+
+const Swiper = dynamic(() => import("swiper/react").then((m) => m.Swiper), {
+  ssr: false,
+  loading: () => (
+    <Skeleton
+      soft
+      className="w-full h-screen flex self-center justify-center z-20"
+    />
+  ),
+});
 
 const slides: SlideItemProps[] = [
   {
@@ -59,25 +73,30 @@ export default function Hero() {
           delay: 5000,
           waitForTransition: true,
         }}
+        lazyPreloadPrevNext={slides.length}
         speed={1000}
         modules={[EffectCoverflow, Autoplay]}
         className="w-full h-screen flex self-center justify-center z-20"
+        aria-label="izis hero section"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="w-[80%] h-[70vh]">
             <div className="relative w-full h-full overflow-hidden group">
-              <img
+              <Image
                 src={slide.url}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                fill
+                quality={75}
+                priority={slide.id === 1}
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent items-center justify-center flex">
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent grid place-items-center">
                 <div className="lg:justify-center flex flex-col  lg:px-0 px-8 lg:text-center">
                   <MotionText
                     animation={{
                       mode: ["fadeIn", "filterBlurIn"],
                       transition: "smooth",
-                      delay: 0.25,
+                      delay: 1,
                       duration: 1,
                     }}
                     config={{

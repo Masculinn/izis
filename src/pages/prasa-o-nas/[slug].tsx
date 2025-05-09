@@ -6,7 +6,6 @@ import type {
 
 import newsLib from "@/lib/newsLib";
 import Head from "next/head";
-import { Skeleton } from "@/components/ui";
 import Hero from "@/sections/news/hero";
 import Content from "@/sections/news/content";
 import Contact from "@/sections/discoveries/contact";

@@ -57,12 +57,12 @@ export default function Header() {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/">
                 <Image
-                  src={"/logo.png"}
+                  src="/logo.png"
                   priority
                   height={isScrolled ? 48 : 64}
                   width={isScrolled ? 80 : 100}
                   className="transition-all duration-200"
-                  alt="Izis Logo"
+                  alt="izis logo"
                 />
               </Link>
             </div>
@@ -79,6 +79,7 @@ export default function Header() {
                   {!item.items ? (
                     <Link href={item.src}>
                       <button
+                        aria-label="Navigate to page"
                         className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
                           !isScrolled
                             ? "text-white hover:text-secondary"
@@ -96,6 +97,7 @@ export default function Header() {
                     </Link>
                   ) : (
                     <button
+                      aria-label="Navigate to page"
                       className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
                         !isScrolled
                           ? "text-white hover:text-secondary"
@@ -156,6 +158,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
             <button
+              aria-label="Navigate to page"
               onClick={toggleMobileMenu}
               className={`
                 inline-flex 
@@ -189,6 +192,7 @@ export default function Header() {
                   {!item.items ? (
                     <Link href={item.src}>
                       <button
+                        aria-label="Navigate to page"
                         onClick={() =>
                           setActiveMenu(
                             activeMenu === item.title ? null : item.title
@@ -212,6 +216,7 @@ export default function Header() {
                     </Link>
                   ) : (
                     <button
+                      aria-label="Navigate to page"
                       onClick={() =>
                         setActiveMenu(
                           activeMenu === item.title ? null : item.title

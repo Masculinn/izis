@@ -60,7 +60,7 @@ const Mapbox = () => {
         <div className="lg:w-1/2 w-full h-auto  rounded-xl items-start p-8">
           <MotionText
             elementType={"h2"}
-            wrapperClassName="font-secondary lg:text-6xl text-4xl font-bold pb-6"
+            wrapperClassName="font-secondary lg:text-6xl text-4xl font-bold pb-6 text-start"
             animation={{
               mode: ["fadeUp", "filterBlurIn"],
               transition: "linear",
@@ -90,7 +90,7 @@ const Mapbox = () => {
           <section className="max-w-7xl items-center justify-center mx-auto flex lg:pt-6">
             <div className="lg:pt-4 pt-12 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)] ">
               {Array.from({ length: 2 }).map((_, idx) => (
-                <ul
+                <div
                   key={idx}
                   className="flex items-center justify-center text-center  md:justify-start mx-4 max-w-none animate-infinite-scroll"
                 >
@@ -103,7 +103,7 @@ const Mapbox = () => {
                       {val.name}
                     </Badge>
                   ))}
-                </ul>
+                </div>
               ))}
             </div>
           </section>

@@ -227,3 +227,5 @@ export default [
     url: "/prasa-o-nas/rabusie-artefaktow",
   },
 ] satisfies NewsCardProps[];
+
+// https://www.slowopodlasia.pl/artykul/6080,biala-podlaska-odnaleziono-fundamenty-bramy-koszarskiej-galeria

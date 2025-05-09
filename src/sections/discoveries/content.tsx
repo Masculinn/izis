@@ -1,6 +1,5 @@
 import MapboxModalBg from "@/components/mapbox/mapbox-modal-bg";
 import { Note } from "@/components/ui";
-import { useMobile } from "@/hooks/use-mobile";
 import { DiscoverContentProps, ServiceCardProps } from "@/interfaces";
 import servicesLib from "@/lib/servicesLib";
 import formatCoordinate from "@/utils/formatCoordinate";

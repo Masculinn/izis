@@ -1,16 +1,16 @@
+import "mapbox-gl/dist/mapbox-gl.css";
+
 import { useMobile } from "@/hooks/use-mobile";
 import { LogoItemProps, MarkerObjProps } from "@/interfaces";
 import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 
-import "mapbox-gl/dist/mapbox-gl.css";
 import getMedianCoordinate from "@/utils/getMedianCoordinate";
 import markerLib from "@/lib/markerLib";
 import { Note, Skeleton } from "@/components/ui";
 import Marker from "@/components/mapbox/marker";
 import MapboxModal from "@/components/mapbox/mapbox-modal";
-import LogoMarquee from "@/components/logo-marquee";
 import newsLib from "@/lib/newsLib";
 import MotionContainer from "@/components/motion/motion-container";
 import MotionText from "@/components/motion/motion-text";
@@ -119,7 +119,7 @@ export const Map = () => {
                       className="flex items-center justify-center md:justify-start sm:[&_li]:mx-8 [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll gap-8 rotate-12"
                     >
                       {items1.map((val, i) => (
-                        <div
+                        <li
                           className="size-48 bg-accent-fg rounded-xl opacity-50"
                           key={i}
                         >
@@ -129,7 +129,7 @@ export const Map = () => {
                               backgroundImage: `url(${val.src})`,
                             }}
                           />
-                        </div>
+                        </li>
                       ))}
                     </ul>
                   ))}
