@@ -6,6 +6,7 @@ import MotionContainer from "@/components/motion/motion-container";
 import MotionText from "@/components/motion/motion-text";
 import { Button } from "@/components/ui";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
   const { control, onReverse } = useAnimationControl();
@@ -75,13 +76,15 @@ const Hero = () => {
             className="relative md:self-center self-start mt-2 md:mt-0"
             controller={controller}
           >
-            <Button
-              intent="primary"
-              size="large"
-              className={"md:text-base text-sm"}
-            >
-              Eksploruj odkryte obszary <ArrowRight className="size-5" />
-            </Button>
+            <Link href="/discoveries">
+              <Button
+                intent="primary"
+                size="large"
+                className={"md:text-base text-sm"}
+              >
+                Eksploruj odkryte obszary <ArrowRight className="size-5" />
+              </Button>
+            </Link>
           </MotionContainer>
         </div>
       </div>

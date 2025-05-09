@@ -34,29 +34,13 @@ const nextConfig: NextConfig = {
         {
           key: "Content-Security-Policy",
           value: [
-            // base
             `default-src 'self'`,
-
-            // scripts: allow inline (if you need it), blob workers, and your CDN
             `script-src 'self' 'unsafe-inline' blob:`,
-
-            // allow spinning up Web Workers from blob URLs
             `worker-src 'self' blob:`,
-
-            // images
             `img-src 'self' data: https://images.unsplash.com`,
-
-            // fonts: your hosted fonts + data URIs
             `font-src 'self' data:`,
-
-            // styles: (you needed unsafe-inline for Tailwind <style> injections)
             `style-src 'self' 'unsafe-inline'`,
-
-            // XHR / fetch / websockets:
-            //    - your own API (“self”)
-            //    - Mapbox’s tile & style endpoints
-            //    - analytics or other 3rd-party domains (add as needed)
-            `connect-src 'self' https://api.mapbox.com https://events.mapbox.com https://*.tiles.mapbox.com`,
+            `connect-src 'self' https://*.mapbox.com https://*.tiles.mapbox.com https://cdnjs.cloudflare.com`,
           ].join("; "),
         },
       ],
