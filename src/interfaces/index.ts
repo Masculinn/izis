@@ -87,8 +87,9 @@ export interface SlideItemProps {
   id: number;
   title: string;
   desc: string;
-  url: string;
-  link: string;
+  img: string;
+  href: string;
+  btnText: string;
 }
 
 export interface ServiceCardProps {

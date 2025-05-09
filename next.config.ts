@@ -17,20 +17,13 @@ const nextConfig: NextConfig = {
     {
       source: "/:path*",
       headers: [
-        // clickjacking imp.
         { key: "X-Frame-Options", value: "DENY" },
-
-        // HSTS
         {
           key: "Strict-Transport-Security",
           value: "max-age=63072000; includeSubDomains; preload",
         },
-
-        // origin isolation
         { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
         { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
-
-        // CSP
         {
           key: "Content-Security-Policy",
           value: [
