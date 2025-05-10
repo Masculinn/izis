@@ -36,7 +36,7 @@ export const TeamCard: FC<TeamCardProps> = (props) => {
             delayLogic: "bounce",
           }}
           fallback={<Skeleton className="md:size-24 size-20 rounded-full" />}
-          wrapperClassName="md:size-24 size-20"
+          wrapperClassName="md:size-24 size-20 rounded-full"
           controller={{
             configView: {
               once: false,

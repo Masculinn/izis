@@ -7,7 +7,7 @@ import {
   ServiceCardProps,
 } from "@/interfaces";
 import servicesLib from "@/lib/servicesLib";
-import { FC, useRef } from "react";
+import React, { FC, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useInView } from "motion/react";
 
@@ -37,7 +37,6 @@ const Content: FC<NewsCardProps> = (props) => {
   ) as ServiceCardProps;
 
   const mapboxConfig = {
-    bearing: 160,
     boxZoom: true,
     minZoom: 8,
     interactive: isMobile,
@@ -45,6 +44,7 @@ const Content: FC<NewsCardProps> = (props) => {
     zoom: 8,
     pitch: 120,
   } as MapboxConfigProps;
+
   return (
     <>
       <section className="max-w-7xl mx-auto flex items-start justify-center flex-row gap-4 py-12">
@@ -59,11 +59,48 @@ const Content: FC<NewsCardProps> = (props) => {
             źródło: {source} - {date.split("/").join(".")}
             <span className="text-base font-normal font-secondary"> </span>
           </h3>
-          {content.map((val, idx) => (
-            <p key={idx} className="tracking-tight py-4">
-              {val}
-            </p>
-          ))}
+          {content.map((val, idx) => {
+            if (idx === 1 && isMobile) {
+              return (
+                <React.Fragment key={idx}>
+                  <MediaWidget images={images} title={title} />
+
+                  <p key={idx} className="tracking-tight py-4">
+                    {val}
+                  </p>
+                </React.Fragment>
+              );
+            }
+            if (idx === content.length - 1 && isMobile) {
+              return (
+                <React.Fragment key={idx}>
+                  <div className="size-full rounded-2xl relative" ref={ref}>
+                    {inView ? (
+                      <MapsWidget
+                        mapbox={{
+                          config: mapboxConfig,
+                          id: id,
+                          isMarked: true,
+                          isMobile,
+                          mapContainerStyle: "size-full rounded-2xl",
+                        }}
+                      />
+                    ) : (
+                      <Skeleton className="size-full flex items-center justify-center" />
+                    )}
+                  </div>
+                  <p key={idx} className="tracking-tight py-4">
+                    {val}
+                  </p>
+                </React.Fragment>
+              );
+            }
+            return (
+              <p key={idx} className="tracking-tight py-4">
+                {val}
+              </p>
+            );
+          })}
         </div>
         {!isMobile && (
           <div className="h-screen w-1/3 sticky pt-12 flex flex-col gap-8 top-12">

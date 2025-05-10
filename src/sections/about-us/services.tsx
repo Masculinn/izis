@@ -31,15 +31,13 @@ export const Services = () => {
         Nasze usługi
       </MotionText>
       <p className="pb-6 lg:text-lg text-muted-fg text-md font-secondary font-semibold tracking-tight text-center md:max-w-5xl justify-self-center">
-        Nasza firma z powodzeniem funkcjonuje na rynku usług archeologicznych
-        nieprzerwanie od roku 2000. W ciągu tych ponad dwóch dekad
-        zgromadziliśmy bogate doświadczenie w realizacji zarówno niewielkich,
-        lokalnych projektów, jak i skomplikowanych badań terenowych o zasięgu
-        oglemnokrajowym. Dzięki wykwalifikowanemu zespołowi specjalistów – w
-        składźródytutów – jesteśmy w stanie kompleksowo zabezpieczyć każde
-        stanowisko archeologiczne, wykonać pomiary geofizyczne, przeprowadzić
-        prace wykopaliskowe oraz sporządzić szczegółowe raporty i dokumentację
-        fotograficzną.
+        W naszej codziennej pracy koncentrujemy się na dostarczaniu
+        kompleksowych usług archeologicznych dostosowanych do indywidualnych
+        potrzeb inwestycji i wymogów formalnych. Oferujemy pełne wsparcie na
+        każdym etapie procesu — od badań wstępnych po nadzór i dokumentację
+        końcową. Nasze doświadczenie, zdobywane przez ponad dwie dekady
+        działalności, pozwala nam działać sprawnie i odpowiedzialnie w różnych
+        warunkach terenowych.
       </p>
       <div className="flex flex-row lg:gap-4 md:h-auto h-fit w-full overflow-y-scroll scrollbar-hidden lg:p-12 px-0 mx-0">
         <MotionChain

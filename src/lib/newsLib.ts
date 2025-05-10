@@ -226,6 +226,26 @@ export default [
     ],
     url: "/prasa-o-nas/rabusie-artefaktow",
   },
+  {
+    id: 11,
+    title: "Odnaleziono fundamenty bramy koszarskiej",
+    coordinates: [23.144503, 52.038713],
+    date: "10/04/2019",
+    images: [
+      "/assets/prasa/izis-odnaleziono-fundamenty-bramy-koszarskiej.webp",
+    ],
+    source: "Słowo Podlasia",
+    subHeader:
+      "W Parku Radziwiłłowskim odkryto fundamenty bramy koszarskiej z przełomu XVII i XVIII wieku, a także piwnice budynku z ok.",
+    url: "/prasa-o-nas/odnaleziono-fundamenty-bramy-koszarskiej",
+    type: "salvage-excavation-research",
+    content: [
+      "W Parku Radziwiłłowskim odkryto fundamenty bramy koszarskiej z przełomu XVII i XVIII wieku, a także piwnice budynku z ok. XIX w. Obydwie konstrukcje zostaną włączone w plan rewitalizacji i będzie można je oglądać, również po jej zakończeniu.",
+      "Znalezisko to elementy bramy bocznej, którą wjeżdżało się na dziedziniec. Prowadziła na teren koszar wojskowych, stąd jej nazwa - brama koszarska. Uznawano ją za drugą pod względem ważność, gdyż łączyła zamek z częścią zewnętrzną. Prawdopodobnie nią dojeżdżano do stajni, które znajdowały się w okolicach ul. Reymonta. – Znaleźliśmy pozostałości murów pomiędzy elementami wałów oraz resztki bruku, po którym poruszano się w czasach radziwiłłowskich. Była to raczej część gospodarcza – wyjaśnia archeolog Mieczysław Bienia. I dodaje, iż prowadząc prace wykopaliskowe spodziewano się odnalezienia tego obiektu, gdyż jest on udokumentowany w starych inwentarzach. Badacz przyznaje, że znacznie lepiej wygląda strona południowa niż północna, która jest bardziej zniszczona.",
+      "Zauważa też, że kiedy staniemy naprzeciw bramy koszarskiej widzimy budynek, gdzie się mieści m.in. NFZ, jednak pierwotnie w tym miejscu była wolna przestrzeń, którą można było dojechać do bramy głównej.",
+      "Ostatnio badacze trafili też na część konstrukcji, która może okazać się wzmocnieniem mostu. Jak wyjaśnia Mieczysław Bienia, niedługo powinny zostać odkopane elementy drewniane, gdyż do wału prowadziła, już znaleziona, część murowana, a dalej nad fosą biegł most na dużych palach.  – Czekam z niecierpliwością na odkrycie drewnianych fragmentów, gdyż wtedy przekażemy próbki do badań, na podstawie których będziemy mogli dokładnie określić datę wybudowania bramy bądź powstania wałów – tłumaczy archeolog.  Wyjaśnia też, że od momentu ścięcia drewna, do jego wykorzystania do budowy, mogło minąć najwyżej dwa, trzy lata. Zaznacza też, że wały jakie teraz oglądamy powstały w latach 50 i 60, wówczas wyrzucano w tym miejscu ziemię i śmieci. Natomiast wały radziwiłłowskie zostały zniszczone znacznie wcześniej i nie przetrwały do dziś.",
+    ],
+  },
 ] satisfies NewsCardProps[];
 
 // https://www.slowopodlasia.pl/artykul/6080,biala-podlaska-odnaleziono-fundamenty-bramy-koszarskiej-galeria

@@ -33,7 +33,7 @@ const Hero: FC<NewsHeroProps> = ({ source, subHeader, title }) => {
             }}
             elementType={"p"}
             config={{
-              duration: 0.25,
+              duration: 0.12,
               delayLogic: "linear",
               space: 1,
               mode: "words",

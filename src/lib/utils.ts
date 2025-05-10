@@ -27,7 +27,7 @@ const MOBILE_BREAKPOINT = 768,
       WebkitMaskSize: "contain",
     },
   },
-  PROHIBITED_FOOTER_URL = "/discoveries",
+  PROHIBITED_FOOTER_URL = ["/discoveries", "/contact"],
   CAROUSEL_DELAY = 3000,
   MY_WEBSITE_LINK = "https://burakdev.com",
   MY_MOTION_PROVIDER = "https://burakdev.com/motion-provider";

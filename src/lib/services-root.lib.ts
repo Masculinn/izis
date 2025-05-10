@@ -6,6 +6,7 @@ export default [
     title: "Szeroko zakrojone badania",
     subHeader:
       "Kompleksowe połączenie badań archiwalnych, geofizycznych i prac terenowych, dające pełny obraz dziedzictwa.",
+    desc: "Badania szerokopłaszczyznowe - obecnie jest to jedna z najpopularniejszych metod wykopaliskowych. Tego typu badania ukierunkowane są na przebadanie i pieczołowite zadokumentowanie obszarów osiągających niejednokrotnie kilkanaście hektarów. Ze względu na wysokie koszty taka skala wykopaliska ma miejsce z reguły przy budowie tras autostrad lub innych dróg. Ten rodzaj prospekcji archeologicznej daje unikalną możliwość odsłonięcia całego stanowiska, co w konsekwencji prowadzi do uzyskania pełnego obrazu relacji przestrzennych, stratygraficznych oraz chronologicznych panujących na badanym terenie.",
     steps: [
       {
         title: "Planowanie projektu",
@@ -38,6 +39,7 @@ export default [
     title: "Profilaktyczne badania archeologiczne",
     subHeader:
       "Wcześne rozpoznanie terenu przed inwestycją, by chronić dziedzictwo kulturowe i uniknąć opóźnień.",
+    desc: "Prowadzenie robót budowlanych na obszarze wpisanym do rejestru zabytków, wymaga, (zgodnie z art. 39 ust. 1 ustawy z dnia 7 lipca 1994 r. Prawo budowlane, Dz. U. z 1994 r. Nr 89, poz. 414 z późniejszymi zmianami), przed wydaniem decyzji o pozwoleniu na budowę, uzyskania pozwolenia na prowadzenie tych robót, wydanego przez wojewódzkiego konserwatora zabytków. Przeprowadzenie badań wyprzedzających może być jednym z obowiązków nałożonych przez Wojewódzkiego Konserwatora Zabytków. Wykopaliska wyprzedzające są formą wykopalisk ratowniczych przeprowadzanych są ze znacznym wyprzedzeniem czasowym w stosunku do planowanego zniszczenia stanowiska na przykład w wyniku inwestycji. Tak jak pozostałe zwykłe metody wykopaliskowe badania ograniczają się z reguły do 10 arów powierzchni, w postaci rozproszonych wykopów testujących, odwiertów i in.",
     steps: [
       {
         title: "Inwentaryzacja wstępna",
@@ -70,6 +72,7 @@ export default [
     title: "Badania wykopaliskowe",
     subHeader:
       "Ratunkowe prace wykopaliskowe realizowane w ekspresowym trybie, by ocalić unikalne zabytki.",
+    desc: "Badania ratownicze - tego typu prospekcja archeologiczna przeważnie podejmowana jest na zagrożonych stanowiskach archeologicznych. Najczęściej związane są one z niewielkimi inwestycjami budowlanymi oraz z pracami ziemnymi mogącymi doprowadzić do utraty źródeł archeologicznych. Nieodwracalne zniszczenia mogą być również spowodowane intensywną gospodarką rolniczą bądź czynnikami naturalnymi. Celem badań ratowniczych jest błyskawiczne i dokładne przebadanie oraz zadokumentowanie zagrożonego stanowiska",
     steps: [
       {
         title: "Przygotowanie terenu",
@@ -102,6 +105,7 @@ export default [
     title: "Nadzór na miejscu podczas projektów robót ziemnych",
     subHeader:
       "Całodobowy nadzór archeologiczny przy pracach budowlanych i ziemnych – bezpieczeństwo dziedzictwa gwarantowane.",
+    desc: "Nadzór archeologiczny - wymagany jest podczas inwestycji budowlanych i prac ziemnych mogących doprowadzić do zniszczenia obiektów archeologicznych wpisanych do narodowego rejestru zabytków. Celem nadzoru archeologicznego jest wykrycie, zadokumentowanie a co najważniejsze zabezpieczenie zabytków archeologicznych. Nadzór archeologiczny jest nakładany przez Konserwatora Zabytków i wynika z polskiego prawodawstwa.",
     steps: [
       {
         title: "Stały nadzór terenowy",
@@ -134,6 +138,7 @@ export default [
     title: "Zaawansowane badania w celu weryfikacji ustaleń",
     subHeader:
       "Precyzyjne analizy geodezyjne, sedimentologiczne i laboratoryjne dla potwierdzenia wyników wcześniejszych badań.",
+    desc: "Badania sondażowe - są to prace archeologiczne polegające na eksploracji nieznacznej części stanowiska za pomocą niewielkich wykopów lub odwiertów. Prowadzone są one w celu potwierdzenia istnienia stanowiska archeologicznego, określenia jego charakteru oraz zasięgu. Wyniki badań sondażowych wymagają weryfikacji przez badania szerokopłaszczyznowe.",
     steps: [
       {
         title: "Pomiary geodezyjne",

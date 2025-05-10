@@ -19,11 +19,12 @@ export default function News() {
         <div className="flex flex-col gap-10">
           <div className="flex gap-2 flex-col">
             <h2 className="text-5xl md:text-6xl tracking-tighter max-w-xl font-secondary text-left">
-              IZIS MEDIA PRESS
+              Prasa o nas
             </h2>
             <p className="text-lg max-w-xl lg:max-w-lg  tracking-tighter text-muted-foreground  text-left">
-              In the tapestry of solitude, every shadow speaks of a time when
-              hope and heartbreak danced as one.
+              Jako firma działająca aktywnie w przestrzeni naukowej i
+              inwestycyjnej, regularnie pojawiamy się w mediach lokalnych i
+              ogólnopolskich.
             </p>
           </div>
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid  lg:grid-cols-3 xl:grid-cols-4 gap-8 text-white">

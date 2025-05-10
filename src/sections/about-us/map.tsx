@@ -51,7 +51,6 @@ export const Map = () => {
       center: align as [number, number],
       minZoom: 2,
       zoom: 6,
-      bearing: 120,
       pitch: 90,
     });
 

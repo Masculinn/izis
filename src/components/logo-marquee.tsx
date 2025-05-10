@@ -30,15 +30,16 @@ const LogoItem: FC<LogoItemProps> = ({ href, src, alt }) => (
       rel="noreferrer noopener"
       referrerPolicy="origin-when-cross-origin"
     >
-      <Image
-        src={src}
-        alt={alt}
-        width={150}
-        height={100}
-        loading="lazy"
-        decoding="async"
-        className="h-auto"
-      />
+      <div className="w-[150px] h-[100px] relative">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </Link>
   </li>
 );

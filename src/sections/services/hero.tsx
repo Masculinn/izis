@@ -3,7 +3,11 @@ import { FC } from "react";
 import servicesLib from "@/lib/servicesLib";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
-const Hero: FC<Omit<ServiceProps, "steps">> = ({ id, subHeader, title }) => {
+const Hero: FC<Omit<ServiceProps, "steps" | "desc">> = ({
+  id,
+  subHeader,
+  title,
+}) => {
   const item = servicesLib.find((val) => val.href.includes(id))!;
 
   return (

@@ -16,32 +16,34 @@ export const Team = () => {
         Nasz zespół
       </h2>
       <p className="pb-6 lg:text-lg text-muted-fg text-md font-secondary font-semibold tracking-tight text-center justify-self-center md:max-w-5xl">
-        Nasza firma z powodzeniem funkcjonuje na rynku usług archeologicznych
-        nieprzerwanie od roku 2000. W ciągu tych ponad dwóch dekad
-        zgromadziliśmy bogate doświadczenie w realizacji zarówno niewielkich,
-        lokalnych projektów, jak i skomplikowanych badań terenowych o zasięgu
-        oglemnokrajowym. Dzięki wykwalifikowanemu zespołowi specjalistów – w
-        składźródytutów – jesteśmy w stanie kompleksowo zabezpieczyć każde
-        stanowisko archeologiczne, wykonać pomiary geofizyczne, przeprowadzić
-        prace wykopaliskowe oraz sporządzić szczegółowe raporty i dokumentację
-        fotograficzną.
+        Nasz zespół tworzą doświadczeni specjaliści, a fundamentem naszej
+        działalności są założyciele – Małgorzata i Mieczysław Bienia. Od ponad
+        dwóch dekad wspólnie budujemy jakość i wiarygodność naszych usług
+        archeologicznych. Małgorzata odpowiada za finanse, administrację oraz
+        współpracę z partnerami projektów, zapewniając przejrzystość i
+        efektywność działań operacyjnych. Mieczysław, jako główny archeolog,
+        kieruje badaniami terenowymi i analizami specjalistycznymi, osobiście
+        nadzorując przebieg prac wykopaliskowych. Dzięki ich zaangażowaniu i
+        wiedzy możemy realizować nawet najbardziej wymagające projekty.
       </p>
-      <div className="flex md:flex-row flex-col gap-4 md:h-96 h-fit w-full">
-        <MotionChain
-          animations={animations}
-          config={{
-            duration: 0.33,
-            delayLogic: "linear",
-            isDynamicallyQueued: true,
-          }}
-          elementType={"div"}
-          className="size-full relative"
-        >
-          {teamLib.map((val, idx) => (
-            <TeamCard {...val} key={idx} />
-          ))}
-        </MotionChain>
-      </div>
+      <center>
+        <div className="flex md:flex-row flex-col gap-4 md:h-96 h-fit w-full md:max-w-3/4">
+          <MotionChain
+            animations={animations}
+            config={{
+              duration: 0.33,
+              delayLogic: "linear",
+              isDynamicallyQueued: true,
+            }}
+            elementType={"div"}
+            className="size-full relative"
+          >
+            {teamLib.map((val, idx) => (
+              <TeamCard {...val} key={idx} />
+            ))}
+          </MotionChain>
+        </div>
+      </center>
     </section>
   );
 };

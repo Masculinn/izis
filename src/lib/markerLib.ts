@@ -13,17 +13,6 @@ export default [
   },
   {
     id: 2,
-    name: "Biała Park",
-    desc: "Mollit velit incididunt non velit deserunt sunt dolore anim minim. Et ea sunt eu est laborum elit laborum. Elit in eiusmod sunt culpa aute duis est reprehenderit ut ea occaecat. Esse fugiat exercitation proident aute dolore ea ea.",
-    type: "archaeological-supervision-earthworks",
-    img: ["/assets/services/miedzyrzec-podlaski-izis.webp"],
-    duration: "2 hours",
-    url: "/",
-    coordinates: [23.125, 52.035],
-  },
-
-  {
-    id: 3,
     name: "Tuliłów",
     desc: "Sit irure Lorem deserunt minim officia proident deserunt ut. Quis officia nostrud ea est tempor pariatur reprehenderit duis officia ipsum sunt laborum consectetur. Et ullamco fugiat sint aliquip aliquip minim eu minim eu ex elit. Cupidatat duis exercitation et sunt enim ad et est deserunt nulla anim duis amet. Duis consequat ea magna Lorem dolore. Reprehenderit do sint minim laborum sint nulla irure. Cillum pariatur magna ex in est exercitation aliquip veniam eu in incididunt ipsum.",
     type: "salvage-excavation-research",
@@ -33,7 +22,7 @@ export default [
     coordinates: [22.7504, 51.9448],
   },
   {
-    id: 4,
+    id: 3,
     name: "Panieńszczyzna",
     desc: "Sunt exercitation dolor est irure cillum quis nostrud cillum aliqua consectetur. Laboris elit nostrud cillum consequat. Mollit elit do aliqua ex quis pariatur reprehenderit est non in. Nulla reprehenderit proident aliquip id incididunt deserunt sint nulla do qui pariatur cillum. Sint reprehenderit minim elit tempor nisi anim consectetur. Voluptate sint aliquip enim voluptate amet eu. Sint amet voluptate do irure culpa ex cillum deserunt fugiat.",
     type: "survey-and-verification-research",
@@ -43,7 +32,7 @@ export default [
     coordinates: [22.4353, 51.3057],
   },
   {
-    id: 5,
+    id: 4,
     name: "Miedzyrzec Podlaski",
     coordinates: [22.7947, 51.8903],
     type: "salvage-excavation-research",
@@ -56,7 +45,7 @@ export default [
     url: "/discoveries/miedzyrzec-podlaski",
   },
   {
-    id: 6,
+    id: 5,
     name: "Czemierniki",
     coordinates: [22.6484, 52.0508],
     desc: "Incididunt eu minim duis nisi. Enim eiusmod do ut reprehenderit officia duis pariatur ipsum irure eiusmod qui do deserunt reprehenderit. Laborum Lorem exercitation tempor anim amet mollit reprehenderit proident id ipsum proident minim. Tempor duis pariatur consequat occaecat est. Ex irure officia dolore mollit sit. Esse anim ex ut aliqua ea dolor ex culpa ullamco consectetur. Aute magna dolore magna labore excepteur laborum ullamco sint ipsum veniam velit tempor sint.",
@@ -66,7 +55,7 @@ export default [
     url: "/discoveries/czemierniki",
   },
   {
-    id: 7,
+    id: 6,
     name: "Łomża",
     coordinates: [22.059, 53.1781],
     desc: "Consequat proident adipisicing irure voluptate. Qui fugiat consectetur cillum aute reprehenderit ut commodo fugiat. Voluptate mollit laborum aliquip consectetur incididunt nulla est incididunt eu. Nostrud enim in et commodo ex elit aute deserunt fugiat nostrud laboris ad. Nisi qui deserunt adipisicing in. Dolor eiusmod ea eiusmod reprehenderit officia. Labore laborum mollit Lorem ipsum amet exercitation cillum velit fugiat reprehenderit mollit anim commodo.",

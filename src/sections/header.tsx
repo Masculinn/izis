@@ -12,6 +12,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
   const ref = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
 
@@ -40,6 +41,7 @@ export default function Header() {
   useMemo(() => {
     if (mobileMenuOpen) setMobileMenuOpen(false);
   }, [router.asPath]);
+
   return (
     <nav
       className={`
@@ -80,7 +82,7 @@ export default function Header() {
                     <Link href={item.src}>
                       <button
                         aria-label="Navigate to page"
-                        className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm  font-medium h-16 ${
+                        className={`inline-flex cursor-pointer items-center px-1 pt-1 text-sm font-medium h-16 ${
                           !isScrolled
                             ? "text-white hover:text-secondary"
                             : "text-secondary-fg hover:text-secondary"
@@ -123,29 +125,26 @@ export default function Header() {
                         transition={{ duration: 0.2 }}
                         className="absolute right-0 w-screen max-w-3xl bg-black/90 backdrop-blur-md text-white shadow-lg rounded-lg mt-4 py-4 px-4 z-[1000]"
                       >
-                        <div
-                          className={`grid ${
-                            item.items.length > 4
-                              ? "grid-cols-3"
-                              : "grid-cols-2"
-                          } gap-4`}
-                        >
-                          {item.items.map((subItem) => (
-                            <Link
-                              key={subItem.title}
-                              href={subItem.src}
-                              className="p-6 rounded-lg group hover:bg-white/20  transition-colors"
-                            >
-                              <h2
-                                className={`${secondaryFont.className} group-hover:text-secondary tracking-tight`}
+                        <div className="grid grid-cols-3 gap-4">
+                          {item.items.map((subItem, idx) => {
+                            if (idx + 1 > 6) return;
+                            return (
+                              <Link
+                                key={subItem.title}
+                                href={subItem.src}
+                                className="p-6 rounded-lg group hover:bg-white/20 transition-colors"
                               >
-                                {subItem.title}
-                              </h2>
-                              <p className="mt-1 text-sm text-primary/80">
-                                {subItem.desc}
-                              </p>
-                            </Link>
-                          ))}
+                                <h2
+                                  className={`${secondaryFont.className} group-hover:text-secondary tracking-tight`}
+                                >
+                                  {subItem.title}
+                                </h2>
+                                <p className="mt-1 text-sm text-primary/80">
+                                  {subItem.desc}
+                                </p>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </m.div>
                     )}

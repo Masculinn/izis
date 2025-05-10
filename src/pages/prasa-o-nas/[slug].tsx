@@ -61,7 +61,7 @@ export default function Page({
         title={data.title}
       />
       <Content {...data} />
-      <ArticleWidget id={data.id} />
+      <ArticleWidget id={data.id} className="max-w-7xl lg:px-6" />
       <Contact />
     </>
   );

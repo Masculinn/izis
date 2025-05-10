@@ -1,10 +1,8 @@
-import { FC, useState, useMemo, ChangeEvent } from "react";
+import { FC, useState, useMemo, ChangeEvent, useCallback } from "react";
 import { DiscoveriesHeroBg } from "@/components/discoveries/discoveries-hero-bg";
 import { Search } from "@/components/discoveries/search";
 import { SearchItem } from "@/components/discoveries/search-item";
 import markerLib from "@/lib/markerLib";
-import MotionChain from "@/components/motion/motion-chain";
-import { MotionAnimationProps } from "@/components/motion/types";
 import MotionContainer from "@/components/motion/motion-container";
 
 const Discoveries: FC = () => {
@@ -13,16 +11,17 @@ const Discoveries: FC = () => {
   const filteredCities = useMemo(() => {
     if (!search) return null;
 
-    const filteredLib = markerLib.filter((city) => city.id !== 1);
+    const filteredLib = markerLib.filter((city) => city.id > 1);
 
     return filteredLib.filter((city) =>
       city.name.toLowerCase().includes(search.toLowerCase())
     );
   }, [search]) as typeof markerLib | null;
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setSearch(e.target.value);
-
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value),
+    []
+  );
   return (
     <main className="h-screen w-full flex bg-black overflow-hidden items-center justify-center flex-col">
       <DiscoveriesHeroBg className="[mask-image:radial-gradient(200px_circle_at_center,white,transparent)]" />
@@ -47,12 +46,7 @@ const Discoveries: FC = () => {
                 }}
                 elementType={"div"}
                 className="relative w-full"
-                controller={{
-                  configView: {
-                    once: false,
-                    amount: "some",
-                  },
-                }}
+                key={city.id}
               >
                 <SearchItem
                   key={city.id}

@@ -23,11 +23,11 @@ export const Step: FC<
         className
       )}
     >
-      <div className="lg:w-1/2 w-full h-full flex items-center justify-center rounded-2xl">
+      <div className="lg:w-1/2 w-full h-full flex items-center justify-center">
         <img
           src={img}
           alt={`${title} - IZIS`}
-          className="lg:size-4/5 size-full object-cover object-center rounded-2xl"
+          className="lg:size-4/5 size-full object-cover object-center"
         />
       </div>
       <div className="lg:w-1/2 w-full h-full flex items-center justify-center">

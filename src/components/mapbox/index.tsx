@@ -60,7 +60,7 @@ const Mapbox = () => {
         <div className="lg:w-1/2 w-full h-auto  rounded-xl items-start p-8">
           <MotionText
             elementType={"h2"}
-            wrapperClassName="font-secondary lg:text-6xl text-4xl font-bold pb-6 text-start"
+            wrapperClassName="font-secondary lg:text-5xl text-4xl font-bold pb-6 text-start"
             animation={{
               mode: ["fadeUp", "filterBlurIn"],
               transition: "linear",

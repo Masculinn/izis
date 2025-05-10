@@ -1,4 +1,5 @@
 import {
+  cn,
   MY_MOTION_PROVIDER,
   MY_WEBSITE_LINK,
   PROHIBITED_FOOTER_URL,
@@ -9,22 +10,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { secondaryFont } from "@/config/fonts";
 
+const services = routes.find(
+  (val) => val.items && val.title === "Nasze Usługi"
+)?.items;
+const media = routes[routes.length - 1]?.items;
+
 export default function Footer() {
   const router = useRouter();
-  const services = routes.find(
-    (val) => val.items && val.title === "Services"
-  )?.items;
-  const media = routes.find(
-    (val) => val.items && val.title.toLowerCase().includes("media")
-  )?.items;
+
   const contact = routes.filter((val) => typeof val.items === "undefined");
 
   return (
     <footer
       aria-labelledby="footer-heading"
-      className={`font-brand w-full py-14 ${
-        router.pathname === PROHIBITED_FOOTER_URL && "hidden"
-      }`}
+      className={cn(`font-brand w-full pt-14 
+        ${PROHIBITED_FOOTER_URL.includes(router.pathname) && "hidden"}`)}
     >
       <h1 className="sr-only">IZIS FOOTER</h1>
       <div className="max-w-7xl mx-auto items-center justify-center">
@@ -88,8 +88,8 @@ export default function Footer() {
         </div>
         <hr className="mt-12" />
         <center>
-          <p className="lg:text-base tracking-tight text-sm pt-4 font-extralight">
-            © {new Date().getFullYear()} Izis Sp. z.o.o. All rights reserved |
+          <p className="lg:text-sm tracking-tighter text-sm py-4 font-secondary">
+            © {new Date().getFullYear()} IZIS, wszelkie prawa zastrzeżone {"– "}
             Powered By{" "}
             <Link
               href={MY_MOTION_PROVIDER}
@@ -98,8 +98,8 @@ export default function Footer() {
               className="hover:underline hover:text-black"
             >
               Motion Provider
-            </Link>{" "}
-            -{" "}
+            </Link>
+            ,{" "}
             <Link
               href={MY_WEBSITE_LINK}
               target="_blank"

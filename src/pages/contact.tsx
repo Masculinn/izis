@@ -17,7 +17,7 @@ export default function Contact() {
     <section className="lg:h-screen h-auto w-full items-center justify-center flex flex-col ">
       <div className="w-full lg:h-1/2 h-96 flex items-center justify-center flex-col relative bg-[url(/assets/card-1.webp)] bg-cover bg-center">
         <div className="bg-gradient-to-b from-black/75 to-transparent absolute inset-0 z-0" />
-        <div className="z-50 md:items-center items-start md:text-center text-start justify-center flex flex-col gap-2 max-w-7xl mx-auto md:px-0 px-6">
+        <div className="z-50 md:items-center items-start md:text-center text-start justify-center flex flex-col gap-2 max-w-7xl mx-auto md:px-0 px-6 lg:pt-4">
           <h1 className="font-secondary lg:text-6xl text-4xl font-bold text-primary">
             Kontakt
           </h1>

@@ -188,6 +188,7 @@ export interface NewsMapsWidgetProps {
 
 export interface NewsArticleWidgetProps {
   id: number;
+  className?: string;
 }
 
 export interface VideoPlayerProps {
@@ -219,6 +220,7 @@ export type GetSplittedTextOutputProps = string[];
 
 export interface ServiceProps {
   id: MarkerServiceTypeProps;
+  desc: string;
   title: string;
   subHeader: string;
   steps: ServiceItemProps[];

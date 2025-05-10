@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { NewsArticleWidgetProps, NewsCardProps } from "@/interfaces";
 import newsLib from "@/lib/newsLib";
 import getDate from "@/utils/getDate";
@@ -9,13 +9,15 @@ import { ArrowRight } from "lucide-react";
 import MotionText from "../motion/motion-text";
 import { Carousel } from "@/components/ui/carousel";
 import MotionContainer from "../motion/motion-container";
+import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
 
-const ArticleWidget: FC<NewsArticleWidgetProps> = ({ id }) => {
+const Widget: FC<NewsArticleWidgetProps> = ({ id, className }) => {
   const articles = newsLib.filter((val) => val.id !== id);
   const items = getDate(articles) as unknown as NewsCardProps[];
 
   return (
-    <section className="max-w-6xl mx-auto px-6 lg:px-0">
+    <section className={cn("max-w-6xl mx-auto px-6 lg:px-0", className)}>
       <MotionText
         animation={{
           mode: ["fadeLeft", "filterBlurIn"],
@@ -95,6 +97,13 @@ const Item: FC<NewsCardProps> = ({ images, subHeader, title, url }) => (
       </div>
     </div>
   </MotionContainer>
+);
+
+const ArticleWidget = dynamic(
+  () => Promise.resolve(memo(Widget as typeof Widget)),
+  {
+    ssr: false,
+  }
 );
 
 export default ArticleWidget;
