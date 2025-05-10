@@ -8,7 +8,7 @@ import Link from "next/link";
 import slidesLib from "@/lib/slides.lib";
 
 import { EffectCoverflow, Autoplay } from "swiper/modules";
-import { SwiperSlide, Swiper } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 import { Badge, Button, Skeleton } from "@/components/ui";
 import { ArrowUpRight } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
@@ -16,20 +16,18 @@ import { HeroDivider } from "@/components/hero-divider";
 
 import MotionText from "@/components/motion/motion-text";
 
-// deactivated for faster DOM load while developing.
-// const Swiper = dynamic(() => import("swiper/react").then((m) => m.Swiper), {
-//   ssr: false,
-//   loading: () => (
-//     <Skeleton
-//       soft
-//       className="w-full h-screen flex self-center justify-center z-20"
-//     />
-//   ),
-// });
+const Swiper = dynamic(() => import("swiper/react").then((m) => m.Swiper), {
+  ssr: false,
+  loading: () => (
+    <Skeleton
+      soft
+      className="w-full h-screen flex self-center justify-center z-20"
+    />
+  ),
+});
 
 export default function Hero() {
   const isMobile = useMobile();
-  // Świętujemy nasze 25-lecie!
 
   return (
     <section className="relative w-full h-screen">
@@ -47,7 +45,7 @@ export default function Hero() {
           slideShadows: true,
         }}
         autoplay={{
-          delay: 5000,
+          delay: 6000,
           waitForTransition: true,
         }}
         lazyPreloadPrevNext={slidesLib.length}
@@ -70,10 +68,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent grid place-items-center">
                 <div className="lg:justify-center flex flex-col lg:px-0 px-8 lg:text-center lg:items-center">
                   {slide.id === 1 && (
-                    <div
-                      // intent="secondary"
-                      className="mb-2 lg:mb-4 flex w-fit items-center gap-2 z-50 bg-secondary"
-                    >
+                    <div className="mb-2 lg:mb-4 w-fit  z-50 bg-secondary px-2 py-1 text-sm tracking-tight rounded-2xl">
                       Świętujemy nasze{" "}
                       <span className="font-bold">25-lecie</span> 🎉
                     </div>
