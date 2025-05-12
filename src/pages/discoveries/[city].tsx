@@ -1,3 +1,5 @@
+// Fixing SSG safety for /discoveries/[city].tsx
+
 import type {
   InferGetStaticPropsType,
   GetStaticProps,
@@ -13,15 +15,17 @@ import Content from "@/sections/discoveries/content";
 import Contact from "@/sections/discoveries/contact";
 
 export const getStaticPaths = (async () => {
-  const paths = markerLib.map((marker) => ({
-    params: {
-      city: marker.url.split("/").pop(),
-    },
-  }));
+  const paths = markerLib
+    .map((marker) => ({
+      params: {
+        city: marker.url?.split("/").pop() || "",
+      },
+    }))
+    .filter((p) => p.params.city); // filter out invalid slugs
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }) satisfies GetStaticPaths;
 
@@ -31,7 +35,10 @@ export const getStaticProps = (async (context) => {
   const marker = markerLib.find((m) => m.url.endsWith(`/${city}`));
 
   if (!marker) {
-    return { notFound: true, redirect: "/" };
+    console.error(`❌ No marker found for city: ${city}`);
+    return {
+      notFound: true,
+    };
   }
 
   return {
@@ -50,7 +57,7 @@ export default function Page({
     return <Skeleton className="size-full" />;
   }
 
-  const title = markerData.name.toString();
+  const title = markerData?.name?.toString() || "IZIS Discovery";
 
   return (
     <>
@@ -58,7 +65,7 @@ export default function Page({
         <title>{`IZIS | ${title}`}</title>
       </Head>
       <Hero {...markerData} />
-      <Gallery data={markerData.img} />
+      <Gallery data={markerData.img || []} />
       <Content
         name={markerData.name}
         type={markerData.type}

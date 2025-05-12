@@ -12,15 +12,17 @@ import Contact from "@/sections/discoveries/contact";
 import ArticleWidget from "@/components/news/article-widget";
 
 export const getStaticPaths = (async () => {
-  const paths = newsLib.map((news) => ({
-    params: {
-      slug: news.url.split("/").pop(),
-    },
-  }));
+  const paths = newsLib
+    .map((news) => ({
+      params: {
+        slug: news.url?.split("/").pop() || "",
+      },
+    }))
+    .filter((p) => p.params.slug);
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }) satisfies GetStaticPaths;
 
@@ -30,15 +32,15 @@ export const getStaticProps = (async (context) => {
   const data = newsLib.find((val) => val.url.endsWith(`/${slug}`));
 
   if (!data) {
+    console.error(`❌ No news item found for slug: ${slug}`);
     return {
       notFound: true,
-      redirect: "/",
     };
   }
 
   return {
     props: {
-      data: data,
+      data,
     },
   };
 }) as GetStaticProps<{
@@ -48,18 +50,15 @@ export const getStaticProps = (async (context) => {
 export default function Page({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const title = data.title;
+  const title = data?.title || "Brak tytułu";
+  const source = data?.source || "Brak źródła";
 
   return (
     <>
       <Head>
         <title>{`IZIS | ${title}`}</title>
       </Head>
-      <Hero
-        source={data.source}
-        subHeader={data.subHeader}
-        title={data.title}
-      />
+      <Hero source={source} subHeader={data.subHeader} title={title} />
       <Content {...data} />
       <ArticleWidget id={data.id} className="max-w-7xl lg:px-6" />
       <Contact />

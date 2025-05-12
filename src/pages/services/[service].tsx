@@ -1,3 +1,5 @@
+// Fixing SSG safety for /services/[service].tsx
+
 import { HeroDivider } from "@/components/hero-divider";
 import ArticleWidget from "@/components/news/article-widget";
 import { ServiceProps } from "@/interfaces";
@@ -12,33 +14,34 @@ import Head from "next/head";
 import Image from "next/image";
 
 export const getStaticPaths = (async () => {
-  const paths = servicesRootLib.map((val) => ({
-    params: {
-      service: val.id,
-    },
-  }));
+  const paths = servicesRootLib
+    .map((val) => ({
+      params: {
+        service: val.id,
+      },
+    }))
+    .filter((p) => p.params.service);
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }) satisfies GetStaticPaths;
 
-export const getStaticProps = (async (ctx) => {
-  const { service } = ctx.params!;
-
+export const getStaticProps = (async (context) => {
+  const { service } = context.params!;
   const data = servicesRootLib.find((val) => val.id === service);
 
   if (!data) {
+    console.error(`❌ No service found for id: ${service}`);
     return {
       notFound: true,
-      redirect: "/",
     };
   }
 
   return {
     props: {
-      data: data,
+      data,
     },
   };
 }) as GetStaticProps<{
@@ -48,7 +51,8 @@ export const getStaticProps = (async (ctx) => {
 export default function Page({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const title = data.title.toString();
+  const title = data?.title?.toString() || "IZIS Service";
+  const steps = data?.steps || [];
 
   return (
     <>
@@ -75,7 +79,7 @@ export default function Page({
             panujących na badanym terenie.
           </p>
           <ul className="mt-4 flex flex-col gap-1 items-start justify-start w-full">
-            {data.steps.map((val, i) => (
+            {steps.map((val, i) => (
               <li
                 className="justify-center items-start flex flex-row gap-3 text-base tracking-tight"
                 key={i}
@@ -97,7 +101,7 @@ export default function Page({
         </div>
       </section>
       <section className="max-w-6xl mx-auto items-center justify-center flex flex-col gap-8 lg:mt-12 mt-8 md:px-0 px-6">
-        {data.steps.map((step, idx) => (
+        {steps.map((step, idx) => (
           <Step
             key={idx}
             id={idx + 1}
@@ -111,7 +115,6 @@ export default function Page({
         ))}
       </section>
       <Contact className="max-w-6xl" />
-
       <ArticleWidget id={newsLib.length - 1} />
     </>
   );
