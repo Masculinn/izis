@@ -16,19 +16,19 @@ _A full-stack archeology web app covering end-to-end cutting-edge enterprise dev
 ## 📱 App Screenshot
 
 <div align="center">
-  <img src="/public/assets/app_screenshot.png" alt="App Screenshot 1" width="300" style="border-radius: 8px; border: 1px solid #eee;">
+  <img src="/public/assets/app_screenshot.png" alt="App Screenshot 1" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
 
 <div align="center">
-  <img src="/public/assets/app-screenshot-4.png" alt="App Screenshot 3" width="300" style="border-radius: 8px; border: 1px solid #eee;">
+  <img src="/public/assets/app-screenshot-4.png" alt="App Screenshot 3" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
 
 <div align="center">
-  <img src="/public/assets/app_screenshot-2.png" alt="App Screenshot 2" width="300" style="border-radius: 8px; border: 1px solid #eee;">
+  <img src="/public/assets/app_screenshot-2.png" alt="App Screenshot 2" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
 
 <div align="center">
-  <img src="/public/assets/app_screenshot-3.png" alt="App Screenshot 3" width="300" style="border-radius: 8px; border: 1px solid #eee;">
+  <img src="/public/assets/app_screenshot-3.png" alt="App Screenshot 3" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
 
 ---
