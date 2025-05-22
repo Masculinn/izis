@@ -18,15 +18,15 @@ _A full-stack archeology web app covering end-to-end cutting-edge enterprise dev
 <div align="center">
   <img src="/public/assets/app_screenshot.png" alt="App Screenshot 1" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
-
+<br />
 <div align="center">
   <img src="/public/assets/app-screenshot-4.png" alt="App Screenshot 3" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
-
+<br />
 <div align="center">
   <img src="/public/assets/app_screenshot-2.png" alt="App Screenshot 2" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
-
+<br />
 <div align="center">
   <img src="/public/assets/app_screenshot-3.png" alt="App Screenshot 3" width="600" style="border-radius: 8px; border: 1px solid #eee;">
 </div>
@@ -117,6 +117,14 @@ after the steps, the app will work on
 
 ```bash
 http://localhost:4000
+```
+
+App might not work as expected unless you obtain `API_KEY` by [following this link](https://console.mapbox.com/). Get your 50k free map load(fairly enough for testing btw) token.
+
+After, create a blank file named `.env.local` then put your API key like
+
+```js
+NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN = API_KEY;
 ```
 
 ---
